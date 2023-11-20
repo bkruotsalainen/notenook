@@ -1,0 +1,33 @@
+.right {
+  height: auto;
+  padding: 2.5em;
+  float: right;
+}
+
+.left {
+  height: auto;
+  padding: 2.5em;
+}
+
+.headerLinks {
+  list-style-type: none;
+}
+
+.headerLinks li {
+  float: left;
+  vertical-align: top;
+  margin-right: 1em;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(227, 226, 219);
+}
+
+a:active {
+  color: rgb(204, 202, 189);
+}
