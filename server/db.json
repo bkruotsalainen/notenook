@@ -36,7 +36,7 @@
       "todo": true,
       "done": false,
     
-      "tag": 1
+      "tag": 2
     },
     {
       "id": 2,
@@ -46,16 +46,35 @@
       "edited_at": "2011-02-01 00:00:00",
       "done_by": "2011-01-01 00:00:00",
 
-      "content": "Do the dishes",
+      "content": "Take a vacation",
       "subtasks": [],
 
-      "repeatable": true,
+      "repeatable": false,
+      "repeat_interval": "weekly",
+
+      "todo": false,
+      "done": false,
+    
+      "tag": 6
+    },
+    {
+      "id": 3,
+      "user_id": 1,
+
+      "created_at": "2011-01-01 00:00:00",
+      "edited_at": "2011-02-01 00:00:00",
+      "done_by": "2011-01-01 00:00:00",
+
+      "content": "Send message to aliens and take over the world!",
+      "subtasks": [],
+
+      "repeatable": false,
       "repeat_interval": "weekly",
 
       "todo": true,
       "done": false,
     
-      "tag": 1
+      "tag": 4
     }
   ],
 

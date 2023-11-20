@@ -1,10 +1,10 @@
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function HomeTaskGroup(props: any) {
+function HomeTaskGroup(props: HomeTaskGroupProps) {
   return (
     <>
     <h2>{props.title}</h2>
-
-    <div className="task taskColor-yellow">
+    
+    <div className="task">
+      <div className="taskColor-yellow" ></div>
       <div className="taskBody">
       <ul>
           <li>
@@ -19,7 +19,8 @@ function HomeTaskGroup(props: any) {
 
     <br></br>
 
-    <div className="task taskColor-red">
+    <div className="task">
+      <div className="taskColor-red" ></div>
       <div className="taskBody">
       <ul>
           <li>
@@ -33,7 +34,8 @@ function HomeTaskGroup(props: any) {
     
     <br></br>
 
-    <div className="task taskColor-green">
+    <div className="task">
+      <div className="taskColor-green" ></div>
       <div className="taskBody">
       <ul>
           <li>
