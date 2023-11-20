@@ -9,9 +9,9 @@ function App() {
     <>    
     <Header/>
     <div className="flex-container">
-      <div className="allMenu"><HomeMenu /></div>
-      <div className="allCalendar"><HomeTodos /></div>
-      <div className="allNotes"><HomeNotes /></div>
+      <div className="homeMenu"><HomeMenu /></div>
+      <div className="homeTodos"><HomeTodos /></div>
+      <div className="homeNotes"><HomeNotes /></div>
    </div>
     </>
   )
