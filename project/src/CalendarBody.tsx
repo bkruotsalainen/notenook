@@ -1,10 +1,9 @@
 import TaskGroup from "./TaskGroup"
 
 function CalendarBody() {
-
-  return (
+    return (
     <>
-      <h1>Calendar</h1>
+      <h1 className="hideMobile">Calendar</h1>
       <TaskGroup title="Today"/>
       <TaskGroup title="Tomorrow"/>
     </>
