@@ -1,13 +1,28 @@
-.calendarMenu {
-  /* border: 1px solid green; */
-  width: 100%;
-  min-height: 100%;
+/* Flex container */
+.flex-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
 }
 
-.calendarBody {
-  /* border: 1px solid blue; */
-  width: 100%;
-  min-height: 100%;
+.flex-container > div {
+  width: auto;
+  padding: 1em 2.5em 2em 2em; 
+}
+
+.allMenu, .allNotes {
+  flex-grow: 0;
+}
+
+.allCalendar {
+  flex-grow: 3;
+}
+
+/* Home - To do tasks */
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .task { 
@@ -21,8 +36,9 @@
 .taskBody {
   background-color: rgb(255, 255, 255);
   border: 1px solid rgb(222, 222, 222);
+  box-shadow: 1px 1px #D4D4D4;
+  padding: 0.75em;
   width: 100%;
-  padding: 1em;
 }
 
 .taskColor-yellow {
@@ -37,6 +53,7 @@
   background-color: #F05365;
 }
 
+/* Home - Left menu */
 .weekViewHeader {
   width: 100%;
   height: 40px;
@@ -47,7 +64,7 @@
   text-transform: uppercase;
   text-align: center;
   font-size: 1.2em;
-  padding-top: 0.85em;
+  padding-top: 1em;
 }
 
 .weekViewBody {
@@ -75,6 +92,7 @@
   border-radius: 0.4em;
 }
 
+/* Home - filter buttons */
 .filterToggleButton {
   background-color: #F5F1EB;
   text-align: center;
@@ -98,14 +116,53 @@ Button:active {
   background-color: #f0b01b;
 }
 
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
 Input[type="checkbox"] {
   vertical-align: middle;
   margin-bottom: 5px;
   padding: 0;
+}
+
+/* Home - Latest notes */
+.noteWrapper {
+  background-color: #fff;
+  box-shadow: 1px 1px #D4D4D4;
+  border: 1px solid rgb(222, 222, 222);
+  max-width: 30vw;
+  padding: 1em;
+  margin: 0 1em 1em 0em;
+}
+
+/* Home - Scalability */
+@media screen and (max-width: 1500px) {
+  .allNotes {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 850px) {  
+  .weekViewBody, .hideMobile {
+  display: none !important;
+  }
+
+  .allMenu, .allCalendar {
+    width: 100vh;
+  }
+
+  .allCalendar {
+    margin-top: -4em;
+  }
+
+  .flex-container {
+    flex-flow: none !important;
+    display: inline;
+  }
+
+  .addNewButton {
+    width: 100%;
+  } 
+
+  .searchInput {
+    width: 98%;
+    margin-bottom: 1em; 
+  }
 }

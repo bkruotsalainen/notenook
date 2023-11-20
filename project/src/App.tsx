@@ -1,7 +1,7 @@
-import Calendar from './Calendar.tsx'
-import CalendarMenu from './CalendarMenu.tsx'
+import HomeTodos from './HomeTodos.tsx'
+import HomeMenu from './HomeMenu.tsx'
 import Header from './Header.tsx'
-import Notes from './Notes.tsx'
+import HomeNotes from './HomeNotes.tsx'
 import './css/App.css'
 
 function App() {
@@ -9,9 +9,9 @@ function App() {
     <>    
     <Header/>
     <div className="flex-container">
-      <div className="allMmenu"><CalendarMenu /></div>
-      <div className="allCalendar"><Calendar /></div>
-      <div className="allNotes"><Notes /></div>
+      <div className="allMenu"><HomeMenu /></div>
+      <div className="allCalendar"><HomeTodos /></div>
+      <div className="allNotes"><HomeNotes /></div>
    </div>
     </>
   )

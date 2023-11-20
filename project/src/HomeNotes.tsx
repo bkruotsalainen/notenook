@@ -1,5 +1,3 @@
-import './css/Note.css'
-
 function Notes() {
   return (
     <>

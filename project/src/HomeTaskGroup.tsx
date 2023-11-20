@@ -1,6 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function TaskGroup(props: any) {
-
+function HomeTaskGroup(props: any) {
   return (
     <>
     <h2>{props.title}</h2>
@@ -38,7 +37,7 @@ function TaskGroup(props: any) {
       <div className="taskBody">
       <ul>
           <li>
-            🎵 Play music
+           👽 Play music
           </li>
           <li>
             <input type="checkbox"/>
@@ -55,4 +54,4 @@ function TaskGroup(props: any) {
   )
 }
 
-export default TaskGroup
+export default HomeTaskGroup

@@ -3,7 +3,7 @@ const months: string[] = [
   'July', 'August', 'September', 'October', 'November', 'December'
 ]
 
-function WeekView() {
+function CalendarObject() {
   const currentDate = new Date();
 
   return (
@@ -17,4 +17,4 @@ function WeekView() {
   )
 }
 
-export default WeekView
+export default CalendarObject
