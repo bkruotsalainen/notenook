@@ -1,15 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&display=swap');
 
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  background-color: #F5F1EB;
+}
+
 #root {
   font-family: "Open Sans";
   font-size: 0.9em;
-  background-color: #F5F1EB;
-  min-height: 100vh;
+  width: 100%;
   height: 100%;
 }
 
-html, body {
-  min-height: 100%;
+.fullScreen {
+  width: 100%;
+  height: 100%;
 }
 
 .header {

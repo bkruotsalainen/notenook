@@ -4,7 +4,7 @@ import axios from "axios";
 import CalendarObject from "./CalendarObject"
 import FilterButton from "./FilterButton"
 
-function HomeMenu() {
+function HomeMenu(props: HomeMenuProps) {
   const [filters, setFilters] = useState<Filter[]>([]);
 
   useEffect (() => {
@@ -29,7 +29,7 @@ function HomeMenu() {
       <input placeholder="🔍 Search" className="searchInput">
       </input>
 
-      <button className="addNewButton">Add new</button>
+      <button className="addNewButton" onClick={() => props.handlePopUp()}>Add new</button>
 
       <h3 className="hideMobile">Filter</h3>
         {filters.map(f => {return <FilterButton key={f.id} filterIcon={f.icon}/>})}

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { v4 as uuidv4 } from "uuid";
 import './css/AddNew.css';
 
-function AddNew() {  
+function AddNew(props: AddNewProps) {  
   const [todo, setTodo] = useState<boolean>(false);
   const [subtask, setSubtask] = useState<Subtask[]>([]);
   const [repeat, setRepeat] = useState<boolean>(false);
@@ -45,12 +45,12 @@ function AddNew() {
   }
   
   return (
-  <div className="addNewBackground">
+  <div className={(props.isOpen) ? "addNewBackground" : "hidden"}>
     <div className="addNewBase">
-    <button type="button" className="closeForm floatRight">X</button>
+    <button type="button" className="closeForm floatRight" onClick={() => props.handlePopUp()}>X</button>
       <p className="formTitle">{getTitle()}</p>
 
-      {/* Make a version where you can pick only one filter emoji for the note/todo */}
+      {/* Temporary solution for mockup! */}
       {(!todo || subtask.length > 0)
       ? <center>
         <button className="filterToggleButton">⭐</button>
@@ -108,13 +108,13 @@ function AddNew() {
             <br/>
 
           <label>
-          <input type="checkbox" className="addNewInput" onClick={() => setRepeat(!repeat)}/> 
-            Repeat 
+          <input type="checkbox" className="addNewInput" onClick={() => clickTodoHandler()}/> 
+            To do
           </label>
 
           <label>
-          <input type="checkbox" className="addNewInput" onClick={() => clickTodoHandler()}/> 
-            To do
+          <input type="checkbox" className="addNewInput" onClick={() => setRepeat(!repeat)}/> 
+            Repeat 
           </label>
 
           <label>

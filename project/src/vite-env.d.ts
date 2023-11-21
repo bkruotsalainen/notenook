@@ -38,3 +38,12 @@ interface Subtask {
 interface HomeTaskGroupProps {
   title: string
 }
+
+interface AddNewProps {
+  isOpen: boolean,
+  handlePopUp: () => void
+}
+
+interface HomeMenuProps {
+  handlePopUp: () => void
+}
