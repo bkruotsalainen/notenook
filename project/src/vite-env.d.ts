@@ -1,7 +1,7 @@
 /// <reference types="vite/client" />
 
 interface Filter {
-  id: number,
+  id: string,
   name: string,
   icon: string
 }
@@ -11,7 +11,7 @@ interface FilterButtonProps {
 }
 
 interface Todo {
-  id: number,
+  id: string,
   userId: number,
 
   createdAt: Date,
@@ -31,7 +31,7 @@ interface Todo {
 }
 
 interface Subtask {
-  id: number,
+  id: string,
   content: string
 }
 

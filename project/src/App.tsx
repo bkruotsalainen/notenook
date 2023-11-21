@@ -6,7 +6,7 @@ import './css/App.css'
 
 function App() {
   return (
-    <>    
+    <>
     <Header/>
     <div className="flex-container">
       <div className="homeMenu"><HomeMenu /></div>

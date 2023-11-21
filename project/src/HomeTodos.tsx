@@ -23,7 +23,17 @@ function HomeTodos() {
   },
     []);
 
-  const getIcon = (tagId: number) => {
+  const updateTaskColor = (todo: boolean, subtasksLength: number) => {
+    if (todo === true && subtasksLength > 0) {
+      return "#86DEDE";
+    } else if (todo === false) {
+      return "#FABC2A";
+    } else if (todo === true && subtasksLength === 0) {
+      return "#F05365";
+    }
+  }
+
+  const getIcon = (tagId: string | number) => {
     const filteredTags = tags.filter(t => t.id === tagId);
     return filteredTags[0].icon;
   }
@@ -32,11 +42,11 @@ function HomeTodos() {
       <div className="calendarBody">
         {todos.map((td: Todo) => (
               <div className="task">
-                <div className="taskColor-yellow" ></div>
-                <div className="taskBody">
+                <div className="taskColor" style={{backgroundColor: updateTaskColor(td.todo, td.subtasks.length)}}></div>
+                <div className="taskBody" >
                 <ul>
                     <li style={{marginBottom: "0.1em"}}>
-                    {td.todo === true && td.subtasks.length > 0 ? <input type="checkbox"/> : getIcon(td.tag)} {td.content}
+                    {td.todo === true && td.subtasks.length === 0 ? <input type="checkbox"/> : getIcon(td.tag)} {td.content}
                     </li>
 
                     {td.subtasks.length > 0

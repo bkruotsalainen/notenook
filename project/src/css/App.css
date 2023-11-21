@@ -5,6 +5,11 @@
   font-size: 0.9em;
   background-color: #F5F1EB;
   min-height: 100vh;
+  height: 100%;
+}
+
+html, body {
+  min-height: 100%;
 }
 
 .header {

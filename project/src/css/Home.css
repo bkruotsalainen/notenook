@@ -38,6 +38,13 @@ ul {
   width: 80%;
 }
 
+.taskColor {
+  width: 20px;
+  min-height: 100%;
+  float: left;
+  align-items: stretch;
+}
+
 .taskColor-yellow {
   background-color: #FABC2A;
   width: 20px;

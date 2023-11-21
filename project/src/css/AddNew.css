@@ -1,0 +1,89 @@
+.addNewBackground {
+  background-color: #3f665aca;
+  width: 100%;
+  min-height: 100%;
+  position: absolute;
+}
+
+.addNewBase {
+  background-color: #fff;
+  position: absolute;
+  z-index: 1;
+  top: 5%;
+  left: 23%;
+  width: 45%;
+  padding: 4em;
+  border: 1px solid rgb(117, 117, 117);
+  box-shadow: 1px 1px #454545;
+}
+
+@media screen and (max-width: 800px) {
+  .addNewBase {
+    top: 5%;
+    left: 5%;
+    width: 80%;
+    height: auto;
+    padding: 2em;
+  }
+}
+
+.fullWidth {
+  width: 98%;
+}
+
+.addNewInput {
+  font-size: 1.1em;
+  border-radius: 5px;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  background-color: #ffffff;
+  border: 1px solid rgb(200, 200, 200);
+}
+
+.addNewInput[type="checkbox"] {
+  scale: 1.5;
+  margin-right: 0.5em;
+}
+
+label {
+  margin-right: 1em;
+}
+
+.deleteSubtask {
+  font-size: 1.2em;
+  margin-left: 0.5em;
+}
+
+.deleteSubtask:active {
+  font-size: 1.1em;
+}
+
+.addSubtask, .submitNew {
+  font-size: 1em;
+  padding: 0.7em;
+  min-width: 45px;
+  background-color: #fabb29;
+  margin: 1em 0;
+  border: 0;
+}
+
+.closeForm {
+  border: 0;
+  font-size: 1.2em;
+  background-color: #fff;
+  position: absolute;
+  top: 1em;
+  right: 1em;
+}
+
+.closeForm:hover {
+  background-color: #fff;
+  transform: scale(1.1);
+}
+
+.formTitle {
+  text-align: center;
+  font-size: 2em;
+  font-weight: 600;
+  margin: 0.5em;
+}
