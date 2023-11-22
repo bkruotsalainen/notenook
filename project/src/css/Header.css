@@ -1,12 +1,19 @@
+.header {
+  width: 100%;
+  height: 75px;
+  background-color: #3F665A;
+  box-shadow: 1px 1px #D4D4D4;
+}
+
 .right {
   height: auto;
-  padding: 2.5em;
+  padding: 2em;
   float: right;
 }
 
 .left {
   height: auto;
-  padding: 2.5em;
+  padding: 2em;
 }
 
 .headerLinks {

@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
-import CalendarObject from "./CalendarObject"
-import FilterButton from "./FilterButton"
+import CalendarObject from './CalendarObject';
+import FilterButton from './FilterButton';
 
 function HomeMenu(props: HomeMenuProps) {
   const [filters, setFilters] = useState<Filter[]>([]);
@@ -14,28 +14,28 @@ function HomeMenu(props: HomeMenuProps) {
         setFilters(response.data);
         console.log(response.data);
       } catch (error) {
-        console.error('Error fetching data', error)
+        console.error('Error fetching data', error);
       }
     };
 
     fetchData();
   },
-    []);
+  []);
 
   return (
     <>
-    <div className="homeMenuWrapper">
-      <CalendarObject />
-      <input placeholder="🔍 Search" className="searchInput">
-      </input>
+      <div className="homeMenuWrapper">
+        <CalendarObject />
+        <input placeholder="🔍 Search" className="searchInput">
+        </input>
 
-      <button className="addNewButton" onClick={() => props.handlePopUp()}>Add new</button>
+        <button className="addNewButton" onClick={() => props.handlePopUp()}>Add new to do</button>
 
-      <h3 className="hideMobile">Filter</h3>
-        {filters.map(f => {return <FilterButton key={f.id} filterIcon={f.icon}/>})}
-    </div>
+        <h3 className="hideMobile">Filter</h3>
+        {filters.map(f => {return <FilterButton key={f.id} filterIcon={f.icon}/>;})}
+      </div>
     </>
-  )
+  );
 }
 
-export default HomeMenu
+export default HomeMenu;

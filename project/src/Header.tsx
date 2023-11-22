@@ -1,11 +1,11 @@
-import './css/Header.css'
+import './css/Header.css';
 
 function Header() {
 
   return (
     <div className="header">
       <div className="right">
-       <a href="">Logout</a>
+        <a href="">Logout</a>
       </div>      
       
       <div className="left">
@@ -22,7 +22,7 @@ function Header() {
         </ul>
       </div>
     </div>
-  )
+  );
 }
 
-export default Header
+export default Header;

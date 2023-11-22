@@ -3,6 +3,7 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+  width: 100%;
 }
 
 .flex-container > div {
@@ -143,7 +144,7 @@ Input[type="checkbox"] {
 }
 
 /* Home - Latest notes */
-.noteWrapper {
+.memoWrapper {
   background-color: #fff;
   box-shadow: 1px 1px #D4D4D4;
   border: 1px solid rgb(222, 222, 222);
@@ -154,7 +155,7 @@ Input[type="checkbox"] {
 
 /* Home - Scalability */
 @media screen and (max-width: 1200px) {
-  .homeNotes {
+  .homeMemos {
     display: none !important;
   }
 }

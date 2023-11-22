@@ -10,7 +10,7 @@
 }
 
 .addNewBase {
-  background-color: #fff;
+  background-color: #F5F1EB;
   position: absolute;
   z-index: 1;
   top: 5%;
@@ -49,10 +49,6 @@
   margin-right: 0.5em;
 }
 
-label {
-  margin-right: 1em;
-}
-
 .deleteSubtask {
   font-size: 1.2em;
   margin-left: 0.5em;
@@ -73,15 +69,16 @@ label {
 
 .closeForm {
   border: 0;
+  padding: 0.2em;
   font-size: 1.2em;
-  background-color: #fff;
+  background-color: #F5F1EB;
   position: absolute;
   top: 1em;
   right: 1em;
 }
 
 .closeForm:hover {
-  background-color: #fff;
+  background-color: #F5F1EB;
   transform: scale(1.1);
 }
 

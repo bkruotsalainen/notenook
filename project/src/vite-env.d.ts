@@ -12,7 +12,7 @@ interface FilterButtonProps {
 
 interface Todo {
   id: string,
-  userId: number,
+  userId: string,
 
   createdAt: Date,
   editedAt: Date,
@@ -21,13 +21,12 @@ interface Todo {
   content: string,
   subtasks: Subtask[],
 
-  repeatable: boolean,
   repeatInterval: string,
 
   todo: boolean,
   done: boolean,
 
-  tag: number
+  tag: string
 }
 
 interface Subtask {
