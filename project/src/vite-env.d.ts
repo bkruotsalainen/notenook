@@ -24,9 +24,13 @@ interface Todo {
   repeatInterval: string,
 
   todo: boolean,
+  deadline: boolean,
   done: boolean,
 
   tag: string
+
+  // These are not for database
+  time: string
 }
 
 interface Subtask {

@@ -1,126 +1,197 @@
 {
   "users": [
     {
-      "id": 1,
-      "created_at": "2011-01-01 00:00:00",
+      "id": "1",
+      "createdAt": "2011-01-01 00:00:00",
       "username": "exampleUser",
       "password": "examplePassword",
       "timezone": 2
     }
   ],
-
   "todos": [
     {
-      "id": 1,
-      "user_id": 1,
-
-      "created_at": "2011-01-01 00:00:00",
-      "edited_at": "2011-02-01 00:00:00",
-      "done_by": "2011-01-01 00:00:00",
-
+      "id": "1",
+      "userId": "1",
+      "createdAt": "2023-12-22T13:27:10.429Z",
+      "editedAt": "2023-12-22T13:27:10.429Z",
+      "doneBy": "2023-12-22T13:30",
       "content": "Do the dishes",
       "subtasks": [
         {
-          "id": 1,
+          "id": "1",
           "content": "Wash the dishes"
         },
         {
-          "id": 2,
+          "id": "2",
           "content": "Dry the dishes"
         }
       ],
-
-      "repeat_interval": "never",
-
+      "repeatInterval": "never",
       "todo": true,
+      "deadline": false,
       "done": false,
-    
-      "tag": 2
+      "tag": "2"
     },
     {
-      "id": 2,
-      "user_id": 1,
-
-      "created_at": "2011-01-01 00:00:00",
-      "edited_at": "2011-02-01 00:00:00",
-      "done_by": "2011-01-01 00:00:00",
-
+      "id": "2",
+      "userId": "1",
+      "createdAt": "2023-12-22T13:27:10.429Z",
+      "editedAt": "2023-12-22T13:27:10.429Z",
+      "doneBy": "2024-12-22T13:27:10.429Z",
       "content": "Take a vacation",
       "subtasks": [],
-
-      "repeat_interval": "never",
-
+      "repeatInterval": "never",
       "todo": false,
+      "deadline": false,
       "done": false,
-    
-      "tag": 6
+      "tag": "6"
     },
     {
-      "id": 3,
-      "user_id": 1,
-
-      "created_at": "2011-01-01 00:00:00",
-      "edited_at": "2011-02-01 00:00:00",
-      "done_by": "2011-01-01 00:00:00",
-
+      "id": "3",
+      "userId": "1",
+      "createdAt": "2023-12-22T13:27:10.429Z",
+      "editedAt": "2023-12-22T13:27:10.429Z",
+      "doneBy": "2023-12-22T13:27:10.429Z",
+      "content": "Buy flowers for mother",
+      "subtasks": [],
+      "repeatInterval": "weekly",
+      "todo": true,
+      "deadline": true,
+      "done": false,
+      "tag": "1"
+    },
+    {
+      "id": "89beff91-0155-47b2-96be-941c426ecd2e",
+      "userId": "1",
+      "createdAt": "2023-11-22T13:27:10.429Z",
+      "editedAt": "2023-11-22T13:27:10.429Z",
+      "doneBy": "2023-11-30T23:59.000Z",
       "content": "Send message to aliens and take over the world!",
       "subtasks": [],
-
-      "repeat_interval": "weekly",
-
+      "repeatInterval": "never",
+      "todo": false,
+      "done": false,
+      "tag": "4"
+    },
+    {
+      "id": "3e5b2d85-c155-443f-900d-c9d0c62591ae",
+      "userId": "1",
+      "createdAt": "2023-11-22T13:59:57.995Z",
+      "editedAt": "2023-11-22T13:59:57.995Z",
+      "doneBy": "2023-12-24T23:59",
+      "content": "Have a movie marathon!",
+      "subtasks": [
+        {
+          "id": "0083a50c-9e4b-4408-8065-197999973b23",
+          "content": "Jurassic Park"
+        },
+        {
+          "id": "78e193de-6618-4272-8430-f986c88e82ff",
+          "content": "The Lost World: Jurassic Park II"
+        },
+        {
+          "id": "eeb1dcf1-408f-4e4a-b414-6b515ab6a1a7",
+          "content": "Jurassic Park III"
+        }
+      ],
+      "repeatInterval": "never",
+      "todo": true,
+      "deadline": true,
+      "done": false,
+      "tag": "8"
+    },
+    {
+      "id": "c3f69966-c882-451d-9f94-ef524423a410",
+      "userId": "1",
+      "createdAt": "2023-11-22T14:16:18.820Z",
+      "editedAt": "2023-11-22T14:16:18.820Z",
+      "doneBy": "2023-11-22T12:00Z",
+      "content": "Water plants",
+      "subtasks": [],
+      "repeatInterval": "daily",
       "todo": true,
       "done": false,
-    
-      "tag": 4
+      "deadline": true,
+      "tag": "1"
+    },
+    {
+      "id": "0d24e07a-2ca4-4e10-942e-bdd54e5a7385",
+      "userId": "1",
+      "createdAt": "2023-11-22T14:22:55.160Z",
+      "editedAt": "2023-11-22T14:22:55.160Z",
+      "doneBy": "2023-12-30T23:59Z",
+      "content": "Order all this stuff",
+      "subtasks": [
+        {
+          "id": "ca2be360-0194-4b89-9552-72f4e60e029c",
+          "content": "A cat tree"
+        },
+        {
+          "id": "d15e39e7-8ba5-4b82-8518-eb3fa863732d",
+          "content": "New socks"
+        },
+        {
+          "id": "9efa0d20-9145-45e5-8048-296c8b80725a",
+          "content": "Acrylic paint"
+        }
+      ],
+      "repeatInterval": "never",
+      "todo": true,
+      "deadline": true,
+      "done": false,
+      "tag": "1"
     }
   ],
-
   "memos": [
     {
-      "id": 1,
-      "user_id": 1,
-      "created_at": "2011-01-01 00:00:00",
-      "edited_at": "2011-02-01 00:00:00",
+      "id": "1",
+      "userId": "1",
+      "createdAt": "2011-01-01 00:00:00",
+      "editedAt": "2011-02-01 00:00:00",
       "content": "Dear diary, lorem ipsum et cetera...",
-      "tag": 1
+      "tag": "1"
     }
   ],
-
   "tags": [
     {
-      "id": 1,
+      "id": "1",
       "name": "important",
       "icon": "⭐"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "soap",
       "icon": "🧼"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "party",
       "icon": "🎉"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "alien",
       "icon": "👽"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "pizza",
       "icon": "🍕"
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "palmtree",
       "icon": "🌴"
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "music",
       "icon": "🎵"
+    },
+    {
+      "id": "8",
+      "name": "dinosaur",
+      "icon": "🦖"
     }
   ]
 }

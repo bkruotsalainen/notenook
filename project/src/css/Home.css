@@ -39,6 +39,10 @@ ul {
   width: 80%;
 }
 
+.subtask {
+  font-size: 0.95em;
+}
+
 .taskColor {
   width: 20px;
   min-height: 100%;

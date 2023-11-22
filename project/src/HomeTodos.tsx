@@ -38,6 +38,14 @@ function HomeTodos() {
     return filteredTags[0].icon;
   };
 
+  const getDate = (date: Date) => {
+    if (!date) {
+      return date;
+    }
+
+    return date.toString().slice(11, 16);
+  };
+
   return (
     <div className="calendarBody">
       {todos.map((td: Todo) => (
@@ -52,16 +60,16 @@ function HomeTodos() {
               <li style={{marginBottom: '0.1em'}}>
                 {td.todo === true && td.subtasks.length === 0 
                   ? <input type="checkbox"/> 
-                  : getIcon(td.tag)} {td.content}
+                  : getIcon(td.tag)} <span style={{fontWeight: '500'}}>{td.content}</span>
               </li>
 
               {td.subtasks.length > 0
                 ? td.subtasks.map(subt => 
-                  <li key={subt.id}> <input type="checkbox"/>  {subt.content}</li>)
+                  <li key={subt.id} className="subtask"> <input type="checkbox"/>  {subt.content}</li>)
                 : ''}
 
-              {td.todo === true
-                ? <li>⏰ 00:00</li>
+              {td.deadline === true
+                ? <li>⏰ {getDate(td.doneBy) ? getDate(td.doneBy) : <i>error!</i>}</li>
                 : ''}
             </ul>
           </div>

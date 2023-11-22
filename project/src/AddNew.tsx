@@ -1,33 +1,42 @@
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import './css/AddNew.css';
+import axios from 'axios';
 
 function AddNew(props: AddNewProps) {  
   const [todo, setTodo] = useState<boolean>(false);
   const [deadline, setDeadline] = useState<boolean>(false);
 
-  const [todoData, setTodoData] = useState({
+  const initialTodoData: Todo = {
     content: '',
     subtasks: [] as Subtask[],
     repeatInterval: 'never',
-    todo: false,
+    todo: todo,
+    deadline: deadline,
     done: false,
-    tag: '',
-    deadline: false,
-    date: '',
-    time: '',
-  });
-  
+    tag: '1',
+    doneBy: new Date(),
+    createdAt: new Date(),
+    editedAt: new Date(),
+    userId: '1',
+    id: uuidv4(),
+    time: '23:59'
+  };
+
+  const [todoData, setTodoData] = useState<Todo>(initialTodoData);
+
+  // Handle content
   const handleContentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTodoData({ ...todoData, content: e.target.value });
   };
   
-  const addSubtask = () => {
-    const newSubtask = { id: uuidv4(), content: '' };
-    setTodoData({ ...todoData, subtasks: [...todoData.subtasks, newSubtask] });
-    console.log(todoData);
+  // Handle date change
+  const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newDoneBy = e.target.value;
+    setTodoData({ ...todoData, doneBy: new Date(newDoneBy) });
   };
   
+  // Change title
   const getTitle = () => {
     if (todo === false) {
       return 'Add new note';
@@ -38,16 +47,34 @@ function AddNew(props: AddNewProps) {
     }
   };
 
+  // Change subtask
+  const handleSubtaskChange = (subtaskId: string, e: React.ChangeEvent<HTMLInputElement>) => {
+    const updatedSubtasks = todoData.subtasks.map((subtask) =>
+      subtask.id === subtaskId ? { ...subtask, content: e.target.value } : subtask
+    );
+    setTodoData({ ...todoData, subtasks: updatedSubtasks });
+  };
+
+  // Add new subtask
+  const addSubtask = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const newSubtask = { id: uuidv4(), content: (e.target as HTMLTextAreaElement).value};
+    setTodoData({ ...todoData, subtasks: [...todoData.subtasks, newSubtask] });
+    console.log(todoData);
+  };
+
+  // Empty all subtasks
   const emptySubtasks = () => {
     const subtaskArray: Subtask[] = [];
     todoData.subtasks = subtaskArray;
   };
   
+  // Remove subtask
   const removeSubtask = (subtaskId: string) => {
     const updatedSubtasks = todoData.subtasks.filter((subtask) => subtask.id !== subtaskId);
     setTodoData({ ...todoData, subtasks: updatedSubtasks });
   };
   
+  // To do handler
   const clickTodoHandler = () => {
     if (todo) {
       emptySubtasks();
@@ -56,36 +83,61 @@ function AddNew(props: AddNewProps) {
     setTodo(!todo);
   };
 
-  const closePopup = () => {
-    /* Find a way to reset form when popup is closed */
-    emptySubtasks();
-    props.handlePopUp();
+  // Repeat interval handler
+  const handleRepeatIntervalChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedValue = e.target.value;
+    setTodoData({...todoData, repeatInterval: selectedValue });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Submit form
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Now you can create your Todo object with the data from the form
+
+    const formattedDate = todoData.doneBy.toISOString().slice(0, -8);
+    const combinedDateTimeString = `${formattedDate.slice(0 ,10)}T${todoData.time}Z`;
+
+    console.log(combinedDateTimeString);
+
     const newTodo = {
       id: uuidv4(),
-      userId: 1,
+      userId: '1',
       createdAt: new Date(),
       editedAt: new Date(),
-      doneBy: new Date(),
+      doneBy: combinedDateTimeString,
       content: todoData.content,
       subtasks: todoData.subtasks,
       repeatInterval: todoData.repeatInterval,
-      todo: todoData.todo,
+      todo: todo,
+      deadline: deadline,
       done: todoData.done,
-      tag: todoData.tag,
+      tag: '1',
     };
 
-    console.log(newTodo);
+    try {
+      const response = await axios.post('http://localhost:3000/todos', newTodo);
+      console.log('Todo created:', response.data);
+
+      setTodoData(initialTodoData);
+      closePopup();
+    } catch (error) {
+      console.error('Error creating todo:', error);
+    }
+
   };	
- 
+
+  // Close popup
+  const closePopup = () => {
+    /* Find a way to reset form when popup is closed */
+    emptySubtasks();
+    setTodoData(initialTodoData);
+    props.handlePopUp();
+  };
+
   return (
     <div className={(props.isOpen) ? 'addNewBackground' : 'hidden'}>
       <div className="addNewBase">
-        <button type="button" className="closeForm floatRight" onClick={() => closePopup()}>X</button>
+        <button type="button" className="closeForm floatRight" 
+          onClick={() => closePopup()}>X</button>
         <p className="formTitle">{getTitle()}</p>
 
         {/* Temporary solution for mockup! */}
@@ -99,8 +151,6 @@ function AddNew(props: AddNewProps) {
           <button className="filterToggleButton">🎵</button>
         </center>
 
-        <br />
-
         {/* To do checkbox */}
         <form onSubmit={handleSubmit}>
           <label>
@@ -113,7 +163,8 @@ function AddNew(props: AddNewProps) {
 
           {/* To do content */}
           <input className="addNewInput fullWidth" 
-            onChange={handleContentChange} placeholder="What you need to do?" />
+            onChange={handleContentChange} 
+            placeholder="What you need to do?" />
 
           {/* To do list subtasks */}
           {(todo)
@@ -121,36 +172,41 @@ function AddNew(props: AddNewProps) {
             {return <div key={st.id} style={{textAlign: 'right'}}>
 
               <input style={{width: '85%', border: '1px solid black'}} 
-                className="addNewInput" placeholder="Add a thing to do!"  /> 
+                className="addNewInput" 
+                placeholder="Add a thing to do!"  
+                value={st.content} 
+                onChange={(e) => handleSubtaskChange(st.id, e)}/> 
 
-              <span className="deleteSubtask" onClick={() => removeSubtask(st.id)}>
+              <span className="deleteSubtask" 
+                onClick={() => removeSubtask(st.id)}>
             🗑️</span>
 
             </div>;})
             : ''
           }
         
-          {(todo) ? <button type="button" className="addSubtask fullLength" onClick={addSubtask}>
-            {todoData.subtasks.length > 0 ? 'Add another subtask!' : 'Add subtask!'}</button> 
+          {(todo) 
+            ? <button type="button" 
+              className="addSubtask fullLength" 
+              onClick={(e) => addSubtask(e)}>
+              {todoData.subtasks.length > 0 
+                ? 'Add another subtask!' 
+                : 'Add subtask!'}</button> 
             : ''}
 
           {(todo) ? <div className="marginTop" /> : ''}
 
           {/* To do date */}
           <label>
-                    Date
-            <input type="date" className="addNewInput fullWidth"></input>
-          </label>        
+          Date
+            <input
+              type="datetime-local"
+              className="addNewInput fullWidth"
+              value={todoData.doneBy ? todoData.doneBy.toISOString().split('.')[-2] : ''}
+              onChange={handleDateChange}
+            />
+          </label>
 
-          {/* To do time */}
-          {(deadline)
-            ? <label>
-                    Time
-              <input type="time" className="addNewInput fullWidth"></input>
-            </label>
-            : ''
-          }
-          
           {/* To do deadline checkbox */}
           <label>
             <input type="checkbox" className="addNewInput" 
@@ -163,7 +219,9 @@ function AddNew(props: AddNewProps) {
           {/* To do repeatInterval */}
           <label>
             Repeat this...
-            <select className="addNewInput fullWidth">
+            <select className="addNewInput fullWidth" 
+              value={todoData.repeatInterval} 
+              onChange={handleRepeatIntervalChange}>
               <option value="never">Never</option>
               <option value="daily">Daily</option>
               <option value="weekly">Weekly</option>
@@ -173,7 +231,8 @@ function AddNew(props: AddNewProps) {
           </label>
           <br/>
 
-          <button type="submit" className="submitNew floatRight">Submit</button>
+          <button type="submit" 
+            className="submitNew floatRight">Submit</button>
         </form>
 
       </div>
