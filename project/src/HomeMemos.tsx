@@ -1,7 +1,7 @@
 function HomeMemos() {
   return (
     <>
-      <h1>Latest notes</h1>
+      <h1>Latest memos</h1>
       <div className="memoWrapper">
         <h3>🌴 Lorem ipsum</h3>
         <p>01.01.2024</p>

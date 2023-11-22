@@ -35,6 +35,10 @@
   width: 98%;
 }
 
+.marginTop {
+  margin-top: 0.5em;
+}
+
 .addNewInput {
   font-size: 1.1em;
   border-radius: 5px;
@@ -48,7 +52,6 @@
   scale: 1.5;
   margin-right: 0.5em;
 }
-
 .deleteSubtask {
   font-size: 1.2em;
   margin-left: 0.5em;
@@ -63,7 +66,7 @@
   padding: 0.7em;
   min-width: 45px;
   background-color: #fabb29;
-  margin: 1em 0;
+  margin-bottom: 0.5em;
   border: 0;
 }
 

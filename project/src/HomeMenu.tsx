@@ -12,7 +12,6 @@ function HomeMenu(props: HomeMenuProps) {
       try {
         const response = await axios.get('http://localhost:3000/tags/');
         setFilters(response.data);
-        console.log(response.data);
       } catch (error) {
         console.error('Error fetching data', error);
       }

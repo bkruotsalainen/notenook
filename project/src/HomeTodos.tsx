@@ -41,8 +41,7 @@ function HomeTodos() {
   return (
     <div className="calendarBody">
       {todos.map((td: Todo) => (
-        // eslint-disable-next-line react/jsx-key
-        <div className="task">
+        <div key={td.id} className="task">
                 
           <div className="taskColor" style={{backgroundColor: 
                   updateTaskColor(td.todo, td.subtasks.length)}}>

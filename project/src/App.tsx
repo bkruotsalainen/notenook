@@ -11,7 +11,6 @@ function App() {
 
   const handlePopUp = () => {
     setIsOpen(!isOpen);
-    console.log(isOpen);
   };
 
   return (

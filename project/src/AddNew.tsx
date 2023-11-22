@@ -1,42 +1,51 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import './css/AddNew.css';
 
-const tempTestArray: Todo[] = [];
-
 function AddNew(props: AddNewProps) {  
-  const selectRef = useRef(null);
-
   const [todo, setTodo] = useState<boolean>(false);
-  const [subtask, setSubtask] = useState<Subtask[]>([]);
   const [deadline, setDeadline] = useState<boolean>(false);
 
+  const [todoData, setTodoData] = useState({
+    content: '',
+    subtasks: [] as Subtask[],
+    repeatInterval: 'never',
+    todo: false,
+    done: false,
+    tag: '',
+    deadline: false,
+    date: '',
+    time: '',
+  });
+  
+  const handleContentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setTodoData({ ...todoData, content: e.target.value });
+  };
+  
+  const addSubtask = () => {
+    const newSubtask = { id: uuidv4(), content: '' };
+    setTodoData({ ...todoData, subtasks: [...todoData.subtasks, newSubtask] });
+    console.log(todoData);
+  };
+  
   const getTitle = () => {
     if (todo === false) {
       return 'Add new note';
-    } else if (todo === true && subtask.length > 0) {
+    } else if (todo === true && todoData.subtasks.length > 0) {
       return 'Add new to do list';
     } else {
       return 'Add new to do';
     }
   };
 
-  const addSubtask = () => {
-    const newId = uuidv4();
-    console.log(newId);
-    const newSubtask = {id: newId, content: ''};
-    setSubtask([...subtask, newSubtask]);
-    console.log('Created subtask ' + newSubtask);
-  };
-
   const emptySubtasks = () => {
     const subtaskArray: Subtask[] = [];
-    setSubtask(subtaskArray);
+    todoData.subtasks = subtaskArray;
   };
   
-  const removeSubtask = (id: string) => {
-    const newSubtask = subtask.filter(st => st.id !== id);
-    setSubtask(newSubtask);    
+  const removeSubtask = (subtaskId: string) => {
+    const updatedSubtasks = todoData.subtasks.filter((subtask) => subtask.id !== subtaskId);
+    setTodoData({ ...todoData, subtasks: updatedSubtasks });
   };
   
   const clickTodoHandler = () => {
@@ -53,34 +62,26 @@ function AddNew(props: AddNewProps) {
     props.handlePopUp();
   };
 
-  const handleSubmit = (event: React.SyntheticEvent) => {
-    event.preventDefault();
-
-    const currentDate = new Date();
-
-    const newTodo: Todo = {
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Now you can create your Todo object with the data from the form
+    const newTodo = {
       id: uuidv4(),
-      userId: '1',
-
-      createdAt: currentDate,
-      editedAt: currentDate,
-      doneBy: currentDate,
-
-      content: 'Lorem ipsum',
-      subtasks: subtask,
-
-      repeatInterval: 'never',
-
-      todo: false,
-      done: false,
-
-      tag: '1'
+      userId: 1,
+      createdAt: new Date(),
+      editedAt: new Date(),
+      doneBy: new Date(),
+      content: todoData.content,
+      subtasks: todoData.subtasks,
+      repeatInterval: todoData.repeatInterval,
+      todo: todoData.todo,
+      done: todoData.done,
+      tag: todoData.tag,
     };
 
-    tempTestArray.push(newTodo);
-    console.log(tempTestArray);
-  };
-
+    console.log(newTodo);
+  };	
+ 
   return (
     <div className={(props.isOpen) ? 'addNewBackground' : 'hidden'}>
       <div className="addNewBase">
@@ -107,15 +108,17 @@ function AddNew(props: AddNewProps) {
               onClick={() => clickTodoHandler()}/> 
                 To do
           </label>
+          
+          <div className="marginTop" />
 
           {/* To do content */}
-          <input className="addNewInput fullWidth" placeholder="What you need to do?" />
+          <input className="addNewInput fullWidth" 
+            onChange={handleContentChange} placeholder="What you need to do?" />
 
           {/* To do list subtasks */}
           {(todo)
-            ? subtask.map((st) => 
-            // eslint-disable-next-line react/jsx-key
-            {return <div style={{textAlign: 'right'}}>
+            ? todoData.subtasks.map((st) => 
+            {return <div key={st.id} style={{textAlign: 'right'}}>
 
               <input style={{width: '85%', border: '1px solid black'}} 
                 className="addNewInput" placeholder="Add a thing to do!"  /> 
@@ -128,10 +131,10 @@ function AddNew(props: AddNewProps) {
           }
         
           {(todo) ? <button type="button" className="addSubtask fullLength" onClick={addSubtask}>
-            {subtask.length > 0 ? 'Add another subtask!' : 'Add subtask!'}</button> 
+            {todoData.subtasks.length > 0 ? 'Add another subtask!' : 'Add subtask!'}</button> 
             : ''}
 
-          <br />
+          {(todo) ? <div className="marginTop" /> : ''}
 
           {/* To do date */}
           <label>
@@ -147,7 +150,6 @@ function AddNew(props: AddNewProps) {
             </label>
             : ''
           }
-
           
           {/* To do deadline checkbox */}
           <label>
@@ -156,13 +158,13 @@ function AddNew(props: AddNewProps) {
             Add deadline
           </label>
 
-          <br/>
+          <div className="marginTop" />
 
           {/* To do repeatInterval */}
           <label>
             Repeat this...
-            <select ref={selectRef} className="addNewInput fullWidth">
-              <option value="never" selected>Never</option>
+            <select className="addNewInput fullWidth">
+              <option value="never">Never</option>
               <option value="daily">Daily</option>
               <option value="weekly">Weekly</option>
               <option value="monthly">Monthly</option>
