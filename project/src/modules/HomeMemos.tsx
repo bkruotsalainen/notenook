@@ -1,33 +1,41 @@
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import Memo from './Memo';
+
 function HomeMemos() {
+  const [memos, setMemos] = useState<Memo[]>([]);
+  const [tags, setTags] = useState<Filter[]>([]);
+  
+  useEffect (() => {
+    const fetchData = async () => {
+      try {
+        const memoResponse = await axios.get('http://localhost:3000/memos/');
+        const tagResponse = await axios.get('http://localhost:3000/tags/');
+        setMemos(memoResponse.data);
+        setTags(tagResponse.data);
+      } catch (error) {
+        console.error('Error fetching data', error);
+      }
+    };
+
+    fetchData();
+  },
+  []);
+
+  const findTag = (id: string) => {
+    const tag = tags.filter(t => t.id === id);
+    return tag[0].icon;
+  };
+
   return (
     <>
       <h1>Latest memos</h1>
-      <div className="memoWrapper">
-        <h3>🌴 Lorem ipsum</h3>
-        <p>01.01.2024</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-         Libero laudantium quis accusamus iste vero veritatis dolores
-         excepturi consequuntur officiis magnam eaque voluptas facere
-         a repellat voluptate, vitae, natus, quo quas...</p>
-      </div>
-
-      <div className="memoWrapper">
-        <h3>👽 Lorem ipsum</h3>
-        <p>01.01.2024</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-         Libero laudantium quis accusamus iste vero veritatis dolores
-         excepturi consequuntur officiis magnam eaque voluptas facere
-         a repellat voluptate, vitae, natus, quo quas...</p>
-      </div>
-
-      <div className="memoWrapper">
-        <h3>🍕 Lorem ipsum</h3>
-        <p>01.01.2024</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        Libero laudantium quis accusamus iste vero veritatis dolores
-        excepturi consequuntur officiis magnam eaque voluptas facere
-        a repellat voluptate, vitae, natus, quo quas...</p>
-      </div>
+      
+      {memos.map(m => {
+        return <Memo key={m.id} memo={m} findTag={findTag} />;
+      })
+      }
+      
     </>
   );
 }

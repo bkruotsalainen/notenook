@@ -7,7 +7,6 @@ import FilterButton from './FilterButton';
 function HomeMenu(props: HomeMenuProps) {
   const [filters, setFilters] = useState<Filter[]>([]);
 
-
   useEffect (() => {
     const fetchData = async () => {
       try {

@@ -4,7 +4,7 @@ import Header from './modules/Header.tsx';
 import HomeMemos from './modules/HomeMemos.tsx';
 import './css/App.css';
 import { useState } from 'react';
-import AddNew from './modules/AddNew.tsx';
+import AddNew from './modules/AddNewTodo.tsx';
 
 function App() {
   const [isOpen, setIsOpen] = useState<boolean>(false);

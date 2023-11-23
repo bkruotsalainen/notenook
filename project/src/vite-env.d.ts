@@ -32,6 +32,24 @@ interface Todo {
   tag: string
 }
 
+interface Memo {
+  id: string,
+  userId: string,
+
+  createdAt: number,
+  editedAt: number,
+
+  title: string,
+  content: string,
+
+  tag: string
+}
+
+interface MemoProps {
+  memo: Memo
+  findTag: (string) => string
+}
+
 interface Subtask {
   id: string,
   content: string

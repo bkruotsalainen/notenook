@@ -1,11 +1,46 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import '../css/AddNew.css';
 import axios from 'axios';
 
-function AddNew(props: AddNewProps) {  
+function AddNewTodo(props: AddNewProps) {  
   const [todo, setTodo] = useState<boolean>(false);
   const [deadline, setDeadline] = useState<boolean>(false);
+
+  const [filters, setFilters] = useState<Filter[]>([]);
+  const [activeTag, setActiveTag] = useState<string>('1');  
+  
+  useEffect (() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://localhost:3000/tags/');
+        setFilters(response.data);
+      } catch (error) {
+        console.error('Error fetching data', error);
+      }
+    };
+
+    fetchData();
+  },
+  []);
+
+  const filterStyle = {
+    fontSize: '1.8em',
+    margin: '0.2em',
+    padding: '0.2em',
+    display: 'inline',
+    backgroundColor: '#F5F1EB'
+  };
+
+  const activeFilterStyle = {
+    fontSize: '1.8em',
+    margin: '0.2em',
+    padding: '0.2em',
+    display: 'inline',
+    backgroundColor: '#FABC2A',
+    borderRadius: '25px'
+  };
+
 
   const getUnix = (date: string): number => {
     return Math.round((new Date(date)).getTime());
@@ -18,7 +53,7 @@ function AddNew(props: AddNewProps) {
     todo: todo,
     deadline: deadline,
     done: false,
-    tag: '1',
+    tag: activeTag,
     doneBy: getUnix(new Date().toString()),
     createdAt: getUnix(new Date().toString()),
     editedAt: getUnix(new Date().toString()),
@@ -111,7 +146,7 @@ function AddNew(props: AddNewProps) {
       todo: todo,
       deadline: deadline,
       done: todoData.done,
-      tag: '1',
+      tag: activeTag,
     };
 
     console.log(todoData.doneBy);
@@ -136,6 +171,10 @@ function AddNew(props: AddNewProps) {
     props.handlePopUp();
   };
 
+  const handleTagSelection = (id: string) => {
+    setActiveTag(id);
+  };
+
   return (
     <div className={(props.isOpen) ? 'addNewBackground' : 'hidden'}>
       <div className="addNewBase">
@@ -145,14 +184,15 @@ function AddNew(props: AddNewProps) {
 
         {/* Temporary solution for mockup! */}
         <center>
-          <button className="filterToggleButton">⭐</button>
-          <button className="filterToggleButton">🧼</button>
-          <button className="filterToggleButton">🎉</button>
-          <button className="filterToggleButton">👽</button>
-          <button className="filterToggleButton">🍕</button>
-          <button className="filterToggleButton">🌴</button>
-          <button className="filterToggleButton">🎵</button>
+          {filters.map(f => 
+          {
+            return <div key={f.id} style={f.id !== activeTag ? filterStyle : activeFilterStyle}
+              onClick={() => handleTagSelection(f.id)}>{f.icon}</div>;
+          }
+          )}
         </center>
+
+        <br />
 
         {/* To do checkbox */}
         <form onSubmit={handleSubmit}>
@@ -242,4 +282,4 @@ function AddNew(props: AddNewProps) {
   );
 }
 
-export default AddNew;
+export default AddNewTodo;
