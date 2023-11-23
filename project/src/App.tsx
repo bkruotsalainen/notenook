@@ -8,16 +8,28 @@ import AddNew from './modules/AddNew.tsx';
 
 function App() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [searchValue, setSearchValue] = useState<string>('');
+  const [filterSelected, setFilterSelected] = useState<string[]>([]);
 
   const handlePopUp = () => {
     setIsOpen(!isOpen);
   };
 
-  const [searchValue, setSearchValue] = useState<string>('');
-
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
     console.log(searchValue);
+  };
+
+  const handleFilterSelected = (id: string) => {
+    console.log(id);
+    const checkIfFiltered = filterSelected.filter(f => f === id);
+
+    if (checkIfFiltered.length > 0) {
+      const newFilterSelected = filterSelected.filter(f => f !== id);
+      setFilterSelected(newFilterSelected);
+    } else {
+      setFilterSelected([...filterSelected, id]);
+    }
   };
 
   return (
@@ -25,8 +37,10 @@ function App() {
       <AddNew isOpen={isOpen} handlePopUp={handlePopUp}/>
       <Header/>
       <div className="flex-container">
-        <div className="homeMenu"><HomeMenu handlePopUp={handlePopUp} handleSearch={handleSearchChange}/></div>
-        <div className="homeTodos"><HomeTodos searchValue={searchValue} /></div>
+        <div className="homeMenu"><HomeMenu handlePopUp={handlePopUp} 
+          handleSearch={handleSearchChange} handleFilters={handleFilterSelected}/></div>
+        <div className="homeTodos"><HomeTodos searchValue={searchValue} 
+          filterValues={filterSelected} /></div>
         <div className="homeMemos"><HomeMemos /></div>
       </div>
     </>

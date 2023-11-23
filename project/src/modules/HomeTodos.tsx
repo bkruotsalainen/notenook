@@ -53,7 +53,28 @@ function HomeTodos(props: HomeTodoProps) {
       return true;
     }
 
+    /* Ei toimi, korjaa! */
+    const matchingSubtasks = td.subtasks.filter(sb => 
+      (sb.content.toLowerCase().includes(props.searchValue.toLowerCase())));
+
+    if (matchingSubtasks.length > 0) {
+      return true;
+    }
+
     if (props.searchValue === '') {
+      return true;
+    }
+
+    return false;
+  };
+
+  const checkFilter = (td: Todo) => {
+    if (props.filterValues.length === 0) {
+      return true;
+    }
+
+    const findTag = props.filterValues.filter(filter => filter === td.tag);
+    if (findTag.length > 0) {
       return true;
     }
 
@@ -63,8 +84,9 @@ function HomeTodos(props: HomeTodoProps) {
   const deleteTodo = (id: string) => {
     const fetchData = async () => {
       try {
-        const response = await axios.delete(`http://localhost:3000/todos/${id}`);
-        console.log('Deleted' + response.data);
+        await axios.delete(`http://localhost:3000/todos/${id}`);
+        const newTodos = todos.filter(td => td.id !== id);
+        setTodos(newTodos);
       } catch (error) {
         console.error('Error fetching data', error);
       }
@@ -77,7 +99,8 @@ function HomeTodos(props: HomeTodoProps) {
     <div className="calendarBody">
       {todos.map((td: Todo) => (
         
-        checkSearchValue(td) && (
+        checkSearchValue(td) && 
+          checkFilter(td) && (
           <div key={td.id} className="task">
             <div className="taskColor" style={{backgroundColor: 
                   updateTaskColor(td.todo, td.subtasks.length)}}>

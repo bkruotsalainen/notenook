@@ -7,7 +7,9 @@ interface Filter {
 }
 
 interface FilterButtonProps {
-  filterIcon: string
+  id: string,
+  filterIcon: string,
+  handleFilters: (string) => void
 }
 
 interface Todo {
@@ -46,9 +48,11 @@ interface HomeTaskGroupProps {
 
 interface HomeMenuProps {
   handlePopUp: () => void,
-  handleSearch: (e) => void
+  handleSearch: (e) => void,
+  handleFilters: (string) => void
 }
 
 interface HomeTodoProps {
-  searchValue: string
+  searchValue: string,
+  filterValues: string[]
 }

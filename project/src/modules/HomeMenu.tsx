@@ -21,6 +21,7 @@ function HomeMenu(props: HomeMenuProps) {
     fetchData();
   },
   []);
+
   return (
     <>
       <div className="homeMenuWrapper">
@@ -32,7 +33,8 @@ function HomeMenu(props: HomeMenuProps) {
         <button className="addNewButton" onClick={() => props.handlePopUp()}>Add new to do</button>
 
         <h3 className="hideMobile">Filter</h3>
-        {filters.map(f => {return <FilterButton key={f.id} filterIcon={f.icon}/>;})}
+        {filters.map(f => {return <FilterButton key={f.id} id={f.id}
+          filterIcon={f.icon} handleFilters={props.handleFilters}/>;})}
       </div>
     </>
   );

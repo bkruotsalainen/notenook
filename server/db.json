@@ -101,20 +101,6 @@
       "tag": "8"
     },
     {
-      "id": "c3f69966-c882-451d-9f94-ef524423a410",
-      "userId": "1",
-      "createdAt": "2023-11-22T14:16:18.820Z",
-      "editedAt": "2023-11-22T14:16:18.820Z",
-      "doneBy": "2023-11-22T12:00Z",
-      "content": "Water plants",
-      "subtasks": [],
-      "repeatInterval": "daily",
-      "todo": true,
-      "done": false,
-      "deadline": true,
-      "tag": "1"
-    },
-    {
       "id": "0d24e07a-2ca4-4e10-942e-bdd54e5a7385",
       "userId": "1",
       "createdAt": "2023-11-22T14:22:55.160Z",
@@ -137,20 +123,6 @@
       ],
       "repeatInterval": "never",
       "todo": true,
-      "deadline": true,
-      "done": false,
-      "tag": "1"
-    },
-    {
-      "id": "9001a1c1-7589-4bf3-ad31-eb66b48e3622",
-      "userId": "1",
-      "createdAt": 1700726628000,
-      "editedAt": 1700726628000,
-      "doneBy": 620924400000,
-      "content": "Special day",
-      "subtasks": [],
-      "repeatInterval": "yearly",
-      "todo": false,
       "deadline": true,
       "done": false,
       "tag": "1"

@@ -9,10 +9,12 @@ function FilterButton(props: FilterButtonProps) {
   
   const changeFilterStatus = () => {
     setFilterStatus(!filterStatus);
+    props.handleFilters(props.id);
   };
   
   return (
-    <button className="filterToggleButton" onClick={() => changeFilterStatus()} style={filterStyle}>{props.filterIcon}</button>
+    <button className="filterToggleButton" onClick={() => changeFilterStatus()} 
+      style={filterStyle}>{props.filterIcon}</button>
   );
 }
 
