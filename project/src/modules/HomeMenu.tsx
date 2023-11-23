@@ -7,6 +7,7 @@ import FilterButton from './FilterButton';
 function HomeMenu(props: HomeMenuProps) {
   const [filters, setFilters] = useState<Filter[]>([]);
 
+
   useEffect (() => {
     const fetchData = async () => {
       try {
@@ -20,12 +21,12 @@ function HomeMenu(props: HomeMenuProps) {
     fetchData();
   },
   []);
-
   return (
     <>
       <div className="homeMenuWrapper">
         <CalendarObject />
-        <input placeholder="🔍 Search" className="searchInput">
+        <input placeholder="🔍 Search" className="searchInput" 
+          onChange={(e) => props.handleSearch(e)}>
         </input>
 
         <button className="addNewButton" onClick={() => props.handlePopUp()}>Add new to do</button>

@@ -14,9 +14,9 @@ interface Todo {
   id: string,
   userId: string,
 
-  createdAt: Date,
-  editedAt: Date,
-  doneBy: Date,
+  createdAt: number,
+  editedAt: number,
+  doneBy: number,
 
   content: string,
   subtasks: Subtask[],
@@ -28,9 +28,6 @@ interface Todo {
   done: boolean,
 
   tag: string
-
-  // These are not for database
-  time: string
 }
 
 interface Subtask {
@@ -38,15 +35,20 @@ interface Subtask {
   content: string
 }
 
-interface HomeTaskGroupProps {
-  title: string
-}
-
 interface AddNewProps {
   isOpen: boolean,
   handlePopUp: () => void
 }
 
+interface HomeTaskGroupProps {
+  title: string
+}
+
 interface HomeMenuProps {
-  handlePopUp: () => void
+  handlePopUp: () => void,
+  handleSearch: (e) => void
+}
+
+interface HomeTodoProps {
+  searchValue: string
 }

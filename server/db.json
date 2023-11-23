@@ -140,6 +140,20 @@
       "deadline": true,
       "done": false,
       "tag": "1"
+    },
+    {
+      "id": "9001a1c1-7589-4bf3-ad31-eb66b48e3622",
+      "userId": "1",
+      "createdAt": 1700726628000,
+      "editedAt": 1700726628000,
+      "doneBy": 620924400000,
+      "content": "Special day",
+      "subtasks": [],
+      "repeatInterval": "yearly",
+      "todo": false,
+      "deadline": true,
+      "done": false,
+      "tag": "1"
     }
   ],
   "memos": [

@@ -1,11 +1,15 @@
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import './css/AddNew.css';
+import '../css/AddNew.css';
 import axios from 'axios';
 
 function AddNew(props: AddNewProps) {  
   const [todo, setTodo] = useState<boolean>(false);
   const [deadline, setDeadline] = useState<boolean>(false);
+
+  const getUnix = (date: string): number => {
+    return Math.round((new Date(date)).getTime());
+  }; 
 
   const initialTodoData: Todo = {
     content: '',
@@ -15,16 +19,15 @@ function AddNew(props: AddNewProps) {
     deadline: deadline,
     done: false,
     tag: '1',
-    doneBy: new Date(),
-    createdAt: new Date(),
-    editedAt: new Date(),
+    doneBy: getUnix(new Date().toString()),
+    createdAt: getUnix(new Date().toString()),
+    editedAt: getUnix(new Date().toString()),
     userId: '1',
-    id: uuidv4(),
-    time: '23:59'
+    id: uuidv4()
   };
 
   const [todoData, setTodoData] = useState<Todo>(initialTodoData);
-
+  
   // Handle content
   const handleContentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTodoData({ ...todoData, content: e.target.value });
@@ -32,8 +35,9 @@ function AddNew(props: AddNewProps) {
   
   // Handle date change
   const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newDoneBy = e.target.value;
-    setTodoData({ ...todoData, doneBy: new Date(newDoneBy) });
+    const newDoneBy = e.target.value + ':00.00Z';
+    console.log(newDoneBy);
+    setTodoData({ ...todoData, doneBy: getUnix(newDoneBy) });
   };
   
   // Change title
@@ -93,17 +97,14 @@ function AddNew(props: AddNewProps) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const formattedDate = todoData.doneBy.toISOString().slice(0, -8);
-    const combinedDateTimeString = `${formattedDate.slice(0 ,10)}T${todoData.time}Z`;
-
-    console.log(combinedDateTimeString);
+    // const combinedDateTimeString = `${formattedDate.slice(0 ,10)}T${todoData.time}Z`;
 
     const newTodo = {
       id: uuidv4(),
       userId: '1',
-      createdAt: new Date(),
-      editedAt: new Date(),
-      doneBy: combinedDateTimeString,
+      createdAt: getUnix(new Date().toString()),
+      editedAt: getUnix(new Date().toString()),
+      doneBy: todoData.doneBy,
       content: todoData.content,
       subtasks: todoData.subtasks,
       repeatInterval: todoData.repeatInterval,
@@ -112,6 +113,8 @@ function AddNew(props: AddNewProps) {
       done: todoData.done,
       tag: '1',
     };
+
+    console.log(todoData.doneBy);
 
     try {
       const response = await axios.post('http://localhost:3000/todos', newTodo);
@@ -202,7 +205,6 @@ function AddNew(props: AddNewProps) {
             <input
               type="datetime-local"
               className="addNewInput fullWidth"
-              value={todoData.doneBy ? todoData.doneBy.toISOString().split('.')[-2] : ''}
               onChange={handleDateChange}
             />
           </label>
