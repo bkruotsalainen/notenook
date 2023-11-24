@@ -56,7 +56,9 @@ interface Memo {
 interface MemoProps {
   memo: Memo,
   tags: Filter[],
-  delete: (string) => void
+  delete: (string) => void,
+  handleMemoInEdit: (string) => void,
+  refreshMemos: () => void
 }
 
 interface Subtask {
@@ -94,7 +96,9 @@ interface HomeMemoProps {
   tags: Filter[],
   memos: Memo[],
   handlePopUp: () => void,
-  refreshMemos: () => void
+  refreshMemos: () => void,
+  isOpen: boolean,
+  handleMemoInEdit: (string) => void
 }
 
 interface HomeTodoProps {
@@ -103,4 +107,10 @@ interface HomeTodoProps {
   searchValue: string,
   filterValues: string[],
   refreshTodos: () => void
+}
+
+interface EditMemoProps {
+  memoInEdit: Memo,
+  isOpen: boolean
+  handleMemoInEdit: (Memo) => void
 }

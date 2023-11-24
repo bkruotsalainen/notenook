@@ -11,16 +11,31 @@ import HomeTodos from './modules/HomeTodos.tsx';
 
 import AddNew from './modules/AddNewTodo.tsx';
 import AddNewMemo from './modules/AddNewMemo.tsx';
+import EditMemo from './modules/EditMemo.tsx';
 
 function App() {
   const [isTodoOpen, setIsTodoOpen] = useState<boolean>(false);
-  const [isMemoOpen, setIsMemoOpen] = useState<boolean>(false);
+  const [isMemoOpen, setIsMemoOpen] = useState<boolean>(false)
+  
+  const [isMemoEditOpen, setIsMemoEditOpen] = useState<boolean>(false);
+
   const [searchValue, setSearchValue] = useState<string>('');
   const [filterSelected, setFilterSelected] = useState<string[]>([]);
 
   const [todos, setTodos] = useState<Todo[]>([]);
   const [memos, setMemos] = useState<Memo[]>([]);
   const [tags, setTags] = useState<Filter[]>([]);
+
+  const [todoEdit, setTodoEdit] = useState<Todo>();
+  const [memoInEdit, setMemoInEdit] = useState<Memo>({
+    id: "2b8dd605-c961-4ddf-affc-d4c1bf13eb77",
+    userId: "1",
+    title: "This is a test!",
+    content: "If you see this, something went wrong :(",
+    createdAt: 1700837066500,
+    editedAt: 1700837066500,
+    tag: "4"
+  });
 
   useEffect (() => {
     const fetchData = async () => {
@@ -73,13 +88,23 @@ function App() {
     }
   };
 
-
   // Open and close popup
   const handleTodoPopUp = () => {
     setIsTodoOpen(!isTodoOpen);
   };
+  
   const handleMemoPopUp = () => {
     setIsMemoOpen(!isMemoOpen);
+  };
+
+  const handleMemoInEdit = (memo: Memo) => {
+    if (memo !== undefined) {
+      setMemoInEdit(memo);
+    }
+
+    console.log(memo);
+
+    setIsMemoEditOpen(!isMemoEditOpen);
   };
 
   // Save value from search field
@@ -103,6 +128,7 @@ function App() {
 
   return (
     <>
+      <EditMemo isOpen={isMemoEditOpen} handleMemoInEdit={handleMemoInEdit} memoInEdit={memoInEdit} refreshMemos={refreshMemos}/>
       <AddNew isOpen={isTodoOpen} handlePopUp={handleTodoPopUp} tags={tags} refreshTodos={refreshTodos}/>
       <AddNewMemo isOpen={isMemoOpen} handlePopUp={handleMemoPopUp} tags={tags} refreshMemos={refreshMemos}/>
 
@@ -122,7 +148,7 @@ function App() {
 
         <div className="homeMemos">
           <HomeMemos handlePopUp={handleMemoPopUp} tags={tags} memos={memos}
-            refreshMemos={refreshMemos}/>
+            refreshMemos={refreshMemos} isOpen={isMemoEditOpen} handleMemoInEdit={handleMemoInEdit} />
         </div>
 
       </div>

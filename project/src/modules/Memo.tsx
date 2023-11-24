@@ -22,7 +22,6 @@ function Memo(props: MemoProps) {
 
   const handleOpenMemo = () => {
     setOpenMemo(openMemo => !openMemo);
-  
   };
 
   const findTag = (id: string) => {
@@ -39,6 +38,7 @@ function Memo(props: MemoProps) {
     <>
       <div className="memoWrapper" onClick={() => handleOpenMemo()}>
         <div style={{float: 'right', width: 'auto'}}>
+          <span onClick={() => props.handleMemoInEdit(props.memo)}>✏️</span>
           <span onClick={() => props.delete(props.memo.id)}>🗑️</span>
         </div> 
         <h3>{findTag(props.memo.tag)} {props.memo.title}</h3>
