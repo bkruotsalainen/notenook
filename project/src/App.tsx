@@ -5,21 +5,31 @@ import HomeMemos from './modules/HomeMemos.tsx';
 import './css/App.css';
 import { useState } from 'react';
 import AddNew from './modules/AddNewTodo.tsx';
+import AddNewMemo from './modules/AddNewMemo.tsx';
 
 function App() {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isTodoOpen, setIsTodoOpen] = useState<boolean>(false);
+  const [isMemoOpen, setIsMemoOpen] = useState<boolean>(false);
   const [searchValue, setSearchValue] = useState<string>('');
   const [filterSelected, setFilterSelected] = useState<string[]>([]);
 
-  const handlePopUp = () => {
-    setIsOpen(!isOpen);
+  // Open and close popup
+  const handleTodoPopUp = () => {
+    setIsTodoOpen(!isTodoOpen);
+  };
+  const handleMemoPopUp = () => {
+    setIsMemoOpen(!isMemoOpen);
   };
 
+
+
+  // Save value from search field
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
     console.log(searchValue);
   };
 
+  // Handle selected filters
   const handleFilterSelected = (id: string) => {
     console.log(id);
     const checkIfFiltered = filterSelected.filter(f => f === id);
@@ -34,14 +44,16 @@ function App() {
 
   return (
     <>
-      <AddNew isOpen={isOpen} handlePopUp={handlePopUp}/>
+      <AddNew isOpen={isTodoOpen} handlePopUp={handleTodoPopUp}/>
+      <AddNewMemo isOpen={isMemoOpen} handlePopUp={handleMemoPopUp}/>
       <Header/>
       <div className="flex-container">
-        <div className="homeMenu"><HomeMenu handlePopUp={handlePopUp} 
+        <div className="homeMenu"><HomeMenu handlePopUp={handleTodoPopUp} 
           handleSearch={handleSearchChange} handleFilters={handleFilterSelected}/></div>
         <div className="homeTodos"><HomeTodos searchValue={searchValue} 
           filterValues={filterSelected} /></div>
-        <div className="homeMemos"><HomeMemos /></div>
+        <div className="homeMemos"><HomeMemos handlePopUp={handleMemoPopUp} 
+          handleSearch={handleSearchChange} handleFilters={handleFilterSelected}/></div>
       </div>
     </>
   );

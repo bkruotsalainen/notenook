@@ -11,13 +11,6 @@ function Header() {
       <div className="left">
         <ul className="headerLinks">
           <li className="homeLink">
-            <a href="">Home</a>
-          </li>
-          <li>
-            <a href="">To-do</a>
-          </li>
-          <li>
-            <a href="">Memos</a>
           </li>
         </ul>
       </div>

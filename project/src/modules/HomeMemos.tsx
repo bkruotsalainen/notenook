@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Memo from './Memo';
 
-function HomeMemos() {
+function HomeMemos(props: HomeMemoProps) {
   const [memos, setMemos] = useState<Memo[]>([]);
   const [tags, setTags] = useState<Filter[]>([]);
   
@@ -29,6 +29,12 @@ function HomeMemos() {
 
   return (
     <>
+      <button className="addNewButton" 
+        style={{width: '125px', float: 'right', marginTop: '1.3em', marginRight: '1em'}}
+        onClick={() => props.handlePopUp()}>
+        Add new memo
+      </button>
+      
       <h1>Latest memos</h1>
       
       {memos.map(m => {

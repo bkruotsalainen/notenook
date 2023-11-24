@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import '../css/Home.css';
 import Api from '../ApiHandler';
 import axios from 'axios';
+import Todo from './Todo';
 
 function HomeTodos(props: HomeTodoProps) {  
   const [todos, setTodos] = useState<Todo[]>([]);
@@ -22,7 +23,8 @@ function HomeTodos(props: HomeTodoProps) {
     fetchData();
   },
   []);
-
+  
+  // Update color of the task based on it's type (note, to do, to do list)
   const updateTaskColor = (todo: boolean, subtasksLength: number) => {
     if (todo === true && subtasksLength > 0) {
       return '#86DEDE';
@@ -31,13 +33,17 @@ function HomeTodos(props: HomeTodoProps) {
     } else if (todo === true && subtasksLength === 0) {
       return '#F05365';
     }
+
+    return '#86DEDE';
   };
 
-  const getIcon = (tagId: string | number) => {
+  // Get icon by id
+  const getIcon = (tagId: string) => {
     const filteredTags = tags.filter(t => t.id === tagId);
     return filteredTags[0].icon;
   };
 
+  // Get string time from unix
   const getTime = (unix: number): string => {
     const dateTime = new Date(unix);
 
@@ -48,12 +54,12 @@ function HomeTodos(props: HomeTodoProps) {
     return date + ' ' + time;
   };
 
+  // Check if search matches with content
   const checkSearchValue = (td: Todo) => {
     if (td.content.toLowerCase().includes(props.searchValue.toLowerCase())) {
       return true;
     }
 
-    /* Ei toimi, korjaa! */
     const matchingSubtasks = td.subtasks.filter(sb => 
       (sb.content.toLowerCase().includes(props.searchValue.toLowerCase())));
 
@@ -68,6 +74,7 @@ function HomeTodos(props: HomeTodoProps) {
     return false;
   };
 
+  // Check if tag matches with filter
   const checkFilter = (td: Todo) => {
     if (props.filterValues.length === 0) {
       return true;
@@ -81,6 +88,7 @@ function HomeTodos(props: HomeTodoProps) {
     return false;
   };
 
+  // Delete to do
   const deleteTodo = (id: string) => {
     const fetchData = async () => {
       try {
@@ -94,40 +102,14 @@ function HomeTodos(props: HomeTodoProps) {
 
     fetchData();
   };
-  
+
   return (
     <div className="calendarBody">
-      {todos.map((td: Todo) => (
-        
-        checkSearchValue(td) && 
-          checkFilter(td) && (
-          <div key={td.id} className="task">
-            <div className="taskColor" style={{backgroundColor: 
-                  updateTaskColor(td.todo, td.subtasks.length)}}>
-            </div>
-
-            <div className="taskBody" >
-              <ul>
-                <li style={{marginBottom: '0.1em'}}>
-                  {td.todo === true && td.subtasks.length === 0 
-                    ? <input type="checkbox"/> 
-                    : getIcon(td.tag)} <span style={{fontWeight: '500'}}>{td.content}</span>
-                </li>
-
-                {td.subtasks.length > 0
-                  ? td.subtasks.map(subt => 
-                    <li key={subt.id} className="subtask"> <input type="checkbox"/>  {subt.content}</li>)
-                  : ''}
-
-                {td.deadline === true
-                  ? <li>⏰ {(td.doneBy) ? getTime(td.doneBy) : <i>error!</i>}</li>
-                  : ''}
-              </ul>
-            </div>
-            <div style={{float: 'right', marginTop: '0.5em', width: 'auto'}}> ✏️ <span onClick={() => deleteTodo(td.id)}>🗑️</span></div> 
-          </div>
+      {todos.map((td: Todo) => 
+        checkSearchValue(td) && checkFilter(td) && (
+          <Todo key={td.id} td={td} updateTaskColor={updateTaskColor}
+            getIcon={getIcon} getTime={getTime} deleteToDo={deleteTodo}/>
         )
-      )
       )}
     </div>
   );

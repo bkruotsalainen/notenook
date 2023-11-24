@@ -63,7 +63,7 @@ function CalendarObject() {
         )}
 
         {weekdays.map((wd, index) => {
-          if(index < currentDate.getDay()-1) {
+          if(index < currentDate.getDay()-2) {
             return <div key={wd} className='dayDiv'/>;
           }
         }

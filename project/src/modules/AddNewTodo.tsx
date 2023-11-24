@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 import '../css/AddNew.css';
 import axios from 'axios';
 
-function AddNewTodo(props: AddNewProps) {  
+function AddNewTodo(props: AddNewTodoProps) {  
   const [todo, setTodo] = useState<boolean>(false);
   const [deadline, setDeadline] = useState<boolean>(false);
 
