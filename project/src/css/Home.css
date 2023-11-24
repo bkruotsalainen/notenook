@@ -36,7 +36,7 @@ ul {
 
 .taskBody {
   padding: 0.75em;
-  width: 90%;
+  width: 100%;
 }
 
 .subtask {
@@ -178,10 +178,6 @@ Input[type="checkbox"] {
   .homeMemos {
     display: none !important;
   }
-
-  .taskBody {
-    width: 85%;
-  }
 }
 
 @media screen and (max-width: 800px) {  
@@ -207,9 +203,5 @@ Input[type="checkbox"] {
   .filterToggleButton {
     margin: 0.2em;
     margin-top: 0.5em;
-  }
-
-  .taskBody {
-    width: 78%;
   }
 }

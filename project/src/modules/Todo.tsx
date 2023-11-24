@@ -28,12 +28,12 @@ function Todo(props: TodoProps) {
 
           </ul>
         </div>
-        <div style={{float: 'right', marginTop: '0.5em', width: 'auto'}}>
-       ✏️ 
+        
+        <div style={{float: 'right', marginTop: '0.75em', marginRight: '0.75em', width: 'auto'}}>
           <span onClick={() => props.deleteToDo(props.td.id)}>🗑️</span>
-
-          <br />
         </div> 
+
+        <br />
       </div>
     </>
   );

@@ -21,8 +21,6 @@ function App() {
     setIsMemoOpen(!isMemoOpen);
   };
 
-
-
   // Save value from search field
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);

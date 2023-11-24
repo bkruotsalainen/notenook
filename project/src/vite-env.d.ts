@@ -55,12 +55,14 @@ interface Memo {
 
 interface MemoProps {
   memo: Memo
-  findTag: (string) => string
+  findTag: (string) => string,
+  delete: (string) => void
 }
 
 interface Subtask {
   id: string,
-  content: string
+  content: string,
+  done: boolean
 }
 
 interface AddNewTodoProps {

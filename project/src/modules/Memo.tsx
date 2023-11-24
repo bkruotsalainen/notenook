@@ -5,13 +5,11 @@ const months: string[] = [
   'July', 'August', 'September', 'October', 'November', 'December'
 ];
 
-const timezone = 7200000;
-
 function Memo(props: MemoProps) {
   const [openMemo, setOpenMemo] = useState<boolean>(false);
 
   const getDate = () => {
-    const dateTime = new Date(props.memo.createdAt + timezone);
+    const dateTime = new Date(props.memo.createdAt);
   
     const date = dateTime.getDate() + ' ' + months[dateTime.getMonth()] 
       + ' ' + dateTime.getFullYear();
@@ -29,6 +27,9 @@ function Memo(props: MemoProps) {
   return (
     <>
       <div className="memoWrapper" onClick={() => handleOpenMemo()}>
+        <div style={{float: 'right', width: 'auto'}}>
+          <span onClick={() => props.delete(props.memo.id)}>🗑️</span>
+        </div> 
         <h3>{props.findTag(props.memo.tag)} {props.memo.title}</h3>
         <p>
           {openMemo || props.memo.content.length < 250 ? props.memo.content : props.memo.content.slice(0, 250) + '...'}

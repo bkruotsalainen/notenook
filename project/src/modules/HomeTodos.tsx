@@ -100,18 +100,14 @@ function HomeTodos(props: HomeTodoProps) {
   };
 
   // Delete to do
-  const deleteTodo = (id: string) => {
-    const fetchData = async () => {
-      try {
-        await axios.delete(`http://localhost:3000/todos/${id}`);
-        const newTodos = todos.filter(td => td.id !== id);
-        setTodos(newTodos);
-      } catch (error) {
-        console.error('Error fetching data', error);
-      }
-    };
-
-    fetchData();
+  const deleteTodo = async (id: string) => {
+    try {
+      await axios.delete(`http://localhost:3000/todos/${id}`);
+      const newTodos = todos.filter(td => td.id !== id);
+      setTodos(newTodos);
+    } catch (error) {
+      console.error('Error fetching data', error);
+    }
   };
 
   return (

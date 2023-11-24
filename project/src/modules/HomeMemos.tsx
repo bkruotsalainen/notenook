@@ -29,6 +29,16 @@ function HomeMemos(props: HomeMemoProps) {
     return tag[0].icon;
   };
 
+  const deleteMemo = async (id: string) => {
+    try {
+      await axios.delete(`http://localhost:3000/memos/${id}`);
+      const newMemos = memos.filter(m => m.id !== id);
+      setMemos(newMemos);
+    } catch (error) {
+      console.error('Error fetching data', error);
+    }
+  };
+
   return (
     <>
       <button className="addNewButton" 
@@ -40,7 +50,7 @@ function HomeMemos(props: HomeMemoProps) {
       <h1>Latest memos</h1>
 
       {memos.map(m => {
-        return <Memo key={m.id} memo={m} findTag={findTag} />;
+        return <Memo key={m.id} memo={m} findTag={findTag} delete={deleteMemo} />;
       })
       }
       

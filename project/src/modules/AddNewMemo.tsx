@@ -100,8 +100,7 @@ function AddNewMemo(props: AddNewMemoProps) {
             )}
           </center>
 
-          
-          <div className="marginTop" />
+          <br />
 
           <form onSubmit={(e) => handleSubmit(e)}>
 
