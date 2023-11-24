@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Memo from './Memo';
 
-function HomeMemos(props: HomeMemoProps) {
+function HomeMemos({handlePopUp}: HomeMemoProps) {
   const [memos, setMemos] = useState<Memo[]>([]);
   const [tags, setTags] = useState<Filter[]>([]);
   
@@ -37,22 +37,20 @@ function HomeMemos(props: HomeMemoProps) {
     } catch (error) {
       console.error('Error fetching data', error);
     }
-  };
-
+  }; 
   return (
     <>
       <button className="addNewButton" 
         style={{width: '125px', float: 'right', marginTop: '1.3em', marginRight: '1em'}}
-        onClick={() => props.handlePopUp()}>
+        onClick={() => handlePopUp()}>
         Add new memo
       </button>
       
       <h1>Latest memos</h1>
 
-      {memos.map(m => {
-        return <Memo key={m.id} memo={m} findTag={findTag} delete={deleteMemo} />;
-      })
-      }
+      {memos.map(m => 
+        <Memo key={m.id} memo={m} findTag={findTag} delete={deleteMemo}/>
+      )};
       
     </>
   );

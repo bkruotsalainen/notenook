@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function FilterButton(props: FilterButtonProps) {
+function FilterButton({id, filterIcon, handleFilters}: FilterButtonProps) {
   const [filterStatus, setFilterStatus] = useState<boolean>(false);
 
   const filterStyle = {
@@ -9,12 +9,12 @@ function FilterButton(props: FilterButtonProps) {
   
   const changeFilterStatus = () => {
     setFilterStatus(!filterStatus);
-    props.handleFilters(props.id);
+    handleFilters(id);
   };
   
   return (
     <button className="filterToggleButton" onClick={() => changeFilterStatus()} 
-      style={filterStyle}>{props.filterIcon}</button>
+      style={filterStyle}>{filterIcon}</button>
   );
 }
 

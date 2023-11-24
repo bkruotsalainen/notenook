@@ -13,6 +13,10 @@ function App() {
   const [searchValue, setSearchValue] = useState<string>('');
   const [filterSelected, setFilterSelected] = useState<string[]>([]);
 
+  // Get tags, to dos and notes HERE
+  // Update them in functions
+  // Give those to components
+
   // Open and close popup
   const handleTodoPopUp = () => {
     setIsTodoOpen(!isTodoOpen);
@@ -50,8 +54,7 @@ function App() {
           handleSearch={handleSearchChange} handleFilters={handleFilterSelected}/></div>
         <div className="homeTodos"><HomeTodos searchValue={searchValue} 
           filterValues={filterSelected} /></div>
-        <div className="homeMemos"><HomeMemos handlePopUp={handleMemoPopUp} 
-          handleSearch={handleSearchChange} handleFilters={handleFilterSelected}/></div>
+        <div className="homeMemos"><HomeMemos handlePopUp={handleMemoPopUp}/></div>
       </div>
     </>
   );

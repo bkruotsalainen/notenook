@@ -11,7 +11,7 @@ const months: string[] = [
   
 const timezone = 7200000;
 
-function HomeTodos(props: HomeTodoProps) {  
+function HomeTodos({searchValue, filterValues}: HomeTodoProps) {  
   const [todos, setTodos] = useState<Todo[]>([]);
   const [tags, setTags] = useState<Filter[]>([]);
 
@@ -67,18 +67,18 @@ function HomeTodos(props: HomeTodoProps) {
 
   // Check if search matches with content
   const checkSearchValue = (td: Todo) => {
-    if (td.content.toLowerCase().includes(props.searchValue.toLowerCase())) {
+    if (td.content.toLowerCase().includes(searchValue.toLowerCase())) {
       return true;
     }
 
     const matchingSubtasks = td.subtasks.filter(sb => 
-      (sb.content.toLowerCase().includes(props.searchValue.toLowerCase())));
+      (sb.content.toLowerCase().includes(searchValue.toLowerCase())));
 
     if (matchingSubtasks.length > 0) {
       return true;
     }
 
-    if (props.searchValue === '') {
+    if (searchValue === '') {
       return true;
     }
 
@@ -87,11 +87,11 @@ function HomeTodos(props: HomeTodoProps) {
 
   // Check if tag matches with filter
   const checkFilter = (td: Todo) => {
-    if (props.filterValues.length === 0) {
+    if (filterValues.length === 0) {
       return true;
     }
 
-    const findTag = props.filterValues.filter(filter => filter === td.tag);
+    const findTag = filterValues.filter(filter => filter === td.tag);
     if (findTag.length > 0) {
       return true;
     }

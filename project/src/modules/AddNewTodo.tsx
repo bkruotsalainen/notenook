@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 import '../css/AddNew.css';
 import axios from 'axios';
 
-function AddNewTodo(props: AddNewTodoProps) {  
+function AddNewTodo({isOpen, handlePopUp}: AddNewTodoProps) {  
   const [todo, setTodo] = useState<boolean>(false);
   const [deadline, setDeadline] = useState<boolean>(false);
 
@@ -162,7 +162,7 @@ function AddNewTodo(props: AddNewTodoProps) {
     /* Find a way to reset form when popup is closed */
     emptySubtasks();
     setTodoData(initialTodoData);
-    props.handlePopUp();
+    handlePopUp();
   };
 
   const handleTagSelection = (id: string) => {
@@ -170,7 +170,7 @@ function AddNewTodo(props: AddNewTodoProps) {
   };
 
   return (
-    <div className={(props.isOpen) ? 'addNewBackground' : 'hidden'}>
+    <div className={(isOpen) ? 'addNewBackground' : 'hidden'}>
       <div className="addNewBase">
         <button type="button" className="closeForm floatRight" 
           onClick={() => closePopup()}>X</button>

@@ -1,16 +1,23 @@
 import '../css/Header.css';
 
 function Header() {
+  const displayStyle = {
+    display: 'none'
+  };
 
   return (
     <div className="header">
       <div className="right">
-        <a href="">Logout</a>
+          Logout
       </div>      
       
       <div className="left">
-        <ul className="headerLinks">
+        <ul className="headerLinks" style={displayStyle}>
           <li className="homeLink">
+            To do
+          </li>
+          <li className="homeLink">
+            Notes
           </li>
         </ul>
       </div>

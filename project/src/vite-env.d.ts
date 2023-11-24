@@ -75,7 +75,6 @@ interface AddNewMemoProps {
   handlePopUp: () => void
 }
 
-
 interface HomeTaskGroupProps {
   title: string
 }
@@ -87,9 +86,7 @@ interface HomeMenuProps {
 }
 
 interface HomeMemoProps {
-  handlePopUp: () => void,
-  handleSearch: (e) => void,
-  handleFilters: (string) => void
+  handlePopUp: () => void
 }
 
 interface HomeTodoProps {

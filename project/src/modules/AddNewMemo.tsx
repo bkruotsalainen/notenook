@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
-function AddNewMemo(props: AddNewMemoProps) {  
+function AddNewMemo({isOpen, handlePopUp}: AddNewMemoProps) {  
   const [title, setTitle] = useState<string>('');
   const [content, setContent] = useState<string>('');
   
@@ -43,7 +43,7 @@ function AddNewMemo(props: AddNewMemoProps) {
   // Close popup
   const closePopup = () => {
     /* Find a way to reset form when popup is closed */
-    props.handlePopUp();
+    handlePopUp();
   };
 
   const handleTagSelection = (id: string) => {
@@ -83,7 +83,7 @@ function AddNewMemo(props: AddNewMemoProps) {
     
   return (
     <>
-      <div className={(props.isOpen) ? 'addNewBackground' : 'hidden'}>
+      <div className={(isOpen) ? 'addNewBackground' : 'hidden'}>
         <div className="addNewBase">
 
           <button type="button" className="closeForm floatRight" 

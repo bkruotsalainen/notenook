@@ -1,4 +1,5 @@
 .header {
+  color: #fff;
   width: 100%;
   height: 75px;
   background-color: #3F665A;
@@ -13,7 +14,11 @@
 
 .left {
   height: auto;
-  padding: 2em;
+  padding: 1em;
+}
+
+.right:hover {
+  color: #89c0af;
 }
 
 .headerLinks {
@@ -22,25 +27,17 @@
 
 .headerLinks li {
   float: left;
+  color: #fff;
   vertical-align: top;
-  margin-right: 1em;
+  padding: 1em;
+}
+
+.headerLinks li:hover {
+  color: #89c0af;
 }
 
 .homeLink {
-  padding-right: 2em;
-}
-
-a {
-  color: white;
-  text-decoration: none;
-}
-
-a:hover {
-  color: rgb(227, 226, 219);
-}
-
-a:active {
-  color: rgb(204, 202, 189);
+  margin: 0 1em;
 }
 
 @media screen and (max-width: 850px) {  
