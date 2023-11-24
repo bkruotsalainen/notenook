@@ -4,6 +4,13 @@ import Api from '../ApiHandler';
 import axios from 'axios';
 import Todo from './Todo';
 
+const months: string[] = [
+  'January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December'
+];
+  
+const timezone = 7200000;
+
 function HomeTodos(props: HomeTodoProps) {  
   const [todos, setTodos] = useState<Todo[]>([]);
   const [tags, setTags] = useState<Filter[]>([]);
@@ -13,7 +20,9 @@ function HomeTodos(props: HomeTodoProps) {
       try {
         const todosResponse = await Api.get('http://localhost:3000/todos');
         const tagsResponse = await Api.get('http://localhost:3000/tags');
-        setTodos(todosResponse.data);
+        const sortedData = todosResponse.data.sort((a: Todo, b: Todo) => 
+          new Date(a.doneBy) < new Date(b.doneBy) ? 1 : -1);
+        setTodos(sortedData);
         setTags(tagsResponse.data);
       } catch (error) {
         console.error('Error fetching data', error);
@@ -45,10 +54,12 @@ function HomeTodos(props: HomeTodoProps) {
 
   // Get string time from unix
   const getTime = (unix: number): string => {
-    const dateTime = new Date(unix);
+    const dateTime = new Date(unix + timezone);
 
-    const date = dateTime.getDate() + '.' + dateTime.getMonth() + '.' + dateTime.getFullYear();
-    const time = (dateTime.getHours() < 10 ? '0' : '') + dateTime.getHours() + ':' + 
+    const date = dateTime.getDate() + ' ' + months[dateTime.getMonth()] 
+    + ' ' + dateTime.getFullYear();
+
+    const time = (dateTime.getHours() < 10 ? '0' : '') + (dateTime.getHours()) + ':' + 
     (dateTime.getMinutes() < 10 ? '0' : '') + dateTime.getMinutes();
 
     return date + ' ' + time;

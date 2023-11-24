@@ -8,7 +8,9 @@ function AddNewTodo(props: AddNewTodoProps) {
   const [deadline, setDeadline] = useState<boolean>(false);
 
   const [filters, setFilters] = useState<Filter[]>([]);
-  const [activeTag, setActiveTag] = useState<string>('1');  
+  const [activeTag, setActiveTag] = useState<string>('1');
+
+  const timezone = 7200000;
   
   useEffect (() => {
     const fetchData = async () => {
@@ -41,11 +43,6 @@ function AddNewTodo(props: AddNewTodoProps) {
     borderRadius: '25px'
   };
 
-
-  const getUnix = (date: string): number => {
-    return Math.round((new Date(date)).getTime());
-  }; 
-
   const initialTodoData: Todo = {
     content: '',
     subtasks: [] as Subtask[],
@@ -54,9 +51,9 @@ function AddNewTodo(props: AddNewTodoProps) {
     deadline: deadline,
     done: false,
     tag: activeTag,
-    doneBy: getUnix(new Date().toString()),
-    createdAt: getUnix(new Date().toString()),
-    editedAt: getUnix(new Date().toString()),
+    doneBy: Date.now() - timezone,
+    createdAt: Date.now() - timezone,
+    editedAt: Date.now() - timezone,
     userId: '1',
     id: uuidv4()
   };
@@ -70,9 +67,11 @@ function AddNewTodo(props: AddNewTodoProps) {
   
   // Handle date change
   const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newDoneBy = e.target.value + ':00.00Z';
+    const newDoneBy = new Date(e.target.value);
+    const milliseconds = newDoneBy.getTime() - timezone;
     console.log(newDoneBy);
-    setTodoData({ ...todoData, doneBy: getUnix(newDoneBy) });
+    console.log(milliseconds);
+    setTodoData({ ...todoData, doneBy: milliseconds });
   };
   
   // Change title
@@ -132,13 +131,11 @@ function AddNewTodo(props: AddNewTodoProps) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // const combinedDateTimeString = `${formattedDate.slice(0 ,10)}T${todoData.time}Z`;
-
     const newTodo = {
       id: uuidv4(),
       userId: '1',
-      createdAt: getUnix(new Date().toString()),
-      editedAt: getUnix(new Date().toString()),
+      createdAt: initialTodoData.createdAt,
+      editedAt: initialTodoData.editedAt,
       doneBy: todoData.doneBy,
       content: todoData.content,
       subtasks: todoData.subtasks,
@@ -149,12 +146,9 @@ function AddNewTodo(props: AddNewTodoProps) {
       tag: activeTag,
     };
 
-    console.log(todoData.doneBy);
-
     try {
       const response = await axios.post('http://localhost:3000/todos', newTodo);
       console.log('Todo created:', response.data);
-
       setTodoData(initialTodoData);
       closePopup();
     } catch (error) {
@@ -182,7 +176,6 @@ function AddNewTodo(props: AddNewTodoProps) {
           onClick={() => closePopup()}>X</button>
         <p className="formTitle">{getTitle()}</p>
 
-        {/* Temporary solution for mockup! */}
         <center>
           {filters.map(f => 
           {

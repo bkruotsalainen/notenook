@@ -11,7 +11,9 @@ function HomeMemos(props: HomeMemoProps) {
       try {
         const memoResponse = await axios.get('http://localhost:3000/memos/');
         const tagResponse = await axios.get('http://localhost:3000/tags/');
-        setMemos(memoResponse.data);
+        const sortedData = memoResponse.data.sort((a: Memo, b: Memo) => 
+          a.createdAt < b.createdAt ? 1 : -1);
+        setMemos(sortedData);
         setTags(tagResponse.data);
       } catch (error) {
         console.error('Error fetching data', error);
@@ -36,7 +38,7 @@ function HomeMemos(props: HomeMemoProps) {
       </button>
       
       <h1>Latest memos</h1>
-      
+
       {memos.map(m => {
         return <Memo key={m.id} memo={m} findTag={findTag} />;
       })
