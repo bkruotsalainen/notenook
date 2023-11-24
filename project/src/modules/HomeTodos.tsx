@@ -9,7 +9,7 @@ const months: string[] = [
   
 const timezone = 7200000;
 
-function HomeTodos({searchValue, filterValues, tags, todos, refreshTodos}: HomeTodoProps) {  
+function HomeTodos({searchValue, filterValues, tags, todos, refreshTodos, handleTodoInEdit}: HomeTodoProps) {  
 // Update color of the task based on it's type (note, to do, to do list)
   const updateTaskColor = (todo: boolean, subtasksLength: number) => {
     if (todo === true && subtasksLength > 0) {
@@ -96,7 +96,8 @@ function HomeTodos({searchValue, filterValues, tags, todos, refreshTodos}: HomeT
       {todos.map((td: Todo) => 
         checkSearchValue(td) && checkFilter(td) && (
           <Todo key={td.id} td={td} updateTaskColor={updateTaskColor}
-            getIcon={getIcon} getTime={getTime} deleteToDo={deleteTodo}/>
+            getIcon={getIcon} getTime={getTime} deleteToDo={deleteTodo}
+            handleTodoInEdit={handleTodoInEdit}/>
         )
       )}
     </div>

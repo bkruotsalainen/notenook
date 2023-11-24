@@ -1,4 +1,4 @@
-function Todo({td, updateTaskColor, getIcon, getTime, deleteToDo}: TodoProps) { 
+function Todo({td, updateTaskColor, getIcon, getTime, deleteToDo, handleTodoInEdit}: TodoProps) { 
   return (
     <>
       <i style={{fontSize: '0.7em'}}>Posted {getTime(td.createdAt)}</i>
@@ -28,8 +28,9 @@ function Todo({td, updateTaskColor, getIcon, getTime, deleteToDo}: TodoProps) {
           </ul>
         </div>
 
-        <div style={{float: 'right', marginTop: '0.75em', marginRight: '0.75em', width: 'auto'}}>
-          <span onClick={() => deleteToDo(td.id)}>🗑️</span>
+        <div className="iconWrapper">
+          <div className="icon" onClick={() => handleTodoInEdit(td)}>✏️</div>
+          <div className="icon" onClick={() => deleteToDo(td.id)}>🗑️</div>
         </div> 
 
         <br />

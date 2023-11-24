@@ -37,7 +37,8 @@ interface TodoProps {
   getIcon: (string) => string,
   getTime: (number) => string,
   deleteToDo: (string) => void,
-  updateTaskColor: (boolean, number) => string
+  updateTaskColor: (boolean, number) => string,
+  handleTodoInEdit: (string) => void,
 }
 
 interface Memo {
@@ -106,7 +107,9 @@ interface HomeTodoProps {
   tags: Filter[], 
   searchValue: string,
   filterValues: string[],
-  refreshTodos: () => void
+  refreshTodos: () => void,
+  isOpen: boolean,
+  handleTodoInEdit: (string) => void
 }
 
 interface EditMemoProps {

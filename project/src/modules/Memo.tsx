@@ -37,9 +37,9 @@ function Memo(props: MemoProps) {
   return (
     <>
       <div className="memoWrapper" onClick={() => handleOpenMemo()}>
-        <div style={{float: 'right', width: 'auto'}}>
-          <span onClick={() => props.handleMemoInEdit(props.memo)}>✏️</span>
-          <span onClick={() => props.delete(props.memo.id)}>🗑️</span>
+      <div className="iconWrapper">
+          <div className="icon" onClick={() => props.handleMemoInEdit(props.memo)}>✏️</div>
+          <div className="icon" onClick={() => props.delete(props.memo.id)}>🗑️</div>
         </div> 
         <h3>{findTag(props.memo.tag)} {props.memo.title}</h3>
         <p>

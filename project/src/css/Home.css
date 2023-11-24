@@ -39,6 +39,20 @@ ul {
   width: 100%;
 }
 
+.iconWrapper {
+  float: right;
+  text-align: right;
+  min-width: 100px;
+  margin-right: 1em;
+}
+
+.icon {
+  font-size: 0.9em;
+  padding: 0.5em;
+  margin: 0.5em 0 0.5em 0;
+  display: inline-block;
+}
+
 .subtask {
   font-size: 0.95em;
 }
@@ -183,6 +197,10 @@ Input[type="checkbox"] {
 @media screen and (max-width: 800px) {  
   .weekViewBody, .hideMobile {
   display: none !important;
+  }
+
+  .icon {
+    font-size: 1.2em;
   }
 
   .homeMenuWrapper, .addNewButton {

@@ -1,17 +1,41 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-function EditMemo({ memoInEdit, isOpen, handleMemoInEdit, refreshMemos }: any) {
+function EditMemo({ memoInEdit, isOpen, handleMemoInEdit, refreshMemos, tags }: any) {
   const [title, setTitle] = useState<string>(memoInEdit === undefined ? 'Test title' : memoInEdit.title);
   const [content, setContent] = useState<string>(memoInEdit === undefined ? 'Test content' : memoInEdit.content);
+
+  const [activeTag, setActiveTag] = useState<string>(memoInEdit === undefined ? '1' : memoInEdit.tag);  
+
+  const filterStyle = {
+    fontSize: '1.8em',
+    margin: '0.2em',
+    padding: '0.2em',
+    display: 'inline',
+    backgroundColor: '#F5F1EB'
+  };
+
+  const activeFilterStyle = {
+    fontSize: '1.8em',
+    margin: '0.2em',
+    padding: '0.2em',
+    display: 'inline',
+    backgroundColor: '#FABC2A',
+    borderRadius: '25px'
+  };
 
   useEffect(() => {
     setTitle(memoInEdit.title);
     setContent(memoInEdit.content);
+    setActiveTag(memoInEdit.tag);
   }, [memoInEdit]);
 
   const closePopup = () => {
     handleMemoInEdit();
+  };
+
+  const handleTagSelection = (id: string) => {
+    setActiveTag(id);
   };
 
   const handleFormSubmit = async (e: React.FormEvent) => {
@@ -24,7 +48,7 @@ function EditMemo({ memoInEdit, isOpen, handleMemoInEdit, refreshMemos }: any) {
       content: content,
       createdAt: memoInEdit.createdAt,
       editedAt: Date.now(),
-      tag: memoInEdit.tag
+      tag: activeTag
     };
 
     try {
@@ -41,7 +65,17 @@ function EditMemo({ memoInEdit, isOpen, handleMemoInEdit, refreshMemos }: any) {
     <div className={(isOpen) ? 'addNewBackground' : 'hidden'}>
       <div className="addNewBase">
         <div className="addNewHeader">
-          <h1>Edit memo</h1>
+          <p className="formTitle">Edit memo</p> 
+          
+          <center>
+            {tags.map((f: Filter) => 
+            {
+              return <div key={f.id} style={f.id !== activeTag ? filterStyle : activeFilterStyle}
+                onClick={() => handleTagSelection(f.id)}>{f.icon}</div>
+            }
+            )}
+          </center>
+
           <button type="button" className="closeForm floatRight" onClick={() => closePopup()}>X</button>
         </div>
         <div className="addNewBody">
@@ -53,7 +87,7 @@ function EditMemo({ memoInEdit, isOpen, handleMemoInEdit, refreshMemos }: any) {
               <label>Content
                 <textarea className="addNewInput fullWidth" style={{ height: '300px' }} placeholder="Write whatever you want!" value={content} onChange={(e) => setContent(e.target.value)} />
               </label>
-              <button type="submit">Save</button>
+              <button type="submit" className="submitNew floatRight">Save</button>
             </form>
           </div>
         </div>

@@ -21,7 +21,7 @@ function HomeMemos(props: HomeMemoProps) {
       <h1>Latest memos</h1>
       {props.memos.map(m => 
         <Memo key={m.id} memo={m} delete={deleteMemo} tags={props.tags} handleMemoInEdit={props.handleMemoInEdit} refreshMemos={props.refreshMemos}/>
-      )};
+      )}
       
     </>
   );
