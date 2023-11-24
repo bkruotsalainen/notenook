@@ -1,6 +1,4 @@
-import { useEffect, useState } from 'react';
 import '../css/Home.css';
-import Api from '../ApiHandler';
 import axios from 'axios';
 import Todo from './Todo';
 
@@ -11,29 +9,8 @@ const months: string[] = [
   
 const timezone = 7200000;
 
-function HomeTodos({searchValue, filterValues}: HomeTodoProps) {  
-  const [todos, setTodos] = useState<Todo[]>([]);
-  const [tags, setTags] = useState<Filter[]>([]);
-
-  useEffect (() => {
-    const fetchData = async () => {
-      try {
-        const todosResponse = await Api.get('http://localhost:3000/todos');
-        const tagsResponse = await Api.get('http://localhost:3000/tags');
-        const sortedData = todosResponse.data.sort((a: Todo, b: Todo) => 
-          new Date(a.doneBy) < new Date(b.doneBy) ? 1 : -1);
-        setTodos(sortedData);
-        setTags(tagsResponse.data);
-      } catch (error) {
-        console.error('Error fetching data', error);
-      }
-    };
-
-    fetchData();
-  },
-  []);
-  
-  // Update color of the task based on it's type (note, to do, to do list)
+function HomeTodos({searchValue, filterValues, tags, todos}: HomeTodoProps) {  
+// Update color of the task based on it's type (note, to do, to do list)
   const updateTaskColor = (todo: boolean, subtasksLength: number) => {
     if (todo === true && subtasksLength > 0) {
       return '#86DEDE';
@@ -48,8 +25,13 @@ function HomeTodos({searchValue, filterValues}: HomeTodoProps) {
 
   // Get icon by id
   const getIcon = (tagId: string) => {
-    const filteredTags = tags.filter(t => t.id === tagId);
-    return filteredTags[0].icon;
+    const filteredTags = tags.filter((t: Filter) => t.id === tagId);
+
+    if (filteredTags[0] !== undefined) {
+      return filteredTags[0].icon;
+    }
+
+    return '';
   };
 
   // Get string time from unix
@@ -103,8 +85,6 @@ function HomeTodos({searchValue, filterValues}: HomeTodoProps) {
   const deleteTodo = async (id: string) => {
     try {
       await axios.delete(`http://localhost:3000/todos/${id}`);
-      const newTodos = todos.filter(td => td.id !== id);
-      setTodos(newTodos);
     } catch (error) {
       console.error('Error fetching data', error);
     }

@@ -22,6 +22,17 @@ function Memo(props: MemoProps) {
 
   const handleOpenMemo = () => {
     setOpenMemo(openMemo => !openMemo);
+  
+  };
+
+  const findTag = (id: string) => {
+    const tag = props.tags.filter(t => t.id === id);
+
+    if (tag[0] !== undefined) {
+      return tag[0].icon;
+    }
+  
+    return '';
   };
 
   return (
@@ -30,7 +41,7 @@ function Memo(props: MemoProps) {
         <div style={{float: 'right', width: 'auto'}}>
           <span onClick={() => props.delete(props.memo.id)}>🗑️</span>
         </div> 
-        <h3>{props.findTag(props.memo.tag)} {props.memo.title}</h3>
+        <h3>{findTag(props.memo.tag)} {props.memo.title}</h3>
         <p>
           {openMemo || props.memo.content.length < 250 ? props.memo.content : props.memo.content.slice(0, 250) + '...'}
         </p>

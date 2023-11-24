@@ -1,30 +1,15 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import '../css/AddNew.css';
 import axios from 'axios';
 
-function AddNewTodo({isOpen, handlePopUp}: AddNewTodoProps) {  
+function AddNewTodo({isOpen, handlePopUp, tags}: AddNewTodoProps) {  
   const [todo, setTodo] = useState<boolean>(false);
   const [deadline, setDeadline] = useState<boolean>(false);
 
-  const [filters, setFilters] = useState<Filter[]>([]);
   const [activeTag, setActiveTag] = useState<string>('1');
 
   const timezone = 7200000;
-  
-  useEffect (() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get('http://localhost:3000/tags/');
-        setFilters(response.data);
-      } catch (error) {
-        console.error('Error fetching data', error);
-      }
-    };
-
-    fetchData();
-  },
-  []);
 
   const filterStyle = {
     fontSize: '1.8em',
@@ -177,7 +162,7 @@ function AddNewTodo({isOpen, handlePopUp}: AddNewTodoProps) {
         <p className="formTitle">{getTitle()}</p>
 
         <center>
-          {filters.map(f => 
+          {tags.map((f: Filter) => 
           {
             return <div key={f.id} style={f.id !== activeTag ? filterStyle : activeFilterStyle}
               onClick={() => handleTagSelection(f.id)}>{f.icon}</div>;

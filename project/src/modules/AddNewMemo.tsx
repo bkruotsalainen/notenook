@@ -1,12 +1,11 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
-function AddNewMemo({isOpen, handlePopUp}: AddNewMemoProps) {  
+function AddNewMemo({isOpen, handlePopUp, tags}: AddNewMemoProps) {  
   const [title, setTitle] = useState<string>('');
   const [content, setContent] = useState<string>('');
   
-  const [filters, setFilters] = useState<Filter[]>([]);
   const [activeTag, setActiveTag] = useState<string>('1');  
 
   const filterStyle = {
@@ -25,20 +24,6 @@ function AddNewMemo({isOpen, handlePopUp}: AddNewMemoProps) {
     backgroundColor: '#FABC2A',
     borderRadius: '25px'
   };
-
-  useEffect (() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get('http://localhost:3000/tags/');
-        setFilters(response.data);
-      } catch (error) {
-        console.error('Error fetching data', error);
-      }
-    };
-
-    fetchData();
-  },
-  []);
 
   // Close popup
   const closePopup = () => {
@@ -92,7 +77,7 @@ function AddNewMemo({isOpen, handlePopUp}: AddNewMemoProps) {
           <p className="formTitle">Add new memo</p>
 
           <center>
-            {filters.map(f => 
+            {tags.map((f: Filter) => 
             {
               return <div key={f.id} style={f.id !== activeTag ? filterStyle : activeFilterStyle}
                 onClick={() => handleTagSelection(f.id)}>{f.icon}</div>;

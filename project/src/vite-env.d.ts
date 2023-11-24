@@ -54,9 +54,9 @@ interface Memo {
 }
 
 interface MemoProps {
-  memo: Memo
-  findTag: (string) => string,
-  delete: (string) => void
+  memo: Memo,
+  delete: (string) => void,
+  tags: Filter[]
 }
 
 interface Subtask {
@@ -67,12 +67,14 @@ interface Subtask {
 
 interface AddNewTodoProps {
   isOpen: boolean,
-  handlePopUp: () => void
+  handlePopUp: () => void,
+  tags: Filter[]
 }
 
 interface AddNewMemoProps {
   isOpen: boolean,
-  handlePopUp: () => void
+  handlePopUp: () => void,
+  tags: Filter[]
 }
 
 interface HomeTaskGroupProps {
@@ -82,14 +84,19 @@ interface HomeTaskGroupProps {
 interface HomeMenuProps {
   handlePopUp: () => void,
   handleSearch: (e) => void,
-  handleFilters: (string) => void
+  handleFilters: (string) => void,
+  tags: Filter[]
 }
 
 interface HomeMemoProps {
-  handlePopUp: () => void
+  handlePopUp: () => void,
+  tags: Filter[],
+  memos: Memo[]
 }
 
 interface HomeTodoProps {
   searchValue: string,
-  filterValues: string[]
+  filterValues: string[],
+  tags: Filter[], 
+  todos: Todo[]
 }
