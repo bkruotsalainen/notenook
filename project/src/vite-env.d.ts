@@ -34,11 +34,12 @@ interface Todo {
 
 interface TodoProps {
   td: Todo,
+  refreshTodos: () => void,
   getIcon: (string) => string,
   getTime: (number) => string,
   deleteToDo: (string) => void,
-  updateTaskColor: (boolean, number) => string,
   handleTodoInEdit: (string) => void,
+  updateTaskColor: (boolean, number) => string,
 }
 
 interface Memo {

@@ -57,7 +57,7 @@ function EditTodo({ isOpen, handleTodoInEdit, todoInEdit, refreshTodos, tags }: 
       id: todoInEdit.id,
       userId: todoInEdit.userId,
       createdAt: todoInEdit.createdAt,
-      editedAt: Date.now(),
+      editedAt: Date.now()-timezone,
       doneBy: doneBy,
       content: content,
       subtasks: subtasks,

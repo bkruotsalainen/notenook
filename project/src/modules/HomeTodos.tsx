@@ -1,6 +1,7 @@
 import '../css/Home.css';
 import axios from 'axios';
 import Todo from './Todo';
+import { useState } from 'react';
 
 const months: string[] = [
   'January', 'February', 'March', 'April', 'May', 'June',
@@ -95,9 +96,15 @@ function HomeTodos({searchValue, filterValues, tags, todos, refreshTodos, handle
     <div className="calendarBody">
       {todos.map((td: Todo) => 
         checkSearchValue(td) && checkFilter(td) && (
-          <Todo key={td.id} td={td} updateTaskColor={updateTaskColor}
-            getIcon={getIcon} getTime={getTime} deleteToDo={deleteTodo}
-            handleTodoInEdit={handleTodoInEdit}/>
+          <Todo
+            key={td.id}
+            td={td}
+            updateTaskColor={updateTaskColor}
+            getIcon={getIcon}
+            getTime={getTime}
+            deleteToDo={deleteTodo}
+            handleTodoInEdit={handleTodoInEdit}
+            refreshTodos={refreshTodos}/>
         )
       )}
     </div>

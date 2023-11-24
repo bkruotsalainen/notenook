@@ -41,21 +41,24 @@
       "id": "31d657d2-91df-4634-bdc0-697e37c0364a",
       "userId": "1",
       "createdAt": 1700809793229,
-      "editedAt": 1700858419986,
+      "editedAt": 1700855781228,
       "doneBy": 1700809769683,
       "content": "Have a movie marathon!",
       "subtasks": [
         {
           "id": "6f2b8510-47e1-492b-a167-4dc882497812",
-          "content": "Jurassic Park"
+          "content": "Jurassic Park",
+          "done": true
         },
         {
           "id": "ba9bbb47-e5ec-4e07-b85b-dc4479b5e0ab",
-          "content": "The Lost World: Jurassic Park II"
+          "content": "The Lost World: Jurassic Park II",
+          "done": false
         },
         {
           "id": "3e555d66-a42e-4135-bd22-43070ef90f19",
-          "content": "Jurassic Park III"
+          "content": "Jurassic Park III",
+          "done": false
         }
       ],
       "repeatInterval": "never",
@@ -68,8 +71,8 @@
       "id": "5814ddce-6581-48d1-af98-5b12535b00cb",
       "userId": "1",
       "createdAt": 1700809865839,
-      "editedAt": 1700857689568,
-      "doneBy": 976608720000,
+      "editedAt": 1700855774549,
+      "doneBy": 1704139140000,
       "content": "Have a new year pizza party!",
       "subtasks": [],
       "repeatInterval": "never",
@@ -82,23 +85,23 @@
       "id": "db773395-b8dc-426b-b5c5-9002fae47a45",
       "userId": "1",
       "createdAt": 1700812596913,
-      "editedAt": 1700857507807,
-      "doneBy": 1700179200000,
+      "editedAt": 1700855784442,
+      "doneBy": 1700222400000,
       "content": "Remember to buy",
       "subtasks": [
         {
           "id": "de175bec-1190-4040-a22f-d4ce24034b90",
           "content": "Milk",
-          "done": false
-        },
-        {
-          "id": "601f7cf4-c383-4377-8524-9f6d4f53397d",
-          "content": "Carrots",
-          "done": false
+          "done": true
         },
         {
           "id": "f0126365-9f2a-4291-9e73-f0e0cf928e49",
           "content": "Envelopes",
+          "done": false
+        },
+        {
+          "id": "bdb86375-ddb7-4bfb-a1f3-ba635ed07243",
+          "content": "Apples",
           "done": false
         }
       ],
@@ -117,7 +120,7 @@
       "content": "Rearrange computer desk",
       "subtasks": [],
       "repeatInterval": "never",
-      "todo": true,
+      "todo": false,
       "deadline": true,
       "done": false,
       "tag": "1"

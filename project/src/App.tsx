@@ -61,7 +61,7 @@ function App() {
         const tagResponse = await axios.get('http://localhost:3000/tags/');
 
         const sortedTodos = todoResponse.data.sort((a: Todo, b: Todo) => 
-          a.createdAt < b.createdAt ? 1 : -1);
+          a.doneBy < b.doneBy ? 1 : -1);
 
         const sortedMemos = memoResponse.data.sort((a: Todo, b: Todo) => 
           a.createdAt < b.createdAt ? 1 : -1);
@@ -83,7 +83,7 @@ function App() {
       const todoResponse = await axios.get('http://localhost:3000/todos/');
 
       const sortedTodos = todoResponse.data.sort((a: Todo, b: Todo) => 
-        a.createdAt < b.createdAt ? 1 : -1);
+        a.doneBy < b.doneBy ? 1 : -1);
 
       setTodos(sortedTodos);
     } catch (error) {
