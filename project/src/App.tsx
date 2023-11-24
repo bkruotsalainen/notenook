@@ -47,6 +47,33 @@ function App() {
   },
   []);
 
+  const refreshTodos = async () => {
+    try {
+      const todoResponse = await axios.get('http://localhost:3000/todos/');
+
+      const sortedTodos = todoResponse.data.sort((a: Todo, b: Todo) => 
+        a.createdAt < b.createdAt ? 1 : -1);
+
+      setTodos(sortedTodos);
+    } catch (error) {
+      console.error('Error fetching data', error);
+    }
+  };
+
+  const refreshMemos = async () => {
+    try {
+      const memoResponse = await axios.get('http://localhost:3000/memos/');
+
+      const sortedMemos = memoResponse.data.sort((a: Memo, b: Memo) => 
+        a.createdAt < b.createdAt ? 1 : -1);
+
+      setMemos(sortedMemos);
+    } catch (error) {
+      console.error('Error fetching data', error);
+    }
+  };
+
+
   // Open and close popup
   const handleTodoPopUp = () => {
     setIsTodoOpen(!isTodoOpen);
@@ -76,8 +103,9 @@ function App() {
 
   return (
     <>
-      <AddNew isOpen={isTodoOpen} handlePopUp={handleTodoPopUp} tags={tags} />
-      <AddNewMemo isOpen={isMemoOpen} handlePopUp={handleMemoPopUp} tags={tags}/>
+      <AddNew isOpen={isTodoOpen} handlePopUp={handleTodoPopUp} tags={tags} refreshTodos={refreshTodos}/>
+      <AddNewMemo isOpen={isMemoOpen} handlePopUp={handleMemoPopUp} tags={tags} refreshMemos={refreshMemos}/>
+
       <Header/>
 
       <div className="flex-container">
@@ -89,11 +117,12 @@ function App() {
 
         <div className="homeTodos">
           <HomeTodos searchValue={searchValue} filterValues={filterSelected} tags={tags} 
-            todos={todos}/>
+            todos={todos} refreshTodos={refreshTodos}/>
         </div>
 
         <div className="homeMemos">
-          <HomeMemos handlePopUp={handleMemoPopUp} tags={tags} memos={memos}/>
+          <HomeMemos handlePopUp={handleMemoPopUp} tags={tags} memos={memos}
+            refreshMemos={refreshMemos}/>
         </div>
 
       </div>

@@ -34,10 +34,10 @@ interface Todo {
 
 interface TodoProps {
   td: Todo,
-  updateTaskColor: (boolean, number) => string,
   getIcon: (string) => string,
   getTime: (number) => string,
-  deleteToDo: (string) => void
+  deleteToDo: (string) => void,
+  updateTaskColor: (boolean, number) => string
 }
 
 interface Memo {
@@ -55,8 +55,8 @@ interface Memo {
 
 interface MemoProps {
   memo: Memo,
-  delete: (string) => void,
-  tags: Filter[]
+  tags: Filter[],
+  delete: (string) => void
 }
 
 interface Subtask {
@@ -67,14 +67,16 @@ interface Subtask {
 
 interface AddNewTodoProps {
   isOpen: boolean,
+  tags: Filter[],
   handlePopUp: () => void,
-  tags: Filter[]
+  refreshTodos: () => void
 }
 
 interface AddNewMemoProps {
+  tags: Filter[],
   isOpen: boolean,
   handlePopUp: () => void,
-  tags: Filter[]
+  refreshMemos: () => void
 }
 
 interface HomeTaskGroupProps {
@@ -82,21 +84,23 @@ interface HomeTaskGroupProps {
 }
 
 interface HomeMenuProps {
+  tags: Filter[],
   handlePopUp: () => void,
   handleSearch: (e) => void,
-  handleFilters: (string) => void,
-  tags: Filter[]
+  handleFilters: (string) => void
 }
 
 interface HomeMemoProps {
-  handlePopUp: () => void,
   tags: Filter[],
-  memos: Memo[]
+  memos: Memo[],
+  handlePopUp: () => void,
+  refreshMemos: () => void
 }
 
 interface HomeTodoProps {
+  todos: Todo[],
+  tags: Filter[], 
   searchValue: string,
   filterValues: string[],
-  tags: Filter[], 
-  todos: Todo[]
+  refreshTodos: () => void
 }

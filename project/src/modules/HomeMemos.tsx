@@ -5,6 +5,7 @@ function HomeMemos(props: HomeMemoProps) {
   const deleteMemo = async (id: string) => {
     try {
       await axios.delete(`http://localhost:3000/memos/${id}`);
+      props.refreshMemos();
     } catch (error) {
       console.error('Error fetching data', error);
     }

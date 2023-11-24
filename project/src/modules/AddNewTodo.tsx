@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 import '../css/AddNew.css';
 import axios from 'axios';
 
-function AddNewTodo({isOpen, handlePopUp, tags}: AddNewTodoProps) {  
+function AddNewTodo({isOpen, handlePopUp, tags, refreshTodos}: AddNewTodoProps) {  
   const [todo, setTodo] = useState<boolean>(false);
   const [deadline, setDeadline] = useState<boolean>(false);
 
@@ -136,6 +136,7 @@ function AddNewTodo({isOpen, handlePopUp, tags}: AddNewTodoProps) {
       console.log('Todo created:', response.data);
       setTodoData(initialTodoData);
       closePopup();
+      refreshTodos();
     } catch (error) {
       console.error('Error creating todo:', error);
     }

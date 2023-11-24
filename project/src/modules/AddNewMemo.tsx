@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
-function AddNewMemo({isOpen, handlePopUp, tags}: AddNewMemoProps) {  
+function AddNewMemo({isOpen, handlePopUp, tags, refreshMemos}: AddNewMemoProps) {  
   const [title, setTitle] = useState<string>('');
   const [content, setContent] = useState<string>('');
   
@@ -52,6 +52,7 @@ function AddNewMemo({isOpen, handlePopUp, tags}: AddNewMemoProps) {
       const response = await axios.post('http://localhost:3000/memos', newMemo);
       console.log('Memo created:', response.data);
       closePopup();
+      refreshMemos();
     } catch (error) {
       console.error('Error creating memo:', error);
     }

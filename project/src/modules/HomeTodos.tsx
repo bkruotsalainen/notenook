@@ -9,7 +9,7 @@ const months: string[] = [
   
 const timezone = 7200000;
 
-function HomeTodos({searchValue, filterValues, tags, todos}: HomeTodoProps) {  
+function HomeTodos({searchValue, filterValues, tags, todos, refreshTodos}: HomeTodoProps) {  
 // Update color of the task based on it's type (note, to do, to do list)
   const updateTaskColor = (todo: boolean, subtasksLength: number) => {
     if (todo === true && subtasksLength > 0) {
@@ -85,6 +85,7 @@ function HomeTodos({searchValue, filterValues, tags, todos}: HomeTodoProps) {
   const deleteTodo = async (id: string) => {
     try {
       await axios.delete(`http://localhost:3000/todos/${id}`);
+      refreshTodos();
     } catch (error) {
       console.error('Error fetching data', error);
     }
