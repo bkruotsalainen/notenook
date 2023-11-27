@@ -9,8 +9,6 @@ function AddNewTodo({isOpen, handlePopUp, tags, refreshTodos}: AddNewTodoProps) 
 
   const [activeTag, setActiveTag] = useState<string>('1');
 
-  const timezone = 7200000;
-
   const filterStyle = {
     fontSize: '1.8em',
     margin: '0.2em',
@@ -36,9 +34,9 @@ function AddNewTodo({isOpen, handlePopUp, tags, refreshTodos}: AddNewTodoProps) 
     deadline: deadline,
     done: false,
     tag: activeTag,
-    doneBy: Date.now() - timezone,
-    createdAt: Date.now() - timezone,
-    editedAt: Date.now() - timezone,
+    doneBy: Date.now() + 604800000,
+    createdAt: Date.now(),
+    editedAt: Date.now(),
     userId: '1',
     id: uuidv4()
   });
@@ -51,7 +49,7 @@ function AddNewTodo({isOpen, handlePopUp, tags, refreshTodos}: AddNewTodoProps) 
   // Handle date change
   const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newDoneBy = new Date(e.target.value);
-    const milliseconds = newDoneBy.getTime() - timezone;
+    const milliseconds = newDoneBy.getTime();
     console.log(newDoneBy);
     console.log(milliseconds);
     setTodoData({ ...todoData, doneBy: milliseconds });
@@ -117,7 +115,7 @@ function AddNewTodo({isOpen, handlePopUp, tags, refreshTodos}: AddNewTodoProps) 
       id: uuidv4(),
       userId: '1',
       createdAt: Date.now(),
-      editedAt: Date.now,
+      editedAt: Date.now(),
       doneBy: todoData.doneBy,
       content: todoData.content,
       subtasks: todoData.subtasks,

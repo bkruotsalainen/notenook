@@ -150,7 +150,7 @@
       "repeatInterval": "never",
       "todo": true,
       "deadline": false,
-      "done": true,
+      "done": false,
       "tag": "2"
     }
   ],

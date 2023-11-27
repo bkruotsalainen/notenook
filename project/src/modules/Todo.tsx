@@ -54,7 +54,7 @@ function Todo({td, updateTaskColor, getIcon, getTime, deleteToDo, handleTodoInEd
     <>
       <i style={{fontSize: '0.7em'}}>
         {
-          (getTime(td.createdAt) !== getTime(td.editedAt)) 
+          (td.createdAt !== td.editedAt) 
             ? 'Created ' + getTime(td.createdAt) + ', edited ' + getTime(td.editedAt)
             : 'Created at ' + getTime(td.createdAt)
         }
