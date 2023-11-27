@@ -1,9 +1,6 @@
 import '../css/Header.css';
 
 function Header() {
-  const displayStyle = {
-    display: 'none'
-  };
 
   return (
     <div className="header">
@@ -12,7 +9,7 @@ function Header() {
       </div>      
       
       <div className="left">
-        <ul className="headerLinks" style={displayStyle}>
+        <ul className="headerLinks">
           <li className="homeLink">
             To do
           </li>

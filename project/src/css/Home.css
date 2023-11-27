@@ -182,13 +182,13 @@ Input[type="checkbox"] {
   background-color: #fff;
   box-shadow: 1px 1px #D4D4D4;
   border: 1px solid rgb(222, 222, 222);
-  max-width: 30vw;
+  width: 30vw;
   padding: 1em;
   margin: 0 1em 1em 0em;
 }
 
 /* Home - Scalability */
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1550px) {
   .homeMemos {
     display: none !important;
   }

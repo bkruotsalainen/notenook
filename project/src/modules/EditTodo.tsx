@@ -1,8 +1,8 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
-function EditTodo({ isOpen, handleTodoInEdit, todoInEdit, refreshTodos, tags }: any) {
+function EditTodo({ isOpen, handleTodoInEdit, todoInEdit, refreshTodos, tags }: EditTodoProps) {
   const [content, setContent] = useState<string>(todoInEdit?.content || '');
 
   const [doneBy, setDoneBy] = useState<number>(todoInEdit?.doneBy || Date.now());
@@ -43,7 +43,7 @@ function EditTodo({ isOpen, handleTodoInEdit, todoInEdit, refreshTodos, tags }: 
     borderRadius: '25px'
   };
   const closePopup = () => {
-    handleTodoInEdit();
+    handleTodoInEdit(todoInEdit);
   };
 
   const handleTagSelection = (id: string) => {
@@ -62,7 +62,6 @@ function EditTodo({ isOpen, handleTodoInEdit, todoInEdit, refreshTodos, tags }: 
       content: content,
       subtasks: subtasks,
       repeatInterval: todoInEdit.repeatInterval,
-      repeatUntil: todoInEdit.repeatUntil,
       todo: todoChecked,
       deadline: deadlineChecked,
       done: todoInEdit.done,
@@ -104,7 +103,7 @@ function EditTodo({ isOpen, handleTodoInEdit, todoInEdit, refreshTodos, tags }: 
             {tags.map((f: Filter) => 
             {
               return <div key={f.id} style={f.id !== activeTag ? filterStyle : activeFilterStyle}
-                onClick={() => handleTagSelection(f.id)}>{f.icon}</div>
+                onClick={() => handleTagSelection(f.id)}>{f.icon}</div>;
             }
             )}
           </center>
@@ -115,80 +114,80 @@ function EditTodo({ isOpen, handleTodoInEdit, todoInEdit, refreshTodos, tags }: 
         <div className="addNewBody">
           <div className="addNewForm">
 
-        <br />
+            <br />
 
-        {/* To do checkbox */}
-        <form onSubmit={handleFormSubmit}>
-          <label>
-            <input type="checkbox" className="addNewInput" 
-            checked={todoChecked}
-            onChange={() => setTodoChecked(!todoChecked)}/> 
+            {/* To do checkbox */}
+            <form onSubmit={handleFormSubmit}>
+              <label>
+                <input type="checkbox" className="addNewInput" 
+                  checked={todoChecked}
+                  onChange={() => setTodoChecked(!todoChecked)}/> 
                 To do
-          </label>
+              </label>
           
-          <div className="marginTop" />
+              <div className="marginTop" />
 
-          {/* To do content */}
-          <input className="addNewInput fullWidth"
-            placeholder="What you need to do?"
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-             />
+              {/* To do content */}
+              <input className="addNewInput fullWidth"
+                placeholder="What you need to do?"
+                value={content}
+                onChange={(e) => setContent(e.target.value)}
+              />
                                 
-          {(todoChecked) ? <div className="marginTop" /> : ''}
+              {(todoChecked) ? <div className="marginTop" /> : ''}
 
-          {/* Subtasks */}
-          {todoChecked && subtasks.map((st, index) => (
-            <div key={st.id} style={{textAlign: 'right'}}>
-            <input style={{width: '85%', border: '1px solid black'}} 
-            key={index}
-            className="addNewInput fullWidth"
-            value={subtasks[index].content}
-            onChange={(e) => {
-              const newSubtasks = [...subtasks];
-              newSubtasks[index].content = e.target.value;
-              setSubtasks(newSubtasks);
-            }}/>
+              {/* Subtasks */}
+              {todoChecked && subtasks.map((st, index) => (
+                <div key={st.id} style={{textAlign: 'right'}}>
+                  <input style={{width: '85%', border: '1px solid black'}} 
+                    key={index}
+                    className="addNewInput fullWidth"
+                    value={subtasks[index].content}
+                    onChange={(e) => {
+                      const newSubtasks = [...subtasks];
+                      newSubtasks[index].content = e.target.value;
+                      setSubtasks(newSubtasks);
+                    }}/>
 
-            <span className="deleteSubtask" 
-            onClick={() => removeSubtask(st.id)}>
+                  <span className="deleteSubtask" 
+                    onClick={() => removeSubtask(st.id)}>
             🗑️</span>
-        </div>
-            ))}
+                </div>
+              ))}
 
-          {(todoChecked) 
-            ? <button type="button" 
-              className="addSubtask fullLength" 
-              onClick={(e) => addSubtask(e)}>
-              {subtasks.length > 0 
-                ? 'Add another subtask!' 
-                : 'Add subtask!'}</button> 
-            : ''}
+              {(todoChecked) 
+                ? <button type="button" 
+                  className="addSubtask fullLength" 
+                  onClick={(e) => addSubtask(e)}>
+                  {subtasks.length > 0 
+                    ? 'Add another subtask!' 
+                    : 'Add subtask!'}</button> 
+                : ''}
 
-        <div className="marginTop" />
+              <div className="marginTop" />
 
-          {/* To do date */}
-          <label>
+              {/* To do date */}
+              <label>
           Date
-            <input
-              type="datetime-local"
-              className="addNewInput fullWidth" 
-              onChange={(e) => setDoneBy(Date.parse(e.target.value)-timezone)}
-            />
-          </label>
+                <input
+                  type="datetime-local"
+                  className="addNewInput fullWidth" 
+                  onChange={(e) => setDoneBy(Date.parse(e.target.value)-timezone)}
+                />
+              </label>
 
-          {/* To do deadline checkbox */}
-          <label>
-            <input type="checkbox" className="addNewInput"  checked={deadlineChecked} 
-            onChange={e => setDeadlineChecked(!deadlineChecked)}/> 
+              {/* To do deadline checkbox */}
+              <label>
+                <input type="checkbox" className="addNewInput"  checked={deadlineChecked} 
+                  onChange={() => setDeadlineChecked(!deadlineChecked)}/> 
             Add deadline
-          </label>
+              </label>
 
-          <div className="marginTop" />
+              <div className="marginTop" />
 
-          <button type="submit" 
-            className="submitNew floatRight">Submit</button>
-          </form>
+              <button type="submit" 
+                className="submitNew floatRight">Submit</button>
+            </form>
 
           </div>
         </div>

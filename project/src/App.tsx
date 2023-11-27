@@ -16,7 +16,7 @@ import AddNewMemo from './modules/AddNewMemo.tsx';
 
 function App() {
   const [isTodoOpen, setIsTodoOpen] = useState<boolean>(false);
-  const [isMemoOpen, setIsMemoOpen] = useState<boolean>(false)
+  const [isMemoOpen, setIsMemoOpen] = useState<boolean>(false);
   
   const [isMemoEditOpen, setIsMemoEditOpen] = useState<boolean>(false);
   const [isTodoEditOpen, setIsTodoEditOpen] = useState<boolean>(false);
@@ -29,28 +29,28 @@ function App() {
   const [tags, setTags] = useState<Filter[]>([]);
 
   const [todoInEdit, setTodoInEdit] = useState<Todo>(    {
-    "id": "29f5b13d-9eaa-4599-8a15-1d83c4e0deea",
-    "userId": "1",
-    "createdAt": 1700813408344,
-    "editedAt": 1700813408344,
-    "doneBy": 1702454400000,
-    "content": "If you see this, something went wrong :(",
-    "subtasks": [],
-    "repeatInterval": "never",
-    "todo": false,
-    "deadline": true,
-    "done": false,
-    "tag": "1"
+    'id': '29f5b13d-9eaa-4599-8a15-1d83c4e0deea',
+    'userId': '1',
+    'createdAt': 1700813408344,
+    'editedAt': 1700813408344,
+    'doneBy': 1702454400000,
+    'content': 'If you see this, something went wrong :(',
+    'subtasks': [],
+    'repeatInterval': 'never',
+    'todo': false,
+    'deadline': true,
+    'done': false,
+    'tag': '1'
   });
 
   const [memoInEdit, setMemoInEdit] = useState<Memo>({
-    id: "2b8dd605-c961-4ddf-affc-d4c1bf13eb77",
-    userId: "1",
-    title: "This is a test!",
-    content: "If you see this, something went wrong :(",
+    id: '2b8dd605-c961-4ddf-affc-d4c1bf13eb77',
+    userId: '1',
+    title: 'This is a test!',
+    content: 'If you see this, something went wrong :(',
     createdAt: 1700837066500,
     editedAt: 1700837066500,
-    tag: "1"
+    tag: '1'
   });
 
   useEffect (() => {
@@ -156,9 +156,9 @@ function App() {
   return (
     <>
       <EditTodo isOpen={isTodoEditOpen} handleTodoInEdit={handleTodoInEdit} todoInEdit={todoInEdit} 
-      refreshTodos={refreshTodos} tags={tags}/>
+        refreshTodos={refreshTodos} tags={tags}/>
       <EditMemo isOpen={isMemoEditOpen} handleMemoInEdit={handleMemoInEdit} memoInEdit={memoInEdit} 
-      refreshMemos={refreshMemos} tags={tags}/>
+        refreshMemos={refreshMemos} tags={tags}/>
 
       <AddNewTodo isOpen={isTodoOpen} handlePopUp={handleTodoPopUp} tags={tags} refreshTodos={refreshTodos}/>
       <AddNewMemo isOpen={isMemoOpen} handlePopUp={handleMemoPopUp} tags={tags} refreshMemos={refreshMemos}/>
@@ -179,7 +179,8 @@ function App() {
 
         <div className="homeMemos">
           <HomeMemos handlePopUp={handleMemoPopUp} tags={tags} memos={memos}
-            refreshMemos={refreshMemos} isOpen={isMemoEditOpen} handleMemoInEdit={handleMemoInEdit} />
+            refreshMemos={refreshMemos} isOpen={isMemoEditOpen} handleMemoInEdit={handleMemoInEdit} 
+            searchValue={searchValue} filterValues={filterSelected} />
         </div>
 
       </div>

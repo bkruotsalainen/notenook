@@ -97,10 +97,12 @@ interface HomeMenuProps {
 interface HomeMemoProps {
   tags: Filter[],
   memos: Memo[],
+  isOpen: boolean,
+  searchValue: string,
+  filterValues: string[]
   handlePopUp: () => void,
   refreshMemos: () => void,
-  isOpen: boolean,
-  handleMemoInEdit: (string) => void
+  handleMemoInEdit: (string) => void,
 }
 
 interface HomeTodoProps {
@@ -116,5 +118,15 @@ interface HomeTodoProps {
 interface EditMemoProps {
   memoInEdit: Memo,
   isOpen: boolean
-  handleMemoInEdit: (Memo) => void
+  handleMemoInEdit: (Memo) => void,
+  refreshMemos: () => void,
+  tags: Filter[]
+}
+
+interface EditTodoProps {
+  isOpen: boolean,
+  handleTodoInEdit: (Todo) => void,
+  todoInEdit: Todo,
+  refreshTodos: () => void,
+  tags: Filter[]
 }

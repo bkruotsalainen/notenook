@@ -1,7 +1,7 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
-function EditMemo({ memoInEdit, isOpen, handleMemoInEdit, refreshMemos, tags }: any) {
+function EditMemo({ memoInEdit, isOpen, handleMemoInEdit, refreshMemos, tags }: EditMemoProps) {
   const [title, setTitle] = useState<string>(memoInEdit === undefined ? 'Test title' : memoInEdit.title);
   const [content, setContent] = useState<string>(memoInEdit === undefined ? 'Test content' : memoInEdit.content);
 
@@ -31,7 +31,7 @@ function EditMemo({ memoInEdit, isOpen, handleMemoInEdit, refreshMemos, tags }: 
   }, [memoInEdit]);
 
   const closePopup = () => {
-    handleMemoInEdit();
+    handleMemoInEdit(memoInEdit);
   };
 
   const handleTagSelection = (id: string) => {
@@ -43,7 +43,7 @@ function EditMemo({ memoInEdit, isOpen, handleMemoInEdit, refreshMemos, tags }: 
 
     const updatedMemo = {
       id: memoInEdit.id,
-      userid: memoInEdit.userid,
+      userId: memoInEdit.userId,
       title: title,
       content: content,
       createdAt: memoInEdit.createdAt,
@@ -71,7 +71,7 @@ function EditMemo({ memoInEdit, isOpen, handleMemoInEdit, refreshMemos, tags }: 
             {tags.map((f: Filter) => 
             {
               return <div key={f.id} style={f.id !== activeTag ? filterStyle : activeFilterStyle}
-                onClick={() => handleTagSelection(f.id)}>{f.icon}</div>
+                onClick={() => handleTagSelection(f.id)}>{f.icon}</div>;
             }
             )}
           </center>

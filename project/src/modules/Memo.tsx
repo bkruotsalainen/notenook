@@ -37,7 +37,7 @@ function Memo(props: MemoProps) {
   return (
     <>
       <div className="memoWrapper" onClick={() => handleOpenMemo()}>
-      <div className="iconWrapper">
+        <div className="iconWrapper">
           <div className="icon" onClick={() => props.handleMemoInEdit(props.memo)}>✏️</div>
           <div className="icon" onClick={() => props.delete(props.memo.id)}>🗑️</div>
         </div> 

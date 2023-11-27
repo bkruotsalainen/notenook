@@ -23,6 +23,7 @@
 
 .headerLinks {
   list-style-type: none;
+  display: none;
 }
 
 .headerLinks li {
@@ -40,9 +41,20 @@
   margin: 0 1em;
 }
 
+/* Header - Scalability */
+@media screen and (max-width: 1550px) {
+  .headerLinks {
+    display: inline-block;
+  }
+}
+
 @media screen and (max-width: 850px) {  
   .header {
     height: 50px !important;
+  }
+
+  .headerLinks li {
+    padding: 0 1em;
   }
   
   .right {

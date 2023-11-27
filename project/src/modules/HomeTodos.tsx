@@ -1,7 +1,6 @@
 import '../css/Home.css';
 import axios from 'axios';
 import Todo from './Todo';
-import { useState } from 'react';
 
 const months: string[] = [
   'January', 'February', 'March', 'April', 'May', 'June',

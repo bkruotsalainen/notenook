@@ -13,9 +13,9 @@
       "id": "aefff4e4-b071-4f53-a56d-7bc3d42108f4",
       "userId": "1",
       "createdAt": 1700809684780,
-      "editedAt": 1700809684780,
+      "editedAt": 1701064438900,
       "doneBy": 1703447940000,
-      "content": "Have a great Christmas!",
+      "content": "Have a great Christmas! :)",
       "subtasks": [],
       "repeatInterval": "never",
       "todo": false,
@@ -136,8 +136,22 @@
       "repeatInterval": "never",
       "todo": true,
       "deadline": true,
-      "done": false,
+      "done": true,
       "tag": "1"
+    },
+    {
+      "id": "837a0d29-2279-47a4-9d4a-b894c848364b",
+      "userId": "1",
+      "createdAt": 1701064457654,
+      "editedAt": 1701064457654,
+      "doneBy": 1701064356947,
+      "content": "Wash dishes",
+      "subtasks": [],
+      "repeatInterval": "never",
+      "todo": true,
+      "deadline": false,
+      "done": false,
+      "tag": "2"
     }
   ],
   "memos": [

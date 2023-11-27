@@ -1,5 +1,5 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 function Todo({td, updateTaskColor, getIcon, getTime, deleteToDo, handleTodoInEdit, refreshTodos}: TodoProps) { 
   const [isTaskDone, setIsTaskDone] = useState<boolean>(false); 
@@ -42,11 +42,11 @@ function Todo({td, updateTaskColor, getIcon, getTime, deleteToDo, handleTodoInEd
   return (
     <>
       <i style={{fontSize: '0.7em'}}>
-      {
-      (getTime(td.createdAt) !== getTime(td.editedAt)) 
-      ? 'Created ' + getTime(td.createdAt) + ', edited ' + getTime(td.editedAt)
-      : 'Created at ' + getTime(td.createdAt)
-      }
+        {
+          (getTime(td.createdAt) !== getTime(td.editedAt)) 
+            ? 'Created ' + getTime(td.createdAt) + ', edited ' + getTime(td.editedAt)
+            : 'Created at ' + getTime(td.createdAt)
+        }
       </i>
 
       <div key={td.id} className="task">
@@ -58,13 +58,13 @@ function Todo({td, updateTaskColor, getIcon, getTime, deleteToDo, handleTodoInEd
           <ul>
             <li style={{marginBottom: '0.1em'}}>
               {td.todo === true && td.subtasks.length === 0 
-                ? <input type="checkbox" checked={isTaskDone} onChange={e => saveUpdatedTodo()} /> 
+                ? <input type="checkbox" checked={isTaskDone} onChange={() => saveUpdatedTodo()} /> 
                 :  getIcon(td.tag)} 
               <span style={{fontWeight: '500'}}> {td.content}</span>
             </li>
 
             {td.subtasks.length > 0
-            ? td.subtasks.map((subt: Subtask, index: number) => (
+              ? td.subtasks.map((subt: Subtask, index: number) => (
                 <li key={subt.id} className="subtask">
                   <input
                     type="checkbox"
@@ -74,7 +74,7 @@ function Todo({td, updateTaskColor, getIcon, getTime, deleteToDo, handleTodoInEd
                   {subt.content}
                 </li>
               ))
-            : ''}
+              : ''}
 
             {td.deadline === true
               ? <li>⏰ {(td.doneBy) ? getTime(td.doneBy) : <i>error!</i>}</li>
