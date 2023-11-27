@@ -52,13 +52,6 @@ function Todo({td, updateTaskColor, getIcon, getTime, deleteToDo, handleTodoInEd
 
   return (
     <>
-      <i style={{fontSize: '0.7em'}}>
-        {
-          (td.createdAt !== td.editedAt) 
-            ? 'Created ' + getTime(td.createdAt) + ', edited ' + getTime(td.editedAt)
-            : 'Created at ' + getTime(td.createdAt)
-        }
-      </i>
 
       <div key={td.id} className="task">
         <div className="taskColor" style={{backgroundColor: 
@@ -92,6 +85,13 @@ function Todo({td, updateTaskColor, getIcon, getTime, deleteToDo, handleTodoInEd
               : ''}
 
           </ul>
+          <i style={{fontSize: '0.7em', color: '#6d7b77'}}>
+            {
+              (td.createdAt !== td.editedAt) 
+                ? 'Created ' + getTime(td.createdAt) + ', edited ' + getTime(td.editedAt)
+                : 'Created at ' + getTime(td.createdAt)
+            }
+          </i>
         </div>
 
         <div className="iconWrapper">

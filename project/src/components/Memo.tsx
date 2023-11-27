@@ -29,8 +29,8 @@ function Memo(props: MemoProps) {
           {openMemo || props.memo.content.length < 250 ? props.memo.content : props.memo.content.slice(0, 250) + '...'}
         </p>
         {props.memo.createdAt === props.memo.editedAt
-          ? <span style={{fontSize: '0.8em'}}>From {props.getTime(props.memo.createdAt)}</span>
-          : <span style={{fontSize: '0.8em'}}>From {props.getTime(props.memo.createdAt)}, edited {props.getTime(props.memo.editedAt)}</span>
+          ? <i style={{fontSize: '0.7em', color: '#6d7b77'}}>From {props.getTime(props.memo.createdAt)}</i>
+          : <i style={{fontSize: '0.7em', color: '#6d7b77'}}>Created {props.getTime(props.memo.createdAt)}, edited {props.getTime(props.memo.editedAt)}</i>
         }
       </div>
     </>
