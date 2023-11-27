@@ -28,6 +28,7 @@ function AddNewMemo({isOpen, handlePopUp, tags, refreshMemos}: AddNewMemoProps) 
   // Close popup
   const closePopup = () => {
     /* Find a way to reset form when popup is closed */
+    emptyFields();
     handlePopUp();
   };
 
@@ -51,12 +52,18 @@ function AddNewMemo({isOpen, handlePopUp, tags, refreshMemos}: AddNewMemoProps) 
     try {
       const response = await axios.post('http://localhost:3000/memos', newMemo);
       console.log('Memo created:', response.data);
+      emptyFields();
       closePopup();
       refreshMemos();
     } catch (error) {
       console.error('Error creating memo:', error);
     }
-    
+  };
+
+  const emptyFields = () => {
+    setTitle('');
+    setContent('');
+    setActiveTag('1');
   };
 
   const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

@@ -28,7 +28,7 @@ function AddNewTodo({isOpen, handlePopUp, tags, refreshTodos}: AddNewTodoProps) 
     borderRadius: '25px'
   };
 
-  const initialTodoData: Todo = {
+  const [todoData, setTodoData] = useState<Todo>({
     content: '',
     subtasks: [] as Subtask[],
     repeatInterval: 'never',
@@ -41,9 +41,7 @@ function AddNewTodo({isOpen, handlePopUp, tags, refreshTodos}: AddNewTodoProps) 
     editedAt: Date.now() - timezone,
     userId: '1',
     id: uuidv4()
-  };
-
-  const [todoData, setTodoData] = useState<Todo>(initialTodoData);
+  });
   
   // Handle content
   const handleContentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -87,8 +85,7 @@ function AddNewTodo({isOpen, handlePopUp, tags, refreshTodos}: AddNewTodoProps) 
 
   // Empty all subtasks
   const emptySubtasks = () => {
-    const subtaskArray: Subtask[] = [];
-    todoData.subtasks = subtaskArray;
+    setTodoData({...todoData, subtasks: []});
   };
   
   // Remove subtask
@@ -119,8 +116,8 @@ function AddNewTodo({isOpen, handlePopUp, tags, refreshTodos}: AddNewTodoProps) 
     const newTodo = {
       id: uuidv4(),
       userId: '1',
-      createdAt: initialTodoData.createdAt,
-      editedAt: initialTodoData.editedAt,
+      createdAt: Date.now(),
+      editedAt: Date.now,
       doneBy: todoData.doneBy,
       content: todoData.content,
       subtasks: todoData.subtasks,
@@ -134,7 +131,8 @@ function AddNewTodo({isOpen, handlePopUp, tags, refreshTodos}: AddNewTodoProps) 
     try {
       const response = await axios.post('http://localhost:3000/todos', newTodo);
       console.log('Todo created:', response.data);
-      setTodoData(initialTodoData);
+      emptyForm();
+
       closePopup();
       refreshTodos();
     } catch (error) {
@@ -146,10 +144,23 @@ function AddNewTodo({isOpen, handlePopUp, tags, refreshTodos}: AddNewTodoProps) 
   // Close popup
   const closePopup = () => {
     /* Find a way to reset form when popup is closed */
-    emptySubtasks();
-    setTodoData(initialTodoData);
+    emptyForm();
     handlePopUp();
   };
+
+  const emptyForm = () => {
+    setTodoData((prevTodoData) => ({
+      ...prevTodoData,
+      content: '',
+      subtasks: [],
+      repeatInterval: 'never',
+      todo: false,
+      deadline: false,
+      done: false,
+      tag: '1', // Set to the initial tag value
+    }));
+    setActiveTag('1');
+  };  
 
   const handleTagSelection = (id: string) => {
     setActiveTag(id);
@@ -186,6 +197,7 @@ function AddNewTodo({isOpen, handlePopUp, tags, refreshTodos}: AddNewTodoProps) 
           {/* To do content */}
           <input className="addNewInput fullWidth" 
             onChange={handleContentChange} 
+            value={todoData.content}
             placeholder="What you need to do?" />
 
           {/* To do list subtasks */}
