@@ -36,7 +36,7 @@ function App() {
       const newWidth = window.innerWidth;
       setWindowWidth(newWidth);
 
-      setShowTodo(newWidth > 1550);
+      setShowTodo(newWidth > 1200);
     };
 
     setWindowWidth(window.innerWidth);
@@ -77,7 +77,7 @@ function App() {
   };
 
   const memoDisplay = {
-    display: (showTodo && windowWidth < 1550) ? 'none' : 'inline-block'
+    display: !showTodo || (showTodo && windowWidth > 1200) ? 'inline-block' : 'none'
   };
 
   const handleTodoDisplay = () => {
@@ -201,8 +201,9 @@ function App() {
       <Header handleTodoDisplay={handleTodoDisplay} handleMemoDisplay={handleMemoDisplay}/>
       <div className="flex-container">
         <div className="homeMenu">
-          <HomeMenu handlePopUp={handleTodoPopUp} handleSearch={handleSearchChange} 
-            handleFilters={handleFilterSelected} tags={tags} showTodo={showTodo}/>
+          <HomeMenu handleTodoPopup={handleTodoPopUp} handleSearch={handleSearchChange} 
+            handleFilters={handleFilterSelected} tags={tags} showTodo={showTodo}
+            handleMemoPopup={handleMemoPopUp} />
         </div>
 
         <div className="homeTodos" style={todoDisplay}>
@@ -210,13 +211,11 @@ function App() {
             todos={todos} refreshTodos={refreshTodos} isOpen={isTodoEditOpen} handleTodoInEdit={handleTodoInEdit}/>
         </div>
 
-        {(windowWidth > 1550 || !showTodo) &&
         <div className="homeMemos" style={memoDisplay}>
           <HomeMemos handlePopUp={handleMemoPopUp} tags={tags} memos={memos}
             refreshMemos={refreshMemos} isOpen={isMemoEditOpen} handleMemoInEdit={handleMemoInEdit} 
             searchValue={searchValue} filterValues={filterSelected} />
         </div>
-        }
       </div>
     </>
   );

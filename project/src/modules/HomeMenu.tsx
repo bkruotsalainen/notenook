@@ -11,7 +11,11 @@ function HomeMenu(props: HomeMenuProps) {
         </input>
         
         {props.showTodo &&
-          <button className="addNewButton" onClick={() => props.handlePopUp()}>Add new to do</button>
+          <button className="addNewButton" onClick={() => props.handleTodoPopup()}>Add new to do</button>
+        }
+
+        {!props.showTodo &&
+          <button className="addNewButton" onClick={() => props.handleMemoPopup()}>Add memo</button>
         }
 
         <h3 className="hideMobile">Filter</h3>

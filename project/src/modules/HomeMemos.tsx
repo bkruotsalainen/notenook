@@ -44,11 +44,13 @@ function HomeMemos(props: HomeMemoProps) {
 
   return (
     <div className="homeMemoWrapper">
+      {window.innerWidth > 1500 &&
       <button className="addNewButton" 
         style={{width: '125px', float: 'right', marginRight: '1em'}}
         onClick={() => props.handlePopUp()}>
           Add new memo
       </button>
+      }
       
       <h1>Memos</h1>
       {props.memos.map(m => 

@@ -90,8 +90,9 @@ interface HomeTaskGroupProps {
 interface HomeMenuProps {
   tags: Filter[],
   showTodo: boolean,
-  handlePopUp: () => void,
   handleSearch: (e) => void,
+  handleTodoPopup: () => void,
+  handleMemoPopup: () => void,
   handleFilters: (string) => void
 }
 

@@ -1,21 +1,20 @@
 /* Flex container */
 .flex-container {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
   width: 100%;
+  display: flex;
+  margin: auto;
+  justify-content: center;
 }
 
-.flex-container > div {
+.homeMenu, .homeMemos, .homeTodos {
+ padding: 1em 2em 0em 0em; 
+ display: inline-block;   
+ vertical-align: top; 
+}
+
+.homeMemos, .homeTodos {
   width: auto;
-  padding: 1em 2.5em 2em 2em; 
-}
-
-.homeMenu, .homeNotes {
-}
-
-.homeTodos {
-  flex-grow: 3;
+  width: 39%;
 }
 
 /* Home - To do tasks */
@@ -32,6 +31,7 @@ ul {
   display: flex;
   margin-bottom: 1em;
   width: 100%;
+  min-width: 500px;
 } 
 
 .taskBody {
@@ -91,6 +91,7 @@ ul {
 /* Home - Left menu */
 .homeMenuWrapper {
   width: 300px;
+  margin: 0em 1em;
 }
 
 .weekViewHeader {
@@ -182,25 +183,38 @@ Input[type="checkbox"] {
   background-color: #fff;
   box-shadow: 1px 1px #D4D4D4;
   border: 1px solid rgb(222, 222, 222);
-  max-width: 30vw;
+  max-width: 800px;
   padding: 1em;
   margin: 0 1em 1em 0em;
 }
 
 .homeMemoWrapper {
-  min-width: 30vw;
+  width: 100%;
 }
 
 /* Home - Scalability */
-@media screen and (max-width: 1550px) {
-  .homeMemoWrapper, .memoWrapper {
-    max-width: 700px;
+@media screen and (max-width: 1000px) {
+  .homeMemoWrapper, .memoWrapper, .homeMemos, .homeTodos {
+    width: 100%;
+    max-width: 100%;
   }
-}
 
-@media screen and (max-width: 800px) {  
   .weekViewBody, .hideMobile {
-  display: none !important;
+   display: none !important;
+  }
+
+  .homeMenu {
+    width: 96%;
+  }
+
+  .homeMemos {
+    width: 91%;
+    margin-left: 1.5em;
+  }
+
+  .homeTodos {
+    width: 91%;
+    margin-left: 2.5em;
   }
 
   .icon {
