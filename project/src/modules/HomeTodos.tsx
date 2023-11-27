@@ -69,6 +69,7 @@ function HomeTodos({searchValue, filterValues, tags, todos, refreshTodos, handle
 
   // Check if tag matches with filter
   const checkFilter = (td: Todo) => {
+
     if (filterValues.length === 0) {
       return true;
     }

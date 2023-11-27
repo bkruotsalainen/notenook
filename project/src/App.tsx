@@ -28,6 +28,28 @@ function App() {
   const [memos, setMemos] = useState<Memo[]>([]);
   const [tags, setTags] = useState<Filter[]>([]);
 
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  const [showTodo, setShowTodo] = useState<boolean>(windowWidth > 1550);
+
+  const handleResize = (event: UIEvent) => {
+    const newWidth = (event.target as Window).innerWidth;
+    setWindowWidth(newWidth);
+
+    if (windowWidth > 1550) {
+      setShowTodo(true);
+    }
+  };
+
+  useEffect(() => {
+    setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+
+    return () => {  
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   const [todoInEdit, setTodoInEdit] = useState<Todo>(    {
     'id': '29f5b13d-9eaa-4599-8a15-1d83c4e0deea',
     'userId': '1',
@@ -52,6 +74,22 @@ function App() {
     editedAt: 1700837066500,
     tag: '1'
   });
+
+  const todoDisplay = {
+    display: showTodo ? 'inline-block' : 'none'
+  };
+
+  const memoDisplay = {
+    display: (showTodo && windowWidth < 1550) ? 'none' : 'inline-block'
+  };
+
+  const handleTodoDisplay = () => {
+    setShowTodo(true);
+  };
+
+  const handleMemoDisplay = () => {
+    setShowTodo(false);
+  };
 
   useEffect (() => {
     const fetchData = async () => {
@@ -163,26 +201,25 @@ function App() {
       <AddNewTodo isOpen={isTodoOpen} handlePopUp={handleTodoPopUp} tags={tags} refreshTodos={refreshTodos}/>
       <AddNewMemo isOpen={isMemoOpen} handlePopUp={handleMemoPopUp} tags={tags} refreshMemos={refreshMemos}/>
 
-      <Header/>
-
+      <Header handleTodoDisplay={handleTodoDisplay} handleMemoDisplay={handleMemoDisplay}/>
       <div className="flex-container">
-
         <div className="homeMenu">
           <HomeMenu handlePopUp={handleTodoPopUp} handleSearch={handleSearchChange} 
-            handleFilters={handleFilterSelected} tags={tags}/>
+            handleFilters={handleFilterSelected} tags={tags} showTodo={showTodo}/>
         </div>
 
-        <div className="homeTodos">
+        <div className="homeTodos" style={todoDisplay}>
           <HomeTodos searchValue={searchValue} filterValues={filterSelected} tags={tags} 
             todos={todos} refreshTodos={refreshTodos} isOpen={isTodoEditOpen} handleTodoInEdit={handleTodoInEdit}/>
         </div>
 
-        <div className="homeMemos">
+        {(windowWidth > 1550 || !showTodo) &&
+        <div className="homeMemos" style={memoDisplay}>
           <HomeMemos handlePopUp={handleMemoPopUp} tags={tags} memos={memos}
             refreshMemos={refreshMemos} isOpen={isMemoEditOpen} handleMemoInEdit={handleMemoInEdit} 
             searchValue={searchValue} filterValues={filterSelected} />
         </div>
-
+        }
       </div>
     </>
   );

@@ -1,6 +1,6 @@
 import '../css/Header.css';
 
-function Header() {
+function Header({handleTodoDisplay, handleMemoDisplay}: HeaderProps) {
 
   return (
     <div className="header">
@@ -10,10 +10,10 @@ function Header() {
       
       <div className="left">
         <ul className="headerLinks">
-          <li className="homeLink">
+          <li className="homeLink" onClick={() => handleTodoDisplay()}>
             To do
           </li>
-          <li className="homeLink">
+          <li className="homeLink" onClick={() => handleMemoDisplay()}>
             Notes
           </li>
         </ul>

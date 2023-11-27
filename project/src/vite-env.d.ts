@@ -89,6 +89,7 @@ interface HomeTaskGroupProps {
 
 interface HomeMenuProps {
   tags: Filter[],
+  showTodo: boolean,
   handlePopUp: () => void,
   handleSearch: (e) => void,
   handleFilters: (string) => void
@@ -129,4 +130,9 @@ interface EditTodoProps {
   todoInEdit: Todo,
   refreshTodos: () => void,
   tags: Filter[]
+}
+
+interface HeaderProps {
+  handleTodoDisplay: () => void,
+  handleMemoDisplay: () => void
 }

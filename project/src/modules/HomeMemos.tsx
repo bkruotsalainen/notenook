@@ -43,19 +43,19 @@ function HomeMemos(props: HomeMemoProps) {
   };
 
   return (
-    <>
+    <div className="homeMemoWrapper">
       <button className="addNewButton" 
-        style={{width: '125px', float: 'right', marginTop: '1.3em', marginRight: '1em'}}
+        style={{width: '125px', float: 'right', marginRight: '1em'}}
         onClick={() => props.handlePopUp()}>
-        Add new memo
+          Add new memo
       </button>
       
-      <h1>Latest memos</h1>
+      <h1>Memos</h1>
       {props.memos.map(m => 
         checkSearchValue(m) && checkFilter(m) && (
           <Memo key={m.id} memo={m} delete={deleteMemo} tags={props.tags} handleMemoInEdit={props.handleMemoInEdit} refreshMemos={props.refreshMemos}/>
         ))}
-    </>
+    </div>
   );
 }
 

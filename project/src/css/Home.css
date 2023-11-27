@@ -177,20 +177,24 @@ Input[type="checkbox"] {
   padding: 0;
 }
 
-/* Home - Latest notes */
+/* Home - Memos */
 .memoWrapper {
   background-color: #fff;
   box-shadow: 1px 1px #D4D4D4;
   border: 1px solid rgb(222, 222, 222);
-  width: 30vw;
+  max-width: 30vw;
   padding: 1em;
   margin: 0 1em 1em 0em;
 }
 
+.homeMemoWrapper {
+  min-width: 30vw;
+}
+
 /* Home - Scalability */
 @media screen and (max-width: 1550px) {
-  .homeMemos {
-    display: none !important;
+  .homeMemoWrapper, .memoWrapper {
+    max-width: 700px;
   }
 }
 
@@ -206,6 +210,10 @@ Input[type="checkbox"] {
   .homeMenuWrapper, .addNewButton {
     width: 100%;
     text-align: center;
+  }
+
+  .homeTodos {
+    min-width: 90%;
   }
 
   .flex-container {
