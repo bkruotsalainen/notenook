@@ -1,6 +1,11 @@
 import axios from 'axios';
 import Memo from './Memo';
 
+const months: string[] = [
+  'January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December'
+];
+
 function HomeMemos(props: HomeMemoProps) {
   const deleteMemo = async (id: string) => {
     try {
@@ -10,6 +15,8 @@ function HomeMemos(props: HomeMemoProps) {
       console.error('Error fetching data', error);
     }
   }; 
+
+  const timezone = 0;
 
   // Check if search matches with content
   const checkSearchValue = (m: Memo) => {
@@ -26,7 +33,21 @@ function HomeMemos(props: HomeMemoProps) {
     }
 
     return false;
+  }; 
+  
+  // Get string time from unix
+  const getTime = (unix: number): string => {
+    const dateTime = new Date(unix + timezone);
+
+    const date = dateTime.getDate() + ' ' + months[dateTime.getMonth()] 
+    + ' ' + dateTime.getFullYear();
+
+    const time = (dateTime.getHours() < 10 ? '0' : '') + (dateTime.getHours()) + ':' + 
+    (dateTime.getMinutes() < 10 ? '0' : '') + dateTime.getMinutes();
+
+    return date + ' ' + time;
   };
+
 
   // Check if tag matches with filter
   const checkFilter = (m: Memo) => {
@@ -55,7 +76,9 @@ function HomeMemos(props: HomeMemoProps) {
       <h1>Memos</h1>
       {props.memos.map(m => 
         checkSearchValue(m) && checkFilter(m) && (
-          <Memo key={m.id} memo={m} delete={deleteMemo} tags={props.tags} handleMemoInEdit={props.handleMemoInEdit} refreshMemos={props.refreshMemos}/>
+          <Memo key={m.id} memo={m} delete={deleteMemo} tags={props.tags} 
+            handleMemoInEdit={props.handleMemoInEdit} refreshMemos={props.refreshMemos}
+            getTime={getTime}/>
         ))}
     </div>
   );

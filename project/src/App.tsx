@@ -31,14 +31,14 @@ function App() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [showTodo, setShowTodo] = useState<boolean>(true);
 
+  const handleResize = () => {
+    const newWidth = window.innerWidth;
+    setWindowWidth(newWidth);
+
+    setShowTodo(newWidth > 1200);
+  };
+
   useEffect(() => {
-    const handleResize = () => {
-      const newWidth = window.innerWidth;
-      setWindowWidth(newWidth);
-
-      setShowTodo(newWidth > 1200);
-    };
-
     setWindowWidth(window.innerWidth);
     window.addEventListener('resize', handleResize);
 

@@ -39,6 +39,17 @@ function Todo({td, updateTaskColor, getIcon, getTime, deleteToDo, handleTodoInEd
     }
   };
 
+  const checkIfSubtasksDone = () => {
+    const doneSubtasks = td.subtasks.filter(st => st.done);
+
+    if (td.subtasks.length > 0 && doneSubtasks.length === td.subtasks.length) {
+      console.log('All subtasks are done!');
+      return true;
+    }
+
+    return false;
+  };
+
   return (
     <>
       <i style={{fontSize: '0.7em'}}>
@@ -77,7 +88,7 @@ function Todo({td, updateTaskColor, getIcon, getTime, deleteToDo, handleTodoInEd
               : ''}
 
             {td.deadline === true
-              ? <li>⏰ {(td.doneBy) ? getTime(td.doneBy) : <i>error!</i>}</li>
+              ? ((td.done || checkIfSubtasksDone()) ? <li>😊 {getTime(td.doneBy)}</li> : <li>⏰ {getTime(td.doneBy)}</li>)
               : ''}
 
           </ul>

@@ -1,24 +1,7 @@
 import { useState } from 'react';
 
-const months: string[] = [
-  'January', 'February', 'March', 'April', 'May', 'June',
-  'July', 'August', 'September', 'October', 'November', 'December'
-];
-
 function Memo(props: MemoProps) {
   const [openMemo, setOpenMemo] = useState<boolean>(false);
-
-  const getDate = () => {
-    const dateTime = new Date(props.memo.createdAt);
-  
-    const date = dateTime.getDate() + ' ' + months[dateTime.getMonth()] 
-      + ' ' + dateTime.getFullYear();
-  
-    const time = (dateTime.getHours() < 10 ? '0' : '') + (dateTime.getHours()) + ':' + 
-    (dateTime.getMinutes() < 10 ? '0' : '') + dateTime.getMinutes();
-  
-    return date + ' ' + time;
-  };
 
   const handleOpenMemo = () => {
     setOpenMemo(openMemo => !openMemo);
@@ -45,7 +28,10 @@ function Memo(props: MemoProps) {
         <p>
           {openMemo || props.memo.content.length < 250 ? props.memo.content : props.memo.content.slice(0, 250) + '...'}
         </p>
-        <span style={{fontSize: '0.8em'}}>From {getDate()}</span>
+        {props.memo.createdAt === props.memo.editedAt
+          ? <span style={{fontSize: '0.8em'}}>From {props.getTime(props.memo.createdAt)}</span>
+          : <span style={{fontSize: '0.8em'}}>From {props.getTime(props.memo.createdAt)}, edited {props.getTime(props.memo.editedAt)}</span>
+        }
       </div>
     </>
   );

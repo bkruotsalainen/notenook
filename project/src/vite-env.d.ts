@@ -59,8 +59,9 @@ interface MemoProps {
   memo: Memo,
   tags: Filter[],
   delete: (string) => void,
-  handleMemoInEdit: (string) => void,
-  refreshMemos: () => void
+  refreshMemos: () => void,
+  getTime: (number) => string,
+  handleMemoInEdit: (string) => void
 }
 
 interface Subtask {
