@@ -29,23 +29,20 @@ function App() {
   const [tags, setTags] = useState<Filter[]>([]);
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-  const [showTodo, setShowTodo] = useState<boolean>(windowWidth > 1550);
-
-  const handleResize = (event: UIEvent) => {
-    const newWidth = (event.target as Window).innerWidth;
-    setWindowWidth(newWidth);
-
-    if (windowWidth > 1550) {
-      setShowTodo(true);
-    }
-  };
+  const [showTodo, setShowTodo] = useState<boolean>(true);
 
   useEffect(() => {
+    const handleResize = () => {
+      const newWidth = window.innerWidth;
+      setWindowWidth(newWidth);
+
+      setShowTodo(newWidth > 1550);
+    };
+
     setWindowWidth(window.innerWidth);
     window.addEventListener('resize', handleResize);
 
-    return () => {  
+    return () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);

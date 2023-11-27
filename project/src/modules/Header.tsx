@@ -14,7 +14,7 @@ function Header({handleTodoDisplay, handleMemoDisplay}: HeaderProps) {
             To do
           </li>
           <li className="homeLink" onClick={() => handleMemoDisplay()}>
-            Notes
+            Memos
           </li>
         </ul>
       </div>
