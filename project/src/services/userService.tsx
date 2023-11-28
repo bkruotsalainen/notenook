@@ -6,4 +6,10 @@ const getAll = () => {
   return request;
 };
 
-export default { getAll };
+const create = (newObject: User) => {
+  const request = axios.post(URL, newObject);
+  return request;
+};
+
+
+export default { getAll, create };

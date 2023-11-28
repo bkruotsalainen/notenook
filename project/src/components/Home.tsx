@@ -16,7 +16,7 @@ import EditTodo from './EditTodo.tsx';
 import AddNewTodo from './AddNewTodo.tsx';
 import AddNewMemo from './AddNewMemo.tsx';
 
-function Home() {
+function Home({handleLogin}: HomeProps) {
   const [isTodoOpen, setIsTodoOpen] = useState<boolean>(false);
   const [isMemoOpen, setIsMemoOpen] = useState<boolean>(false);
   
@@ -205,7 +205,7 @@ function Home() {
       <AddNewTodo isOpen={isTodoOpen} handlePopUp={handleTodoPopUp} tags={tags} refreshTodos={refreshTodos}/>
       <AddNewMemo isOpen={isMemoOpen} handlePopUp={handleMemoPopUp} tags={tags} refreshMemos={refreshMemos}/>
 
-      <Header handleTodoDisplay={handleTodoDisplay} handleMemoDisplay={handleMemoDisplay}/>
+      <Header handleTodoDisplay={handleTodoDisplay} handleMemoDisplay={handleMemoDisplay} handleLogin={handleLogin}/>
       <div className="flex-container">
         <div className="homeMenu">
           <HomeMenu handleTodoPopup={handleTodoPopUp} handleSearch={handleSearchChange} 

@@ -136,11 +136,20 @@ interface EditTodoProps {
 
 interface HeaderProps {
   handleTodoDisplay: () => void,
-  handleMemoDisplay: () => void
+  handleMemoDisplay: () => void,
+  handleLogin: () => void
 }
 
 interface User {
   id: string,
   email: string,
   password: string
+}
+
+interface LoginProps {
+  handleLogin: () => void
+}
+
+interface HomeProps {
+  handleLogin: () => void
 }

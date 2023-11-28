@@ -2,13 +2,15 @@ import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 import '../css/Login.css';
-import axios from 'axios';
+import userService from '../services/userService';
 
-function Login() {
+function Login({handleLogin}: LoginProps) {
   const [loginActive, setLoginActive] = useState<boolean>(true);
   const [showPassword, setShowPassword] = useState<string>('password');
 
-  const [username, setUsername] = useState<string>('');
+  const [alert, setAlert] = useState<string>('');
+
+  const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
   const handlePasswordShown = (e: React.MouseEvent<HTMLSpanElement>) => {
@@ -25,19 +27,19 @@ function Login() {
     e.preventDefault();
 
     try {
-      const response = await axios.get('http://localhost:3000/users/');
-      const user = response.data.filter((u: User) => u.email === username);
-      console.log(user);
-
-      if (user[0].password === (password)) {
-        setUsername('');
-        setPassword('');
-
-        console.log(response.status);
-        console.log('Login!');
-      } else {
-        console.log('Wrong password or username!');
-      }
+      await userService.getAll().then((response) => {
+        const user = response.data.filter((u: User) => u.email === email);
+  
+        if (user.length > 0 && user[0].password === (password)) {
+          setAlert('');
+          setEmail('');
+          setPassword('');
+  
+          handleLogin();
+        } else {
+          setAlert('Wrong password or email!');
+        }
+      });
     } catch (error) {
       console.error(error);
     }
@@ -48,24 +50,27 @@ function Login() {
 
     const newUser = {
       id: uuidv4(),
-      username: username,
+      email: email,
       password: password,
       createdAt: Date.now(),
       timezone: new Date().getTimezoneOffset()
     };
 
     try {
-      const response = await axios.get('http://localhost:3000/users/');
-      const user = response.data.filter((u: User) => u.email === username);
+      await userService.getAll().then(async (response) => {
+        const user = response.data.filter((u: User) => u.email === email);
 
-      if (user.length === 0) {
-        await axios.post('http://localhost:3000/users', newUser);
-        setUsername('');
-        setPassword('');
-      } else {
-        console.log('User with this email already exists!');
+        if (user.length === 0) {
+          await userService.create(newUser);
+          setAlert('');
+          setEmail('');
+          setPassword('');
+          setLoginActive(true);
+        } else {
+          setAlert('User with this email already exists!');
+        }
       }
-
+      );
     } catch (error) {
       console.error(error);
     }
@@ -73,7 +78,7 @@ function Login() {
 
   const handleLoginActive = () => {
     setLoginActive(!loginActive);
-    setUsername('');
+    setEmail('');
     setPassword('');
   };
 
@@ -83,10 +88,12 @@ function Login() {
         <div className="loginDiv">
           <h1 style={{textAlign: 'center', marginBottom: '1em'}}>{loginActive ? 'Login' : 'Register'}</h1>
 
+          {<p className="alertText">{alert}</p>}
+
           <form onSubmit={(e) => (loginActive ? submitLogin(e) : submitRegister(e))}>
             <label>E-mail
-              <input type='email' className="loginInput" value={username}
-                onChange={(e) => setUsername(e.target.value)}/>
+              <input type='email' className="loginInput" value={email}
+                onChange={(e) => setEmail(e.target.value)}/>
             </label>
 
             <label>Password

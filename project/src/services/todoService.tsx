@@ -11,7 +11,6 @@ const create = (newObject: Todo) => {
   return request;
 };
 
-
 const update = (id: string, newObject: Todo) => {
   const request = axios.put(`${URL}/${id}`, newObject);
   return request;

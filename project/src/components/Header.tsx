@@ -1,10 +1,10 @@
 import '../css/Header.css';
 
-function Header({handleTodoDisplay, handleMemoDisplay}: HeaderProps) {
+function Header({handleTodoDisplay, handleMemoDisplay, handleLogin}: HeaderProps) {
 
   return (
     <div className="header">
-      <div className="right">
+      <div className="right" onClick={() => handleLogin()}>
           Logout
       </div>      
       
