@@ -5,6 +5,7 @@ function Memo(props: MemoProps) {
 
   const handleOpenMemo = () => {
     setOpenMemo(openMemo => !openMemo);
+    console.log(props.memo);
   };
 
   const findTag = (id: string) => {

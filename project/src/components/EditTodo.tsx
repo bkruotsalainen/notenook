@@ -42,6 +42,9 @@ function EditTodo({ isOpen, handleTodoInEdit, todoInEdit, refreshTodos, tags, ti
   };
   const closePopup = () => {
     handleTodoInEdit(todoInEdit);
+    setDoneBy(0);
+    setContent('');
+    setActiveTag('1');
   };
 
   const handleTagSelection = (id: string) => {
@@ -54,9 +57,9 @@ function EditTodo({ isOpen, handleTodoInEdit, todoInEdit, refreshTodos, tags, ti
     const updatedTodo = { 
       id: todoInEdit.id,
       userId: todoInEdit.userId,
-      createdAt: todoInEdit.createdAt - timezone,
+      createdAt: todoInEdit.createdAt,
       editedAt: new Date().getTime() - timezone,
-      doneBy: doneBy - timezone,
+      doneBy: doneBy,
       content: content,
       subtasks: subtasks,
       repeatInterval: todoInEdit.repeatInterval,
@@ -90,6 +93,11 @@ function EditTodo({ isOpen, handleTodoInEdit, todoInEdit, refreshTodos, tags, ti
     };
     setSubtasks([...subtasks, newSubtask]);
   }
+
+  const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newDoneBy = new Date(e.target.value).getTime()-timezone;
+    setDoneBy(newDoneBy);
+  };
 
   return (
     <div className={(isOpen) ? 'addNewBackground' : 'hidden'}>
@@ -170,7 +178,7 @@ function EditTodo({ isOpen, handleTodoInEdit, todoInEdit, refreshTodos, tags, ti
                 <input
                   type="datetime-local"
                   className="addNewInput fullWidth" 
-                  onChange={(e) => setDoneBy(Date.parse(e.target.value))}
+                  onChange={(e) => handleDateChange(e)}
                 />
               </label>
 

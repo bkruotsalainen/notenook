@@ -46,7 +46,7 @@ function EditMemo({ memoInEdit, isOpen, handleMemoInEdit, refreshMemos, tags, ti
       userId: memoInEdit.userId,
       title: title,
       content: content,
-      createdAt: memoInEdit.createdAt - timezone,
+      createdAt: memoInEdit.createdAt,
       editedAt: new Date().getTime() - timezone,
       tag: activeTag
     };

@@ -34,7 +34,7 @@ function AddNewTodo({isOpen, handlePopUp, tags, refreshTodos, timezone}: AddNewT
     deadline: deadline,
     done: false,
     tag: activeTag,
-    doneBy: new Date().getTime() - timezone + 604800000,
+    doneBy: new Date().getTime() - timezone,
     createdAt: new Date().getTime() - timezone,
     editedAt: new Date().getTime() - timezone,
     userId: '1',
@@ -48,11 +48,8 @@ function AddNewTodo({isOpen, handlePopUp, tags, refreshTodos, timezone}: AddNewT
   
   // Handle date change
   const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newDoneBy = new Date(e.target.value);
-    const milliseconds = newDoneBy.getTime();
-    console.log(newDoneBy);
-    console.log(milliseconds);
-    setTodoData({ ...todoData, doneBy: milliseconds });
+    const newDoneBy = new Date(e.target.value).getTime()-timezone;
+    setTodoData({ ...todoData, doneBy: newDoneBy });
   };
   
   // Change title
@@ -116,7 +113,7 @@ function AddNewTodo({isOpen, handlePopUp, tags, refreshTodos, timezone}: AddNewT
       userId: '1',
       createdAt: new Date().getTime()- timezone,
       editedAt: new Date().getTime() - timezone,
-      doneBy: todoData.doneBy - timezone,
+      doneBy: todoData.doneBy,
       content: todoData.content,
       subtasks: todoData.subtasks,
       repeatInterval: todoData.repeatInterval,

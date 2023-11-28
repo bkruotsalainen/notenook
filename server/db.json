@@ -2,55 +2,34 @@
   "users": [
     {
       "id": "1",
-      "email": "user@sahkoposti.fi",
-      "password": "salasana123",
-      "createdAt": 1701195115723,
+      "email": "kana@posti.fi",
+      "password": "kotkot123",
+      "createdAt": 1701166315723,
       "timezone": 7200000
-    },
-    {
-      "id": "e58e4246-9853-407d-b4c4-ab29be9b7ebb",
-      "email": "testi@maili.fi",
-      "password": "sahkoposti.fi",
-      "createdAt": 1701174067287,
-      "timezone": -120
-    },
-    {
-      "id": "b3c9f74a-9131-4418-8595-be9a26bb2459",
-      "email": "123@sahkoposti.fi",
-      "password": "123",
-      "createdAt": 1701174240985,
-      "timezone": -120
-    },
-    {
-      "id": "9edf2df7-b5cc-4ffd-b489-311eb4295500",
-      "email": "kana@sahkoposti.fi",
-      "password": "kotkot",
-      "createdAt": 1701174361951,
-      "timezone": -120
     }
   ],
   "todos": [
     {
-      "id": "da215fbb-dacd-42a3-9cfc-c3e89d844cf0",
+      "id": "b07b192d-4d6a-4173-8401-99b83a16598c",
       "userId": "1",
-      "createdAt": 1701179732437,
-      "editedAt": 1701165963237,
-      "doneBy": 1701324000000,
-      "content": "Buy groceries",
+      "createdAt": 1701171952976,
+      "editedAt": 1701171987158,
+      "doneBy": 1704052740000,
+      "content": "Movies to watch before end of the year",
       "subtasks": [
         {
-          "id": "b656445c-e747-4c02-84be-515315aec8b9",
-          "content": "Salad",
+          "id": "10a72bc5-ca4a-4c7f-806e-ca5eb33c7885",
+          "content": "Ringu",
+          "done": true
+        },
+        {
+          "id": "c9980710-3514-4ad3-a5e5-f0d519060380",
+          "content": "The Land Before Time",
           "done": false
         },
         {
-          "id": "26c2598c-3587-4764-be49-069c9d74bd2a",
-          "content": "Bread",
-          "done": false
-        },
-        {
-          "id": "20ca4ab4-fa1b-4491-bc24-01eaa66ed294",
-          "content": "Ham",
+          "id": "17aed5af-fe91-401c-a33d-93be7232d0b7",
+          "content": "Die Hard 3",
           "done": false
         }
       ],
@@ -58,108 +37,45 @@
       "todo": true,
       "deadline": true,
       "done": false,
-      "tag": "9"
-    },
-    {
-      "id": "b7f1e880-d216-4e3a-8fb1-11714dffe16e",
-      "userId": "1",
-      "createdAt": 1701208577967,
-      "editedAt": 1701165934950,
-      "doneBy": 1699596000000,
-      "content": "Buy birthday gift for a friend",
-      "subtasks": [],
-      "repeatInterval": "never",
-      "todo": true,
-      "deadline": true,
-      "done": true,
-      "tag": "10"
-    },
-    {
-      "id": "9192ad7c-a407-440f-a140-5b42f9fe0c67",
-      "userId": "1",
-      "createdAt": 1701273403862,
-      "editedAt": 1701165878505,
-      "doneBy": 1703426400000,
-      "content": "Have a great Christmas!",
-      "subtasks": [],
-      "repeatInterval": "never",
-      "todo": false,
-      "deadline": true,
-      "done": false,
-      "tag": "3"
-    },
-    {
-      "id": "b2885f56-6d41-4c06-a1fd-0d8a2c4c6132",
-      "userId": "1",
-      "createdAt": 1701194285349,
-      "editedAt": 1701194285349,
-      "doneBy": 1704081540000,
-      "content": "Send message to aliens and take over the world!",
-      "subtasks": [],
-      "repeatInterval": "never",
-      "todo": false,
-      "deadline": false,
-      "done": false,
-      "tag": "4"
-    },
-    {
-      "id": "31ab35a5-1a3c-40ef-b2d3-475b4658eff7",
-      "userId": "1",
-      "createdAt": 1701194318595,
-      "editedAt": 1701194318595,
-      "doneBy": 1704081540000,
-      "content": "Have a movie night!",
-      "subtasks": [
-        {
-          "id": "ae974379-fc69-4bf5-b4a0-043443d7ceab",
-          "content": "Choose a movie",
-          "done": false
-        },
-        {
-          "id": "343fb809-67d3-4df0-a297-9ec02971a1a3",
-          "content": "Buy snacks",
-          "done": false
-        },
-        {
-          "id": "9bb8c2b8-bf26-4d12-80be-fe764bb1c362",
-          "content": "Have fun!",
-          "done": false
-        }
-      ],
-      "repeatInterval": "never",
-      "todo": true,
-      "deadline": false,
-      "done": false,
-      "tag": "3"
+      "tag": "12"
     }
   ],
   "memos": [
-    {
-      "id": "4ddf7b1f-2faa-4991-9317-b01cb6ccb6e3",
-      "userId": "1",
-      "title": "Lorem ipsum",
-      "content": "Vivamus vel felis non enim ullamcorper elementum. Etiam non metus in arcu imperdiet dictum vel at diam. Fusce bibendum et lorem nec mattis. Etiam tempus eros velit, eget rutrum nisi condimentum mollis. Maecenas lacinia imperdiet pretium. Quisque aliquet eros a augue suscipit, ac condimentum elit lobortis. Nullam volutpat venenatis placerat. Nulla congue varius sem, a facilisis nunc consectetur ac. Nulla est orci, euismod ac risus sed, viverra dignissim nisl. Sed nunc ante, venenatis vitae nisi eget, pellentesque condimentum erat. Aliquam tincidunt libero vitae nisi posuere convallis. Morbi suscipit dapibus orci ac condimentum. Duis venenatis dictum nulla quis malesuada.\n\nDonec pellentesque mi eu augue porttitor porta. Suspendisse sit amet eros a orci viverra hendrerit. Integer non urna congue, luctus turpis eget, rhoncus arcu. Maecenas dictum volutpat dui vel eleifend. Suspendisse iaculis leo lectus, faucibus dignissim felis semper sed. Nam risus nulla, bibendum vel arcu porta, finibus consectetur erat. Cras dictum massa ac accumsan faucibus.",
-      "createdAt": 1701194053979,
-      "editedAt": 1701194053979,
-      "tag": "8"
-    },
-    {
-      "id": "e4f4cc6e-a4c1-4042-afd9-de03d5615aec",
-      "userId": "1",
-      "title": "Maecenas lacinia imperdiet",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tristique est eu tincidunt sodales. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis et massa in justo pharetra varius. Pellentesque fringilla posuere urna, hendrerit blandit lacus commodo vitae. Maecenas egestas nec neque faucibus luctus. Nam a urna sed ipsum mattis commodo nec id mauris. Integer mi neque, auctor at feugiat vel, malesuada tempus dolor. Mauris at viverra felis, ut dictum purus. Nam consequat turpis nisi, et varius velit accumsan a. Proin pretium suscipit massa id scelerisque.\n\nVivamus vel felis non enim ullamcorper elementum. Etiam non metus in arcu imperdiet dictum vel at diam. Fusce bibendum et lorem nec mattis. Etiam tempus eros velit, eget rutrum nisi condimentum mollis. Maecenas lacinia imperdiet pretium. Quisque aliquet eros a augue suscipit, ac condimentum elit lobortis. Nullam volutpat venenatis placerat. Nulla congue varius sem, a facilisis nunc consectetur ac. Nulla est orci, euismod ac risus sed, viverra dignissim nisl. Sed nunc ante, venenatis vitae nisi eget, pellentesque condimentum erat. Aliquam tincidunt libero vitae nisi posuere convallis. Morbi suscipit dapibus orci ac condimentum. Duis venenatis dictum nulla quis malesuada.",
-      "createdAt": 1701194106302,
-      "editedAt": 1701194106302,
-      "tag": "5"
-    },
     {
       "id": "a760d0db-3235-441e-a931-5a5c8d46a81e",
       "userId": "1",
       "title": "Mauris pulvinar malesuada nulla",
       "content": "Nulla eget elit et magna porttitor lobortis. Donec quis venenatis nulla. Nullam convallis laoreet nunc, sit amet fringilla turpis mollis ultricies. Phasellus quis ante malesuada felis ultricies ultrices id porttitor metus. Donec sit amet tincidunt ipsum. Quisque maximus est non arcu scelerisque molestie. Curabitur ligula turpis, hendrerit cursus tortor a, eleifend interdum massa. Morbi eget urna cursus, fermentum lectus quis, vestibulum erat. Etiam urna nisi, euismod facilisis sollicitudin at, imperdiet ut nisi. Mauris quis est id nisl sodales rhoncus id sit amet nunc. Curabitur nec elit in enim dapibus consequat. Nunc eget interdum massa, at lacinia justo.\n\nPellentesque id tempus velit. Proin sed ultricies neque, a pharetra risus. Nam at orci feugiat, mollis orci et, porttitor metus. Donec sed risus varius, sollicitudin elit sit amet, consequat est. In eleifend vestibulum ex ut ornare. Aliquam faucibus quam id iaculis egestas. Donec id metus eget ante malesuada porttitor. In ligula ante, malesuada eget arcu non, sodales facilisis odio. Mauris pulvinar malesuada nulla, id tempus tortor malesuada feugiat. In quis scelerisque felis, ac fringilla ante. Nullam vitae magna ac nibh molestie faucibus id a metus. Integer sapien est, egestas iaculis laoreet eu, posuere vel est. Nam turpis arcu, volutpat id convallis in, pharetra vitae est.",
-      "createdAt": 1701166005688,
-      "editedAt": 1701166005688,
+      "createdAt": 1611106005688,
+      "editedAt": 1611106005688,
       "tag": "6"
+    },
+    {
+      "id": "9d2bd487-8b3f-4e65-8d42-36642c5399d0",
+      "userId": "1",
+      "title": "Etiam non metus in arcu",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tristique est eu tincidunt sodales. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis et massa in justo pharetra varius. Pellentesque fringilla posuere urna, hendrerit blandit lacus commodo vitae. Maecenas egestas nec neque faucibus luctus. Nam a urna sed ipsum mattis commodo nec id mauris. Integer mi neque, auctor at feugiat vel, malesuada tempus dolor. Mauris at viverra felis, ut dictum purus. Nam consequat turpis nisi, et varius velit accumsan a. Proin pretium suscipit massa id scelerisque.\n\nVivamus vel felis non enim ullamcorper elementum. Etiam non metus in arcu imperdiet dictum vel at diam. Fusce bibendum et lorem nec mattis. Etiam tempus eros velit, eget rutrum nisi condimentum mollis. Maecenas lacinia imperdiet pretium. Quisque aliquet eros a augue suscipit, ac condimentum elit lobortis. Nullam volutpat venenatis placerat. Nulla congue varius sem, a facilisis nunc consectetur ac. Nulla est orci, euismod ac risus sed, viverra dignissim nisl. Sed nunc ante, venenatis vitae nisi eget, pellentesque condimentum erat. Aliquam tincidunt libero vitae nisi posuere convallis. Morbi suscipit dapibus orci ac condimentum. Duis venenatis dictum nulla quis malesuada.",
+      "createdAt": 1611062805688,
+      "editedAt": 1701170211625,
+      "tag": "5"
+    },
+    {
+      "id": "4f6f9c93-b087-4e0a-9274-44bff9682353",
+      "userId": "1",
+      "title": "Donec libero risus",
+      "content": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; In congue sapien quis accumsan lacinia. In hac habitasse platea dictumst. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed vestibulum ex ut nisl interdum iaculis eu id dolor. Integer luctus tempus elit ac laoreet. Interdum et malesuada fames ac ante ipsum primis in faucibus.\n\nMaecenas convallis tempus condimentum. Suspendisse tempus rhoncus elit ut pretium. Donec id aliquam lacus. Nam aliquam, elit sed ullamcorper suscipit, diam ex volutpat nulla, ac tempus mauris lacus eu augue. Duis tincidunt ut nunc id laoreet. Donec libero risus, sodales vel dictum a, consequat vitae sapien. Pellentesque blandit quis diam sed tincidunt. Sed ut ultricies metus, fermentum dictum augue.",
+      "createdAt": 1701134002891,
+      "editedAt": 1701170184121,
+      "tag": "10"
+    },
+    {
+      "id": "6b9b84df-b21b-4bd8-ad37-9e234d93a20f",
+      "userId": "1",
+      "title": "34242",
+      "content": "23423432",
+      "createdAt": 1701163084743,
+      "editedAt": 1701170905510,
+      "tag": "4"
     }
   ],
   "tags": [
@@ -217,6 +133,11 @@
       "id": "11",
       "name": "parrot",
       "icon": "🦜"
+    },
+    {
+      "id": "12",
+      "name": "popcorn",
+      "icon": "🍿"
     }
   ],
   "timezones": [
@@ -953,7 +874,7 @@
     {
       "value": "Syria Standard Time",
       "abbr": "SDT",
-      "offset": 3,
+      "offset": 2,
       "isdst": true,
       "text": "(UTC+02:00) Damascus",
       "utc": [
@@ -963,7 +884,7 @@
     {
       "value": "E. Europe Standard Time",
       "abbr": "EEDT",
-      "offset": 3,
+      "offset": 2,
       "isdst": true,
       "text": "(UTC+02:00) E. Europe",
       "utc": [
@@ -1007,7 +928,7 @@
     {
       "value": "FLE Standard Time",
       "abbr": "FDT",
-      "offset": 3,
+      "offset": 2,
       "isdst": true,
       "text": "(UTC+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius",
       "utc": [

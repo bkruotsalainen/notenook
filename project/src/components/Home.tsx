@@ -221,7 +221,8 @@ function Home({handleLogin}: HomeProps) {
       <AddNewMemo isOpen={isMemoOpen} handlePopUp={handleMemoPopUp} tags={tags} refreshMemos={refreshMemos} 
         timezone={timezone}/>
 
-      <Settings isOpen={isSettingsOpen} handleSettingsPopUp={handleSettingsPopUp} timezone={timezone}/>
+      <Settings isOpen={isSettingsOpen} handleSettingsPopUp={handleSettingsPopUp} timezone={timezone}
+        refreshTodos={refreshTodos} refreshMemos={refreshMemos}/>
 
       <Header handleTodoDisplay={handleTodoDisplay} handleMemoDisplay={handleMemoDisplay} handleLogin={handleLogin}
         handleSettingsPopUp={handleSettingsPopUp}/>

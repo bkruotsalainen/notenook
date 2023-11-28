@@ -166,7 +166,9 @@ interface HomeProps {
 interface SettingsProps {
   isOpen: boolean,
   handleSettingsPopUp: () => void,
-  timezone: number
+  timezone: number,
+  refreshTodos: () => void,
+  refreshMemos: () => void
 }
 
 interface Timezone {
