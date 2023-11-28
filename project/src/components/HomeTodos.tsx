@@ -6,8 +6,6 @@ const months: string[] = [
   'January', 'February', 'March', 'April', 'May', 'June',
   'July', 'August', 'September', 'October', 'November', 'December'
 ];
-  
-const timezone = 7200000;
 
 function HomeTodos({searchValue, filterValues, tags, todos, refreshTodos, handleTodoInEdit}: HomeTodoProps) {  
 // Update color of the task based on it's type (note, to do, to do list)
