@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 import '../css/AddNew.css';
 import todoService from '../services/todoService';
 
-function AddNewTodo({isOpen, handlePopUp, tags, refreshTodos}: AddNewTodoProps) {  
+function AddNewTodo({isOpen, handlePopUp, tags, refreshTodos, timezone}: AddNewTodoProps) {  
   const [todo, setTodo] = useState<boolean>(false);
   const [deadline, setDeadline] = useState<boolean>(false);
 
@@ -34,9 +34,9 @@ function AddNewTodo({isOpen, handlePopUp, tags, refreshTodos}: AddNewTodoProps) 
     deadline: deadline,
     done: false,
     tag: activeTag,
-    doneBy: Date.now() + 604800000,
-    createdAt: Date.now(),
-    editedAt: Date.now(),
+    doneBy: new Date().getTime() - timezone + 604800000,
+    createdAt: new Date().getTime() - timezone,
+    editedAt: new Date().getTime() - timezone,
     userId: '1',
     id: uuidv4()
   });
@@ -114,9 +114,9 @@ function AddNewTodo({isOpen, handlePopUp, tags, refreshTodos}: AddNewTodoProps) 
     const newTodo = {
       id: uuidv4(),
       userId: '1',
-      createdAt: Date.now(),
-      editedAt: Date.now(),
-      doneBy: todoData.doneBy,
+      createdAt: new Date().getTime()- timezone,
+      editedAt: new Date().getTime() - timezone,
+      doneBy: todoData.doneBy - timezone,
       content: todoData.content,
       subtasks: todoData.subtasks,
       repeatInterval: todoData.repeatInterval,

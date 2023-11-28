@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import memoService from '../services/memoService';
 
-function EditMemo({ memoInEdit, isOpen, handleMemoInEdit, refreshMemos, tags }: EditMemoProps) {
+function EditMemo({ memoInEdit, isOpen, handleMemoInEdit, refreshMemos, tags, timezone }: EditMemoProps) {
   const [title, setTitle] = useState<string>(memoInEdit === undefined ? 'Test title' : memoInEdit.title);
   const [content, setContent] = useState<string>(memoInEdit === undefined ? 'Test content' : memoInEdit.content);
 
@@ -46,8 +46,8 @@ function EditMemo({ memoInEdit, isOpen, handleMemoInEdit, refreshMemos, tags }: 
       userId: memoInEdit.userId,
       title: title,
       content: content,
-      createdAt: memoInEdit.createdAt,
-      editedAt: Date.now(),
+      createdAt: memoInEdit.createdAt - timezone,
+      editedAt: new Date().getTime() - timezone,
       tag: activeTag
     };
 

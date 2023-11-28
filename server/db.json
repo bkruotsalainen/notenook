@@ -2,145 +2,34 @@
   "users": [
     {
       "id": "1",
-      "createdAt": "2011-01-01 00:00:00",
-      "username": "exampleUser",
-      "password": "examplePassword",
-      "timezone": 2
-    },
-    {
-      "id": "99166adc-3764-452a-90ba-2eeba11d9937",
-      "email": "admin@projekti.fi",
-      "password": "salsana123",
-      "createdAt": 1701165865117,
-      "timezone": -120
-    },
-    {
-      "id": "b9838980-bd2a-4bdc-8766-825752e67d6c",
-      "email": "user@projekti.fi",
-      "password": "vahvaSalasana",
-      "createdAt": 1701166315723,
-      "timezone": -120
+      "email": "user@sahkoposti.fi",
+      "password": "salasana123",
+      "createdAt": 1701187915723,
+      "timezone": 10800000
     }
   ],
   "todos": [
     {
-      "id": "aefff4e4-b071-4f53-a56d-7bc3d42108f4",
+      "id": "da215fbb-dacd-42a3-9cfc-c3e89d844cf0",
       "userId": "1",
-      "createdAt": 1700809684780,
-      "editedAt": 1701155836576,
-      "doneBy": 1703447940000,
-      "content": "Have a great Christmas! ",
-      "subtasks": [],
-      "repeatInterval": "never",
-      "todo": false,
-      "deadline": true,
-      "done": false,
-      "tag": "3"
-    },
-    {
-      "id": "3ca66892-1e02-416c-9614-6d9268325ad3",
-      "userId": "1",
-      "createdAt": 1700809767237,
-      "editedAt": 1700809767237,
-      "doneBy": 1700809747107,
-      "content": "Send message to aliens and take over the world!",
-      "subtasks": [],
-      "repeatInterval": "never",
-      "todo": false,
-      "deadline": false,
-      "done": false,
-      "tag": "4"
-    },
-    {
-      "id": "31d657d2-91df-4634-bdc0-697e37c0364a",
-      "userId": "1",
-      "createdAt": 1700809793229,
-      "editedAt": 1700855781228,
-      "doneBy": 1700809769683,
-      "content": "Have a movie marathon!",
+      "createdAt": 1701179732437,
+      "editedAt": 1701165963237,
+      "doneBy": 1701324000000,
+      "content": "Buy groceries",
       "subtasks": [
         {
-          "id": "6f2b8510-47e1-492b-a167-4dc882497812",
-          "content": "Jurassic Park",
-          "done": true
-        },
-        {
-          "id": "ba9bbb47-e5ec-4e07-b85b-dc4479b5e0ab",
-          "content": "The Lost World: Jurassic Park II",
-          "done": false
-        },
-        {
-          "id": "3e555d66-a42e-4135-bd22-43070ef90f19",
-          "content": "Jurassic Park III",
-          "done": false
-        }
-      ],
-      "repeatInterval": "never",
-      "todo": true,
-      "deadline": false,
-      "done": false,
-      "tag": "8"
-    },
-    {
-      "id": "5814ddce-6581-48d1-af98-5b12535b00cb",
-      "userId": "1",
-      "createdAt": 1700809865839,
-      "editedAt": 1700855774549,
-      "doneBy": 1704139140000,
-      "content": "Have a new year pizza party!",
-      "subtasks": [],
-      "repeatInterval": "never",
-      "todo": false,
-      "deadline": true,
-      "done": false,
-      "tag": "5"
-    },
-    {
-      "id": "db773395-b8dc-426b-b5c5-9002fae47a45",
-      "userId": "1",
-      "createdAt": 1700812596913,
-      "editedAt": 1700855784442,
-      "doneBy": 1700222400000,
-      "content": "Remember to buy",
-      "subtasks": [
-        {
-          "id": "de175bec-1190-4040-a22f-d4ce24034b90",
-          "content": "Milk",
-          "done": true
-        },
-        {
-          "id": "f0126365-9f2a-4291-9e73-f0e0cf928e49",
-          "content": "Envelopes",
-          "done": true
-        },
-        {
-          "id": "bdb86375-ddb7-4bfb-a1f3-ba635ed07243",
-          "content": "Apples",
-          "done": false
-        }
-      ],
-      "repeatInterval": "never",
-      "todo": true,
-      "deadline": true,
-      "done": false,
-      "tag": "1"
-    },
-    {
-      "id": "ab096b21-3d0f-4f74-baa2-1cf09afcedee",
-      "userId": "1",
-      "createdAt": 1701161888917,
-      "editedAt": 1701162293252,
-      "doneBy": 1701766604300,
-      "content": "Grocery list",
-      "subtasks": [
-        {
-          "id": "bb914d33-7203-4c41-946f-f869393db57d",
+          "id": "b656445c-e747-4c02-84be-515315aec8b9",
           "content": "Salad",
-          "done": true
+          "done": false
         },
         {
-          "id": "289a0138-baab-4304-b05d-9b166cd7bf3e",
+          "id": "26c2598c-3587-4764-be49-069c9d74bd2a",
           "content": "Bread",
+          "done": false
+        },
+        {
+          "id": "20ca4ab4-fa1b-4491-bc24-01eaa66ed294",
+          "content": "Ham",
           "done": false
         }
       ],
@@ -151,73 +40,105 @@
       "tag": "9"
     },
     {
-      "id": "0a3d1997-e6ab-42f6-88b2-ff61def7d8dd",
+      "id": "b7f1e880-d216-4e3a-8fb1-11714dffe16e",
       "userId": "1",
-      "createdAt": 1701164306961,
-      "editedAt": 1701164306961,
-      "doneBy": 1701344700000,
-      "content": "Water plants",
-      "subtasks": [],
-      "repeatInterval": "never",
-      "todo": false,
-      "deadline": true,
-      "done": false,
-      "tag": "10"
-    },
-    {
-      "id": "4cdcfa37-83e8-4b94-8b60-2498ee40fe4e",
-      "userId": "1",
-      "createdAt": 1701165104350,
-      "editedAt": 1701165110886,
-      "doneBy": 1694502000000,
+      "createdAt": 1701208577967,
+      "editedAt": 1701165934950,
+      "doneBy": 1699596000000,
       "content": "Buy birthday gift for a friend",
       "subtasks": [],
       "repeatInterval": "never",
       "todo": true,
       "deadline": true,
       "done": true,
+      "tag": "10"
+    },
+    {
+      "id": "9192ad7c-a407-440f-a140-5b42f9fe0c67",
+      "userId": "1",
+      "createdAt": 1701273403862,
+      "editedAt": 1701165878505,
+      "doneBy": 1703426400000,
+      "content": "Have a great Christmas!",
+      "subtasks": [],
+      "repeatInterval": "never",
+      "todo": false,
+      "deadline": true,
+      "done": false,
       "tag": "3"
     },
     {
-      "id": "1e8ff854-998c-400a-b389-0f6715934665",
+      "id": "b2885f56-6d41-4c06-a1fd-0d8a2c4c6132",
       "userId": "1",
-      "createdAt": 1701165166081,
-      "editedAt": 1701165166081,
-      "doneBy": 1700499600000,
-      "content": "Wash windows",
+      "createdAt": 1701194285349,
+      "editedAt": 1701194285349,
+      "doneBy": 1704081540000,
+      "content": "Send message to aliens and take over the world!",
       "subtasks": [],
       "repeatInterval": "never",
+      "todo": false,
+      "deadline": false,
+      "done": false,
+      "tag": "4"
+    },
+    {
+      "id": "31ab35a5-1a3c-40ef-b2d3-475b4658eff7",
+      "userId": "1",
+      "createdAt": 1701194318595,
+      "editedAt": 1701194318595,
+      "doneBy": 1704081540000,
+      "content": "Have a movie night!",
+      "subtasks": [
+        {
+          "id": "ae974379-fc69-4bf5-b4a0-043443d7ceab",
+          "content": "Choose a movie",
+          "done": false
+        },
+        {
+          "id": "343fb809-67d3-4df0-a297-9ec02971a1a3",
+          "content": "Buy snacks",
+          "done": false
+        },
+        {
+          "id": "9bb8c2b8-bf26-4d12-80be-fe764bb1c362",
+          "content": "Have fun!",
+          "done": false
+        }
+      ],
+      "repeatInterval": "never",
       "todo": true,
-      "deadline": true,
-      "done": true,
-      "tag": "1"
+      "deadline": false,
+      "done": false,
+      "tag": "3"
     }
   ],
   "memos": [
     {
-      "id": "1",
+      "id": "4ddf7b1f-2faa-4991-9317-b01cb6ccb6e3",
       "userId": "1",
-      "title": "Awesome memo",
-      "content": "Donec quam magna, ullamcorper sit amet blandit vel, \n lobortis vitae odio. Nulla molestie, massa eget rutrum feugiat, lorem sem consectetur augue, non blandit nibh enim eu arcu. Nullam id nulla odio. Proin luctus tincidunt porttitor. Nulla ac vehicula nulla, condimentum varius felis. Aliquam suscipit sodales leo sed suscipit. Sed nec velit arcu. Nam eu lectus diam. Pellentesque rhoncus mattis tincidunt. Maecenas molestie, velit vel auctor fringilla, nibh metus venenatis mauris, eget dignissim ex velit ut sem. Donec et quam fringilla, mattis massa eget, dignissim sem. Proin in ligula eget augue porta hendrerit. Curabitur fermentum blandit lorem nec vehicula. Maecenas semper, neque et commodo finibus, eros mauris tincidunt dolor, eu mattis ex erat eu neque. Proin id mi tortor. Praesent tempor, nunc at tincidunt pretium, ligula tortor tincidunt enim, vestibulum finibus ex purus quis mauris. Curabitur at erat vehicula ex luctus consequat. Nullam eu est ut lectus aliquet lobortis. Phasellus est nibh, euismod vel purus ac, sollicitudin lobortis velit. Donec vestibulum lectus a mauris lobortis, non sodales augue varius. Morbi commodo nisl ligula, sit amet varius libero egestas at. Nulla lacinia venenatis ipsum, quis porttitor lacus condimentum in. Nullam suscipit diam non iaculis aliquam. Nam hendrerit, massa eu bibendum pretium, augue sem sollicitudin libero, sed auctor magna quam eu ex. Suspendisse potenti. Nulla in tincidunt lorem, eget egestas magna. Duis volutpat pulvinar nunc, sit amet venenatis lectus sollicitudin vitae. In vel facilisis libero. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nunc dictum vehicula semper. Phasellus interdum efficitur consequat. Quisque dignissim augue nunc, in maximus metus sollicitudin eu. Donec sed augue nunc. Nulla sodales, quam vel lobortis porttitor, augue velit aliquet sapien, dictum egestas odio elit sit amet nunc.",
-      "createdAt": 1700740916000,
-      "editedAt": 1701161700865,
-      "tag": "10"
+      "title": "Lorem ipsum",
+      "content": "Vivamus vel felis non enim ullamcorper elementum. Etiam non metus in arcu imperdiet dictum vel at diam. Fusce bibendum et lorem nec mattis. Etiam tempus eros velit, eget rutrum nisi condimentum mollis. Maecenas lacinia imperdiet pretium. Quisque aliquet eros a augue suscipit, ac condimentum elit lobortis. Nullam volutpat venenatis placerat. Nulla congue varius sem, a facilisis nunc consectetur ac. Nulla est orci, euismod ac risus sed, viverra dignissim nisl. Sed nunc ante, venenatis vitae nisi eget, pellentesque condimentum erat. Aliquam tincidunt libero vitae nisi posuere convallis. Morbi suscipit dapibus orci ac condimentum. Duis venenatis dictum nulla quis malesuada.\n\nDonec pellentesque mi eu augue porttitor porta. Suspendisse sit amet eros a orci viverra hendrerit. Integer non urna congue, luctus turpis eget, rhoncus arcu. Maecenas dictum volutpat dui vel eleifend. Suspendisse iaculis leo lectus, faucibus dignissim felis semper sed. Nam risus nulla, bibendum vel arcu porta, finibus consectetur erat. Cras dictum massa ac accumsan faucibus.",
+      "createdAt": 1701194053979,
+      "editedAt": 1701194053979,
+      "tag": "8"
     },
     {
-      "id": "2",
-      "title": "Let's change this title",
-      "content": "Nulla ac vehicula nulla, condimentum varius felis. Aliquam suscipit sodales leo sed suscipit. Sed nec velit arcu. Nam eu lectus diam. Pellentesque rhoncus mattis tincidunt. Maecenas molestie, velit vel auctor fringilla, nibh metus venenatis mauris, eget dignissim ex velit ut sem. Donec et quam fringilla, mattis massa eget, dignissim sem. Proin in ligula eget augue porta hendrerit. Curabitur fermentum blandit lorem nec vehicula. Maecenas semper, neque et commodo finibus, eros mauris tincidunt dolor, eu mattis ex erat eu neque. Proin id mi tortor. Praesent tempor, nunc at tincidunt pretium, ligula tortor tincidunt enim, vestibulum finibus ex purus quis mauris. Curabitur at erat vehicula ex luctus consequat. Nullam eu est ut lectus aliquet lobortis. Phasellus est nibh, euismod vel purus ac, sollicitudin lobortis velit. Donec vestibulum lectus a mauris lobortis, non sodales augue varius. Morbi commodo nisl ligula, sit amet varius libero egestas at. Nulla lacinia venenatis ipsum, quis porttitor lacus condimentum in. Nullam suscipit diam non iaculis aliquam. Nam hendrerit, massa eu bibendum pretium, augue sem sollicitudin libero, sed auctor magna quam eu ex. Suspendisse potenti. Nulla in tincidunt lorem, eget egestas magna. Duis volutpat pulvinar nunc, sit amet venenatis lectus sollicitudin vitae. In vel facilisis libero. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nunc dictum vehicula semper. Phasellus interdum efficitur consequat. Quisque dignissim augue nunc, in maximus metus sollicitudin eu. Donec sed augue nunc. Nulla sodales, quam vel lobortis porttitor, augue velit aliquet sapien, dictum egestas odio elit sit amet nunc.",
-      "createdAt": 1700821003206,
-      "editedAt": 1701162467249,
+      "id": "e4f4cc6e-a4c1-4042-afd9-de03d5615aec",
+      "userId": "1",
+      "title": "Maecenas lacinia imperdiet",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tristique est eu tincidunt sodales. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis et massa in justo pharetra varius. Pellentesque fringilla posuere urna, hendrerit blandit lacus commodo vitae. Maecenas egestas nec neque faucibus luctus. Nam a urna sed ipsum mattis commodo nec id mauris. Integer mi neque, auctor at feugiat vel, malesuada tempus dolor. Mauris at viverra felis, ut dictum purus. Nam consequat turpis nisi, et varius velit accumsan a. Proin pretium suscipit massa id scelerisque.\n\nVivamus vel felis non enim ullamcorper elementum. Etiam non metus in arcu imperdiet dictum vel at diam. Fusce bibendum et lorem nec mattis. Etiam tempus eros velit, eget rutrum nisi condimentum mollis. Maecenas lacinia imperdiet pretium. Quisque aliquet eros a augue suscipit, ac condimentum elit lobortis. Nullam volutpat venenatis placerat. Nulla congue varius sem, a facilisis nunc consectetur ac. Nulla est orci, euismod ac risus sed, viverra dignissim nisl. Sed nunc ante, venenatis vitae nisi eget, pellentesque condimentum erat. Aliquam tincidunt libero vitae nisi posuere convallis. Morbi suscipit dapibus orci ac condimentum. Duis venenatis dictum nulla quis malesuada.",
+      "createdAt": 1701194106302,
+      "editedAt": 1701194106302,
+      "tag": "5"
+    },
+    {
+      "id": "a760d0db-3235-441e-a931-5a5c8d46a81e",
+      "userId": "1",
+      "title": "Mauris pulvinar malesuada nulla",
+      "content": "Nulla eget elit et magna porttitor lobortis. Donec quis venenatis nulla. Nullam convallis laoreet nunc, sit amet fringilla turpis mollis ultricies. Phasellus quis ante malesuada felis ultricies ultrices id porttitor metus. Donec sit amet tincidunt ipsum. Quisque maximus est non arcu scelerisque molestie. Curabitur ligula turpis, hendrerit cursus tortor a, eleifend interdum massa. Morbi eget urna cursus, fermentum lectus quis, vestibulum erat. Etiam urna nisi, euismod facilisis sollicitudin at, imperdiet ut nisi. Mauris quis est id nisl sodales rhoncus id sit amet nunc. Curabitur nec elit in enim dapibus consequat. Nunc eget interdum massa, at lacinia justo.\n\nPellentesque id tempus velit. Proin sed ultricies neque, a pharetra risus. Nam at orci feugiat, mollis orci et, porttitor metus. Donec sed risus varius, sollicitudin elit sit amet, consequat est. In eleifend vestibulum ex ut ornare. Aliquam faucibus quam id iaculis egestas. Donec id metus eget ante malesuada porttitor. In ligula ante, malesuada eget arcu non, sodales facilisis odio. Mauris pulvinar malesuada nulla, id tempus tortor malesuada feugiat. In quis scelerisque felis, ac fringilla ante. Nullam vitae magna ac nibh molestie faucibus id a metus. Integer sapien est, egestas iaculis laoreet eu, posuere vel est. Nam turpis arcu, volutpat id convallis in, pharetra vitae est.",
+      "createdAt": 1701166005688,
+      "editedAt": 1701166005688,
       "tag": "6"
-    },
-    {
-      "id": "3",
-      "title": "Another amazing memo!",
-      "content": "Leo sed suscipit. Sed nec velit arcu. Nam eu lectus diam. Pellentesque rhoncus mattis tincidunt. Maecenas molestie, velit vel auctor fringilla, nibh metus venenatis mauris, eget dignissim ex velit ut sem. Donec et quam fringilla, mattis massa eget, dignissim sem. Proin in ligula eget augue porta hendrerit. Curabitur fermentum blandit lorem nec vehicula. Maecenas semper, neque et commodo finibus, eros mauris tincidunt dolor, eu mattis ex erat eu neque. Proin id mi tortor. Praesent tempor, nunc at tincidunt pretium, ligula tortor tincidunt enim, vestibulum finibus ex purus quis mauris. Curabitur at erat vehicula ex luctus consequat. Nullam eu est ut lectus aliquet lobortis. Phasellus est nibh, euismod vel purus ac, sollicitudin lobortis velit. Donec vestibulum lectus a mauris lobortis, non sodales augue varius. Morbi commodo nisl ligula, sit amet varius libero egestas at. Nulla lacinia venenatis ipsum, quis porttitor lacus condimentum in. Nullam suscipit diam non iaculis aliquam. Nam hendrerit, massa eu bibendum pretium, augue sem sollicitudin libero, sed auctor magna quam eu ex. Suspendisse potenti. Nulla in tincidunt lorem, eget egestas magna. Duis volutpat pulvinar nunc, sit amet venenatis lectus sollicitudin vitae. In vel facilisis libero. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nunc dictum vehicula semper. Phasellus interdum efficitur consequat. Quisque dignissim augue nunc, in maximus metus sollicitudin eu. Donec sed augue nunc. Nulla sodales, quam vel lobortis porttitor, augue velit aliquet sapien, dictum egestas odio elit sit amet nunc.",
-      "createdAt": 1700750916000,
-      "editedAt": 1701156775372,
-      "tag": "11"
     }
   ],
   "tags": [
@@ -275,6 +196,1445 @@
       "id": "11",
       "name": "parrot",
       "icon": "🦜"
+    }
+  ],
+  "timezones": [
+    {
+      "value": "Dateline Standard Time",
+      "abbr": "DST",
+      "offset": -12,
+      "isdst": false,
+      "text": "(UTC-12:00) International Date Line West",
+      "utc": [
+        "Etc/GMT+12"
+      ]
+    },
+    {
+      "value": "UTC-11",
+      "abbr": "U",
+      "offset": -11,
+      "isdst": false,
+      "text": "(UTC-11:00) Coordinated Universal Time-11",
+      "utc": [
+        "Etc/GMT+11",
+        "Pacific/Midway",
+        "Pacific/Niue",
+        "Pacific/Pago_Pago"
+      ]
+    },
+    {
+      "value": "Hawaiian Standard Time",
+      "abbr": "HST",
+      "offset": -10,
+      "isdst": false,
+      "text": "(UTC-10:00) Hawaii",
+      "utc": [
+        "Etc/GMT+10",
+        "Pacific/Honolulu",
+        "Pacific/Johnston",
+        "Pacific/Rarotonga",
+        "Pacific/Tahiti"
+      ]
+    },
+    {
+      "value": "Alaskan Standard Time",
+      "abbr": "AKDT",
+      "offset": -8,
+      "isdst": true,
+      "text": "(UTC-09:00) Alaska",
+      "utc": [
+        "America/Anchorage",
+        "America/Juneau",
+        "America/Nome",
+        "America/Sitka",
+        "America/Yakutat"
+      ]
+    },
+    {
+      "value": "Pacific Standard Time (Mexico)",
+      "abbr": "PDT",
+      "offset": -7,
+      "isdst": true,
+      "text": "(UTC-08:00) Baja California",
+      "utc": [
+        "America/Santa_Isabel"
+      ]
+    },
+    {
+      "value": "Pacific Daylight Time",
+      "abbr": "PDT",
+      "offset": -7,
+      "isdst": true,
+      "text": "(UTC-07:00) Pacific Daylight Time (US & Canada)",
+      "utc": [
+        "America/Los_Angeles",
+        "America/Tijuana",
+        "America/Vancouver"
+      ]
+    },
+    {
+      "value": "Pacific Standard Time",
+      "abbr": "PST",
+      "offset": -8,
+      "isdst": false,
+      "text": "(UTC-08:00) Pacific Standard Time (US & Canada)",
+      "utc": [
+        "America/Los_Angeles",
+        "America/Tijuana",
+        "America/Vancouver",
+        "PST8PDT"
+      ]
+    },
+    {
+      "value": "US Mountain Standard Time",
+      "abbr": "UMST",
+      "offset": -7,
+      "isdst": false,
+      "text": "(UTC-07:00) Arizona",
+      "utc": [
+        "America/Creston",
+        "America/Dawson",
+        "America/Dawson_Creek",
+        "America/Hermosillo",
+        "America/Phoenix",
+        "America/Whitehorse",
+        "Etc/GMT+7"
+      ]
+    },
+    {
+      "value": "Mountain Standard Time (Mexico)",
+      "abbr": "MDT",
+      "offset": -6,
+      "isdst": true,
+      "text": "(UTC-07:00) Chihuahua, La Paz, Mazatlan",
+      "utc": [
+        "America/Chihuahua",
+        "America/Mazatlan"
+      ]
+    },
+    {
+      "value": "Mountain Standard Time",
+      "abbr": "MDT",
+      "offset": -6,
+      "isdst": true,
+      "text": "(UTC-07:00) Mountain Time (US & Canada)",
+      "utc": [
+        "America/Boise",
+        "America/Cambridge_Bay",
+        "America/Denver",
+        "America/Edmonton",
+        "America/Inuvik",
+        "America/Ojinaga",
+        "America/Yellowknife",
+        "MST7MDT"
+      ]
+    },
+    {
+      "value": "Central America Standard Time",
+      "abbr": "CAST",
+      "offset": -6,
+      "isdst": false,
+      "text": "(UTC-06:00) Central America",
+      "utc": [
+        "America/Belize",
+        "America/Costa_Rica",
+        "America/El_Salvador",
+        "America/Guatemala",
+        "America/Managua",
+        "America/Tegucigalpa",
+        "Etc/GMT+6",
+        "Pacific/Galapagos"
+      ]
+    },
+    {
+      "value": "Central Standard Time",
+      "abbr": "CDT",
+      "offset": -5,
+      "isdst": true,
+      "text": "(UTC-06:00) Central Time (US & Canada)",
+      "utc": [
+        "America/Chicago",
+        "America/Indiana/Knox",
+        "America/Indiana/Tell_City",
+        "America/Matamoros",
+        "America/Menominee",
+        "America/North_Dakota/Beulah",
+        "America/North_Dakota/Center",
+        "America/North_Dakota/New_Salem",
+        "America/Rainy_River",
+        "America/Rankin_Inlet",
+        "America/Resolute",
+        "America/Winnipeg",
+        "CST6CDT"
+      ]
+    },
+    {
+      "value": "Central Standard Time (Mexico)",
+      "abbr": "CDT",
+      "offset": -5,
+      "isdst": true,
+      "text": "(UTC-06:00) Guadalajara, Mexico City, Monterrey",
+      "utc": [
+        "America/Bahia_Banderas",
+        "America/Cancun",
+        "America/Merida",
+        "America/Mexico_City",
+        "America/Monterrey"
+      ]
+    },
+    {
+      "value": "Canada Central Standard Time",
+      "abbr": "CCST",
+      "offset": -6,
+      "isdst": false,
+      "text": "(UTC-06:00) Saskatchewan",
+      "utc": [
+        "America/Regina",
+        "America/Swift_Current"
+      ]
+    },
+    {
+      "value": "SA Pacific Standard Time",
+      "abbr": "SPST",
+      "offset": -5,
+      "isdst": false,
+      "text": "(UTC-05:00) Bogota, Lima, Quito",
+      "utc": [
+        "America/Bogota",
+        "America/Cayman",
+        "America/Coral_Harbour",
+        "America/Eirunepe",
+        "America/Guayaquil",
+        "America/Jamaica",
+        "America/Lima",
+        "America/Panama",
+        "America/Rio_Branco",
+        "Etc/GMT+5"
+      ]
+    },
+    {
+      "value": "Eastern Standard Time",
+      "abbr": "EST",
+      "offset": -5,
+      "isdst": false,
+      "text": "(UTC-05:00) Eastern Time (US & Canada)",
+      "utc": [
+        "America/Detroit",
+        "America/Havana",
+        "America/Indiana/Petersburg",
+        "America/Indiana/Vincennes",
+        "America/Indiana/Winamac",
+        "America/Iqaluit",
+        "America/Kentucky/Monticello",
+        "America/Louisville",
+        "America/Montreal",
+        "America/Nassau",
+        "America/New_York",
+        "America/Nipigon",
+        "America/Pangnirtung",
+        "America/Port-au-Prince",
+        "America/Thunder_Bay",
+        "America/Toronto"
+      ]
+    },
+    {
+      "value": "Eastern Daylight Time",
+      "abbr": "EDT",
+      "offset": -4,
+      "isdst": true,
+      "text": "(UTC-04:00) Eastern Daylight Time (US & Canada)",
+      "utc": [
+        "America/Detroit",
+        "America/Havana",
+        "America/Indiana/Petersburg",
+        "America/Indiana/Vincennes",
+        "America/Indiana/Winamac",
+        "America/Iqaluit",
+        "America/Kentucky/Monticello",
+        "America/Louisville",
+        "America/Montreal",
+        "America/Nassau",
+        "America/New_York",
+        "America/Nipigon",
+        "America/Pangnirtung",
+        "America/Port-au-Prince",
+        "America/Thunder_Bay",
+        "America/Toronto"
+      ]
+    },
+    {
+      "value": "US Eastern Standard Time",
+      "abbr": "UEDT",
+      "offset": -5,
+      "isdst": false,
+      "text": "(UTC-05:00) Indiana (East)",
+      "utc": [
+        "America/Indiana/Marengo",
+        "America/Indiana/Vevay",
+        "America/Indianapolis"
+      ]
+    },
+    {
+      "value": "Venezuela Standard Time",
+      "abbr": "VST",
+      "offset": -4.5,
+      "isdst": false,
+      "text": "(UTC-04:30) Caracas",
+      "utc": [
+        "America/Caracas"
+      ]
+    },
+    {
+      "value": "Paraguay Standard Time",
+      "abbr": "PYT",
+      "offset": -4,
+      "isdst": false,
+      "text": "(UTC-04:00) Asuncion",
+      "utc": [
+        "America/Asuncion"
+      ]
+    },
+    {
+      "value": "Atlantic Standard Time",
+      "abbr": "ADT",
+      "offset": -3,
+      "isdst": true,
+      "text": "(UTC-04:00) Atlantic Time (Canada)",
+      "utc": [
+        "America/Glace_Bay",
+        "America/Goose_Bay",
+        "America/Halifax",
+        "America/Moncton",
+        "America/Thule",
+        "Atlantic/Bermuda"
+      ]
+    },
+    {
+      "value": "Central Brazilian Standard Time",
+      "abbr": "CBST",
+      "offset": -4,
+      "isdst": false,
+      "text": "(UTC-04:00) Cuiaba",
+      "utc": [
+        "America/Campo_Grande",
+        "America/Cuiaba"
+      ]
+    },
+    {
+      "value": "SA Western Standard Time",
+      "abbr": "SWST",
+      "offset": -4,
+      "isdst": false,
+      "text": "(UTC-04:00) Georgetown, La Paz, Manaus, San Juan",
+      "utc": [
+        "America/Anguilla",
+        "America/Antigua",
+        "America/Aruba",
+        "America/Barbados",
+        "America/Blanc-Sablon",
+        "America/Boa_Vista",
+        "America/Curacao",
+        "America/Dominica",
+        "America/Grand_Turk",
+        "America/Grenada",
+        "America/Guadeloupe",
+        "America/Guyana",
+        "America/Kralendijk",
+        "America/La_Paz",
+        "America/Lower_Princes",
+        "America/Manaus",
+        "America/Marigot",
+        "America/Martinique",
+        "America/Montserrat",
+        "America/Port_of_Spain",
+        "America/Porto_Velho",
+        "America/Puerto_Rico",
+        "America/Santo_Domingo",
+        "America/St_Barthelemy",
+        "America/St_Kitts",
+        "America/St_Lucia",
+        "America/St_Thomas",
+        "America/St_Vincent",
+        "America/Tortola",
+        "Etc/GMT+4"
+      ]
+    },
+    {
+      "value": "Pacific SA Standard Time",
+      "abbr": "PSST",
+      "offset": -4,
+      "isdst": false,
+      "text": "(UTC-04:00) Santiago",
+      "utc": [
+        "America/Santiago",
+        "Antarctica/Palmer"
+      ]
+    },
+    {
+      "value": "Newfoundland Standard Time",
+      "abbr": "NDT",
+      "offset": -2.5,
+      "isdst": true,
+      "text": "(UTC-03:30) Newfoundland",
+      "utc": [
+        "America/St_Johns"
+      ]
+    },
+    {
+      "value": "E. South America Standard Time",
+      "abbr": "ESAST",
+      "offset": -3,
+      "isdst": false,
+      "text": "(UTC-03:00) Brasilia",
+      "utc": [
+        "America/Sao_Paulo"
+      ]
+    },
+    {
+      "value": "Argentina Standard Time",
+      "abbr": "AST",
+      "offset": -3,
+      "isdst": false,
+      "text": "(UTC-03:00) Buenos Aires",
+      "utc": [
+        "America/Argentina/Buenos_Aires",
+        "America/Argentina/Catamarca",
+        "America/Argentina/Cordoba",
+        "America/Argentina/Jujuy",
+        "America/Argentina/La_Rioja",
+        "America/Argentina/Mendoza",
+        "America/Argentina/Rio_Gallegos",
+        "America/Argentina/Salta",
+        "America/Argentina/San_Juan",
+        "America/Argentina/San_Luis",
+        "America/Argentina/Tucuman",
+        "America/Argentina/Ushuaia",
+        "America/Buenos_Aires",
+        "America/Catamarca",
+        "America/Cordoba",
+        "America/Jujuy",
+        "America/Mendoza"
+      ]
+    },
+    {
+      "value": "SA Eastern Standard Time",
+      "abbr": "SEST",
+      "offset": -3,
+      "isdst": false,
+      "text": "(UTC-03:00) Cayenne, Fortaleza",
+      "utc": [
+        "America/Araguaina",
+        "America/Belem",
+        "America/Cayenne",
+        "America/Fortaleza",
+        "America/Maceio",
+        "America/Paramaribo",
+        "America/Recife",
+        "America/Santarem",
+        "Antarctica/Rothera",
+        "Atlantic/Stanley",
+        "Etc/GMT+3"
+      ]
+    },
+    {
+      "value": "Greenland Standard Time",
+      "abbr": "GDT",
+      "offset": -3,
+      "isdst": true,
+      "text": "(UTC-03:00) Greenland",
+      "utc": [
+        "America/Godthab"
+      ]
+    },
+    {
+      "value": "Montevideo Standard Time",
+      "abbr": "MST",
+      "offset": -3,
+      "isdst": false,
+      "text": "(UTC-03:00) Montevideo",
+      "utc": [
+        "America/Montevideo"
+      ]
+    },
+    {
+      "value": "Bahia Standard Time",
+      "abbr": "BST",
+      "offset": -3,
+      "isdst": false,
+      "text": "(UTC-03:00) Salvador",
+      "utc": [
+        "America/Bahia"
+      ]
+    },
+    {
+      "value": "UTC-02",
+      "abbr": "U",
+      "offset": -2,
+      "isdst": false,
+      "text": "(UTC-02:00) Coordinated Universal Time-02",
+      "utc": [
+        "America/Noronha",
+        "Atlantic/South_Georgia",
+        "Etc/GMT+2"
+      ]
+    },
+    {
+      "value": "Mid-Atlantic Standard Time",
+      "abbr": "MDT",
+      "offset": -1,
+      "isdst": true,
+      "text": "(UTC-02:00) Mid-Atlantic - Old",
+      "utc": []
+    },
+    {
+      "value": "Azores Standard Time",
+      "abbr": "ADT",
+      "offset": 0,
+      "isdst": true,
+      "text": "(UTC-01:00) Azores",
+      "utc": [
+        "America/Scoresbysund",
+        "Atlantic/Azores"
+      ]
+    },
+    {
+      "value": "Cape Verde Standard Time",
+      "abbr": "CVST",
+      "offset": -1,
+      "isdst": false,
+      "text": "(UTC-01:00) Cape Verde Is.",
+      "utc": [
+        "Atlantic/Cape_Verde",
+        "Etc/GMT+1"
+      ]
+    },
+    {
+      "value": "Morocco Standard Time",
+      "abbr": "MDT",
+      "offset": 1,
+      "isdst": true,
+      "text": "(UTC) Casablanca",
+      "utc": [
+        "Africa/Casablanca",
+        "Africa/El_Aaiun"
+      ]
+    },
+    {
+      "value": "UTC",
+      "abbr": "UTC",
+      "offset": 0,
+      "isdst": false,
+      "text": "(UTC) Coordinated Universal Time",
+      "utc": [
+        "America/Danmarkshavn",
+        "Etc/GMT"
+      ]
+    },
+    {
+      "value": "GMT Standard Time",
+      "abbr": "GMT",
+      "offset": 0,
+      "isdst": false,
+      "text": "(UTC) Edinburgh, London",
+      "utc": [
+        "Europe/Isle_of_Man",
+        "Europe/Guernsey",
+        "Europe/Jersey",
+        "Europe/London"
+      ]
+    },
+    {
+      "value": "British Summer Time",
+      "abbr": "BST",
+      "offset": 1,
+      "isdst": true,
+      "text": "(UTC+01:00) Edinburgh, London",
+      "utc": [
+        "Europe/Isle_of_Man",
+        "Europe/Guernsey",
+        "Europe/Jersey",
+        "Europe/London"
+      ]
+    },
+    {
+      "value": "GMT Standard Time",
+      "abbr": "GDT",
+      "offset": 1,
+      "isdst": true,
+      "text": "(UTC) Dublin, Lisbon",
+      "utc": [
+        "Atlantic/Canary",
+        "Atlantic/Faeroe",
+        "Atlantic/Madeira",
+        "Europe/Dublin",
+        "Europe/Lisbon"
+      ]
+    },
+    {
+      "value": "Greenwich Standard Time",
+      "abbr": "GST",
+      "offset": 0,
+      "isdst": false,
+      "text": "(UTC) Monrovia, Reykjavik",
+      "utc": [
+        "Africa/Abidjan",
+        "Africa/Accra",
+        "Africa/Bamako",
+        "Africa/Banjul",
+        "Africa/Bissau",
+        "Africa/Conakry",
+        "Africa/Dakar",
+        "Africa/Freetown",
+        "Africa/Lome",
+        "Africa/Monrovia",
+        "Africa/Nouakchott",
+        "Africa/Ouagadougou",
+        "Africa/Sao_Tome",
+        "Atlantic/Reykjavik",
+        "Atlantic/St_Helena"
+      ]
+    },
+    {
+      "value": "W. Europe Standard Time",
+      "abbr": "WEDT",
+      "offset": 2,
+      "isdst": true,
+      "text": "(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna",
+      "utc": [
+        "Arctic/Longyearbyen",
+        "Europe/Amsterdam",
+        "Europe/Andorra",
+        "Europe/Berlin",
+        "Europe/Busingen",
+        "Europe/Gibraltar",
+        "Europe/Luxembourg",
+        "Europe/Malta",
+        "Europe/Monaco",
+        "Europe/Oslo",
+        "Europe/Rome",
+        "Europe/San_Marino",
+        "Europe/Stockholm",
+        "Europe/Vaduz",
+        "Europe/Vatican",
+        "Europe/Vienna",
+        "Europe/Zurich"
+      ]
+    },
+    {
+      "value": "Central Europe Standard Time",
+      "abbr": "CEDT",
+      "offset": 2,
+      "isdst": true,
+      "text": "(UTC+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague",
+      "utc": [
+        "Europe/Belgrade",
+        "Europe/Bratislava",
+        "Europe/Budapest",
+        "Europe/Ljubljana",
+        "Europe/Podgorica",
+        "Europe/Prague",
+        "Europe/Tirane"
+      ]
+    },
+    {
+      "value": "Romance Standard Time",
+      "abbr": "RDT",
+      "offset": 2,
+      "isdst": true,
+      "text": "(UTC+01:00) Brussels, Copenhagen, Madrid, Paris",
+      "utc": [
+        "Africa/Ceuta",
+        "Europe/Brussels",
+        "Europe/Copenhagen",
+        "Europe/Madrid",
+        "Europe/Paris"
+      ]
+    },
+    {
+      "value": "Central European Standard Time",
+      "abbr": "CEDT",
+      "offset": 2,
+      "isdst": true,
+      "text": "(UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb",
+      "utc": [
+        "Europe/Sarajevo",
+        "Europe/Skopje",
+        "Europe/Warsaw",
+        "Europe/Zagreb"
+      ]
+    },
+    {
+      "value": "W. Central Africa Standard Time",
+      "abbr": "WCAST",
+      "offset": 1,
+      "isdst": false,
+      "text": "(UTC+01:00) West Central Africa",
+      "utc": [
+        "Africa/Algiers",
+        "Africa/Bangui",
+        "Africa/Brazzaville",
+        "Africa/Douala",
+        "Africa/Kinshasa",
+        "Africa/Lagos",
+        "Africa/Libreville",
+        "Africa/Luanda",
+        "Africa/Malabo",
+        "Africa/Ndjamena",
+        "Africa/Niamey",
+        "Africa/Porto-Novo",
+        "Africa/Tunis",
+        "Etc/GMT-1"
+      ]
+    },
+    {
+      "value": "Namibia Standard Time",
+      "abbr": "NST",
+      "offset": 1,
+      "isdst": false,
+      "text": "(UTC+01:00) Windhoek",
+      "utc": [
+        "Africa/Windhoek"
+      ]
+    },
+    {
+      "value": "GTB Standard Time",
+      "abbr": "GDT",
+      "offset": 3,
+      "isdst": true,
+      "text": "(UTC+02:00) Athens, Bucharest",
+      "utc": [
+        "Asia/Nicosia",
+        "Europe/Athens",
+        "Europe/Bucharest",
+        "Europe/Chisinau"
+      ]
+    },
+    {
+      "value": "Middle East Standard Time",
+      "abbr": "MEDT",
+      "offset": 3,
+      "isdst": true,
+      "text": "(UTC+02:00) Beirut",
+      "utc": [
+        "Asia/Beirut"
+      ]
+    },
+    {
+      "value": "Egypt Standard Time",
+      "abbr": "EST",
+      "offset": 2,
+      "isdst": false,
+      "text": "(UTC+02:00) Cairo",
+      "utc": [
+        "Africa/Cairo"
+      ]
+    },
+    {
+      "value": "Syria Standard Time",
+      "abbr": "SDT",
+      "offset": 3,
+      "isdst": true,
+      "text": "(UTC+02:00) Damascus",
+      "utc": [
+        "Asia/Damascus"
+      ]
+    },
+    {
+      "value": "E. Europe Standard Time",
+      "abbr": "EEDT",
+      "offset": 3,
+      "isdst": true,
+      "text": "(UTC+02:00) E. Europe",
+      "utc": [
+        "Asia/Nicosia",
+        "Europe/Athens",
+        "Europe/Bucharest",
+        "Europe/Chisinau",
+        "Europe/Helsinki",
+        "Europe/Kyiv",
+        "Europe/Mariehamn",
+        "Europe/Nicosia",
+        "Europe/Riga",
+        "Europe/Sofia",
+        "Europe/Tallinn",
+        "Europe/Uzhgorod",
+        "Europe/Vilnius",
+        "Europe/Zaporozhye"
+      ]
+    },
+    {
+      "value": "South Africa Standard Time",
+      "abbr": "SAST",
+      "offset": 2,
+      "isdst": false,
+      "text": "(UTC+02:00) Harare, Pretoria",
+      "utc": [
+        "Africa/Blantyre",
+        "Africa/Bujumbura",
+        "Africa/Gaborone",
+        "Africa/Harare",
+        "Africa/Johannesburg",
+        "Africa/Kigali",
+        "Africa/Lubumbashi",
+        "Africa/Lusaka",
+        "Africa/Maputo",
+        "Africa/Maseru",
+        "Africa/Mbabane",
+        "Etc/GMT-2"
+      ]
+    },
+    {
+      "value": "FLE Standard Time",
+      "abbr": "FDT",
+      "offset": 3,
+      "isdst": true,
+      "text": "(UTC+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius",
+      "utc": [
+        "Europe/Helsinki",
+        "Europe/Kyiv",
+        "Europe/Mariehamn",
+        "Europe/Riga",
+        "Europe/Sofia",
+        "Europe/Tallinn",
+        "Europe/Uzhgorod",
+        "Europe/Vilnius",
+        "Europe/Zaporozhye"
+      ]
+    },
+    {
+      "value": "Turkey Standard Time",
+      "abbr": "TDT",
+      "offset": 3,
+      "isdst": false,
+      "text": "(UTC+03:00) Istanbul",
+      "utc": [
+        "Europe/Istanbul"
+      ]
+    },
+    {
+      "value": "Israel Standard Time",
+      "abbr": "JDT",
+      "offset": 3,
+      "isdst": true,
+      "text": "(UTC+02:00) Jerusalem",
+      "utc": [
+        "Asia/Jerusalem"
+      ]
+    },
+    {
+      "value": "Libya Standard Time",
+      "abbr": "LST",
+      "offset": 2,
+      "isdst": false,
+      "text": "(UTC+02:00) Tripoli",
+      "utc": [
+        "Africa/Tripoli"
+      ]
+    },
+    {
+      "value": "Jordan Standard Time",
+      "abbr": "JST",
+      "offset": 3,
+      "isdst": false,
+      "text": "(UTC+03:00) Amman",
+      "utc": [
+        "Asia/Amman"
+      ]
+    },
+    {
+      "value": "Arabic Standard Time",
+      "abbr": "AST",
+      "offset": 3,
+      "isdst": false,
+      "text": "(UTC+03:00) Baghdad",
+      "utc": [
+        "Asia/Baghdad"
+      ]
+    },
+    {
+      "value": "Kaliningrad Standard Time",
+      "abbr": "KST",
+      "offset": 3,
+      "isdst": false,
+      "text": "(UTC+02:00) Kaliningrad",
+      "utc": [
+        "Europe/Kaliningrad"
+      ]
+    },
+    {
+      "value": "Arab Standard Time",
+      "abbr": "AST",
+      "offset": 3,
+      "isdst": false,
+      "text": "(UTC+03:00) Kuwait, Riyadh",
+      "utc": [
+        "Asia/Aden",
+        "Asia/Bahrain",
+        "Asia/Kuwait",
+        "Asia/Qatar",
+        "Asia/Riyadh"
+      ]
+    },
+    {
+      "value": "E. Africa Standard Time",
+      "abbr": "EAST",
+      "offset": 3,
+      "isdst": false,
+      "text": "(UTC+03:00) Nairobi",
+      "utc": [
+        "Africa/Addis_Ababa",
+        "Africa/Asmera",
+        "Africa/Dar_es_Salaam",
+        "Africa/Djibouti",
+        "Africa/Juba",
+        "Africa/Kampala",
+        "Africa/Khartoum",
+        "Africa/Mogadishu",
+        "Africa/Nairobi",
+        "Antarctica/Syowa",
+        "Etc/GMT-3",
+        "Indian/Antananarivo",
+        "Indian/Comoro",
+        "Indian/Mayotte"
+      ]
+    },
+    {
+      "value": "Moscow Standard Time",
+      "abbr": "MSK",
+      "offset": 3,
+      "isdst": false,
+      "text": "(UTC+03:00) Moscow, St. Petersburg, Volgograd, Minsk",
+      "utc": [
+        "Europe/Kirov",
+        "Europe/Moscow",
+        "Europe/Simferopol",
+        "Europe/Volgograd",
+        "Europe/Minsk"
+      ]
+    },
+    {
+      "value": "Samara Time",
+      "abbr": "SAMT",
+      "offset": 4,
+      "isdst": false,
+      "text": "(UTC+04:00) Samara, Ulyanovsk, Saratov",
+      "utc": [
+        "Europe/Astrakhan",
+        "Europe/Samara",
+        "Europe/Ulyanovsk"
+      ]
+    },
+    {
+      "value": "Iran Standard Time",
+      "abbr": "IDT",
+      "offset": 4.5,
+      "isdst": true,
+      "text": "(UTC+03:30) Tehran",
+      "utc": [
+        "Asia/Tehran"
+      ]
+    },
+    {
+      "value": "Arabian Standard Time",
+      "abbr": "AST",
+      "offset": 4,
+      "isdst": false,
+      "text": "(UTC+04:00) Abu Dhabi, Muscat",
+      "utc": [
+        "Asia/Dubai",
+        "Asia/Muscat",
+        "Etc/GMT-4"
+      ]
+    },
+    {
+      "value": "Azerbaijan Standard Time",
+      "abbr": "ADT",
+      "offset": 5,
+      "isdst": true,
+      "text": "(UTC+04:00) Baku",
+      "utc": [
+        "Asia/Baku"
+      ]
+    },
+    {
+      "value": "Mauritius Standard Time",
+      "abbr": "MST",
+      "offset": 4,
+      "isdst": false,
+      "text": "(UTC+04:00) Port Louis",
+      "utc": [
+        "Indian/Mahe",
+        "Indian/Mauritius",
+        "Indian/Reunion"
+      ]
+    },
+    {
+      "value": "Georgian Standard Time",
+      "abbr": "GET",
+      "offset": 4,
+      "isdst": false,
+      "text": "(UTC+04:00) Tbilisi",
+      "utc": [
+        "Asia/Tbilisi"
+      ]
+    },
+    {
+      "value": "Caucasus Standard Time",
+      "abbr": "CST",
+      "offset": 4,
+      "isdst": false,
+      "text": "(UTC+04:00) Yerevan",
+      "utc": [
+        "Asia/Yerevan"
+      ]
+    },
+    {
+      "value": "Afghanistan Standard Time",
+      "abbr": "AST",
+      "offset": 4.5,
+      "isdst": false,
+      "text": "(UTC+04:30) Kabul",
+      "utc": [
+        "Asia/Kabul"
+      ]
+    },
+    {
+      "value": "West Asia Standard Time",
+      "abbr": "WAST",
+      "offset": 5,
+      "isdst": false,
+      "text": "(UTC+05:00) Ashgabat, Tashkent",
+      "utc": [
+        "Antarctica/Mawson",
+        "Asia/Aqtau",
+        "Asia/Aqtobe",
+        "Asia/Ashgabat",
+        "Asia/Dushanbe",
+        "Asia/Oral",
+        "Asia/Samarkand",
+        "Asia/Tashkent",
+        "Etc/GMT-5",
+        "Indian/Kerguelen",
+        "Indian/Maldives"
+      ]
+    },
+    {
+      "value": "Yekaterinburg Time",
+      "abbr": "YEKT",
+      "offset": 5,
+      "isdst": false,
+      "text": "(UTC+05:00) Yekaterinburg",
+      "utc": [
+        "Asia/Yekaterinburg"
+      ]
+    },
+    {
+      "value": "Pakistan Standard Time",
+      "abbr": "PKT",
+      "offset": 5,
+      "isdst": false,
+      "text": "(UTC+05:00) Islamabad, Karachi",
+      "utc": [
+        "Asia/Karachi"
+      ]
+    },
+    {
+      "value": "India Standard Time",
+      "abbr": "IST",
+      "offset": 5.5,
+      "isdst": false,
+      "text": "(UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi",
+      "utc": [
+        "Asia/Kolkata",
+        "Asia/Calcutta"
+      ]
+    },
+    {
+      "value": "Sri Lanka Standard Time",
+      "abbr": "SLST",
+      "offset": 5.5,
+      "isdst": false,
+      "text": "(UTC+05:30) Sri Jayawardenepura",
+      "utc": [
+        "Asia/Colombo"
+      ]
+    },
+    {
+      "value": "Nepal Standard Time",
+      "abbr": "NST",
+      "offset": 5.75,
+      "isdst": false,
+      "text": "(UTC+05:45) Kathmandu",
+      "utc": [
+        "Asia/Kathmandu"
+      ]
+    },
+    {
+      "value": "Central Asia Standard Time",
+      "abbr": "CAST",
+      "offset": 6,
+      "isdst": false,
+      "text": "(UTC+06:00) Nur-Sultan (Astana)",
+      "utc": [
+        "Antarctica/Vostok",
+        "Asia/Almaty",
+        "Asia/Bishkek",
+        "Asia/Qyzylorda",
+        "Asia/Urumqi",
+        "Etc/GMT-6",
+        "Indian/Chagos"
+      ]
+    },
+    {
+      "value": "Bangladesh Standard Time",
+      "abbr": "BST",
+      "offset": 6,
+      "isdst": false,
+      "text": "(UTC+06:00) Dhaka",
+      "utc": [
+        "Asia/Dhaka",
+        "Asia/Thimphu"
+      ]
+    },
+    {
+      "value": "Myanmar Standard Time",
+      "abbr": "MST",
+      "offset": 6.5,
+      "isdst": false,
+      "text": "(UTC+06:30) Yangon (Rangoon)",
+      "utc": [
+        "Asia/Rangoon",
+        "Indian/Cocos"
+      ]
+    },
+    {
+      "value": "SE Asia Standard Time",
+      "abbr": "SAST",
+      "offset": 7,
+      "isdst": false,
+      "text": "(UTC+07:00) Bangkok, Hanoi, Jakarta",
+      "utc": [
+        "Antarctica/Davis",
+        "Asia/Bangkok",
+        "Asia/Hovd",
+        "Asia/Jakarta",
+        "Asia/Phnom_Penh",
+        "Asia/Pontianak",
+        "Asia/Saigon",
+        "Asia/Vientiane",
+        "Etc/GMT-7",
+        "Indian/Christmas"
+      ]
+    },
+    {
+      "value": "N. Central Asia Standard Time",
+      "abbr": "NCAST",
+      "offset": 7,
+      "isdst": false,
+      "text": "(UTC+07:00) Novosibirsk",
+      "utc": [
+        "Asia/Novokuznetsk",
+        "Asia/Novosibirsk",
+        "Asia/Omsk"
+      ]
+    },
+    {
+      "value": "China Standard Time",
+      "abbr": "CST",
+      "offset": 8,
+      "isdst": false,
+      "text": "(UTC+08:00) Beijing, Chongqing, Hong Kong, Urumqi",
+      "utc": [
+        "Asia/Hong_Kong",
+        "Asia/Macau",
+        "Asia/Shanghai"
+      ]
+    },
+    {
+      "value": "North Asia Standard Time",
+      "abbr": "NAST",
+      "offset": 8,
+      "isdst": false,
+      "text": "(UTC+08:00) Krasnoyarsk",
+      "utc": [
+        "Asia/Krasnoyarsk"
+      ]
+    },
+    {
+      "value": "Singapore Standard Time",
+      "abbr": "MPST",
+      "offset": 8,
+      "isdst": false,
+      "text": "(UTC+08:00) Kuala Lumpur, Singapore",
+      "utc": [
+        "Asia/Brunei",
+        "Asia/Kuala_Lumpur",
+        "Asia/Kuching",
+        "Asia/Makassar",
+        "Asia/Manila",
+        "Asia/Singapore",
+        "Etc/GMT-8"
+      ]
+    },
+    {
+      "value": "W. Australia Standard Time",
+      "abbr": "WAST",
+      "offset": 8,
+      "isdst": false,
+      "text": "(UTC+08:00) Perth",
+      "utc": [
+        "Antarctica/Casey",
+        "Australia/Perth"
+      ]
+    },
+    {
+      "value": "Taipei Standard Time",
+      "abbr": "TST",
+      "offset": 8,
+      "isdst": false,
+      "text": "(UTC+08:00) Taipei",
+      "utc": [
+        "Asia/Taipei"
+      ]
+    },
+    {
+      "value": "Ulaanbaatar Standard Time",
+      "abbr": "UST",
+      "offset": 8,
+      "isdst": false,
+      "text": "(UTC+08:00) Ulaanbaatar",
+      "utc": [
+        "Asia/Choibalsan",
+        "Asia/Ulaanbaatar"
+      ]
+    },
+    {
+      "value": "North Asia East Standard Time",
+      "abbr": "NAEST",
+      "offset": 8,
+      "isdst": false,
+      "text": "(UTC+08:00) Irkutsk",
+      "utc": [
+        "Asia/Irkutsk"
+      ]
+    },
+    {
+      "value": "Japan Standard Time",
+      "abbr": "JST",
+      "offset": 9,
+      "isdst": false,
+      "text": "(UTC+09:00) Osaka, Sapporo, Tokyo",
+      "utc": [
+        "Asia/Dili",
+        "Asia/Jayapura",
+        "Asia/Tokyo",
+        "Etc/GMT-9",
+        "Pacific/Palau"
+      ]
+    },
+    {
+      "value": "Korea Standard Time",
+      "abbr": "KST",
+      "offset": 9,
+      "isdst": false,
+      "text": "(UTC+09:00) Seoul",
+      "utc": [
+        "Asia/Pyongyang",
+        "Asia/Seoul"
+      ]
+    },
+    {
+      "value": "Cen. Australia Standard Time",
+      "abbr": "CAST",
+      "offset": 9.5,
+      "isdst": false,
+      "text": "(UTC+09:30) Adelaide",
+      "utc": [
+        "Australia/Adelaide",
+        "Australia/Broken_Hill"
+      ]
+    },
+    {
+      "value": "AUS Central Standard Time",
+      "abbr": "ACST",
+      "offset": 9.5,
+      "isdst": false,
+      "text": "(UTC+09:30) Darwin",
+      "utc": [
+        "Australia/Darwin"
+      ]
+    },
+    {
+      "value": "E. Australia Standard Time",
+      "abbr": "EAST",
+      "offset": 10,
+      "isdst": false,
+      "text": "(UTC+10:00) Brisbane",
+      "utc": [
+        "Australia/Brisbane",
+        "Australia/Lindeman"
+      ]
+    },
+    {
+      "value": "AUS Eastern Standard Time",
+      "abbr": "AEST",
+      "offset": 10,
+      "isdst": false,
+      "text": "(UTC+10:00) Canberra, Melbourne, Sydney",
+      "utc": [
+        "Australia/Melbourne",
+        "Australia/Sydney"
+      ]
+    },
+    {
+      "value": "West Pacific Standard Time",
+      "abbr": "WPST",
+      "offset": 10,
+      "isdst": false,
+      "text": "(UTC+10:00) Guam, Port Moresby",
+      "utc": [
+        "Antarctica/DumontDUrville",
+        "Etc/GMT-10",
+        "Pacific/Guam",
+        "Pacific/Port_Moresby",
+        "Pacific/Saipan",
+        "Pacific/Truk"
+      ]
+    },
+    {
+      "value": "Tasmania Standard Time",
+      "abbr": "TST",
+      "offset": 10,
+      "isdst": false,
+      "text": "(UTC+10:00) Hobart",
+      "utc": [
+        "Australia/Currie",
+        "Australia/Hobart"
+      ]
+    },
+    {
+      "value": "Yakutsk Standard Time",
+      "abbr": "YST",
+      "offset": 9,
+      "isdst": false,
+      "text": "(UTC+09:00) Yakutsk",
+      "utc": [
+        "Asia/Chita",
+        "Asia/Khandyga",
+        "Asia/Yakutsk"
+      ]
+    },
+    {
+      "value": "Central Pacific Standard Time",
+      "abbr": "CPST",
+      "offset": 11,
+      "isdst": false,
+      "text": "(UTC+11:00) Solomon Is., New Caledonia",
+      "utc": [
+        "Antarctica/Macquarie",
+        "Etc/GMT-11",
+        "Pacific/Efate",
+        "Pacific/Guadalcanal",
+        "Pacific/Kosrae",
+        "Pacific/Noumea",
+        "Pacific/Ponape"
+      ]
+    },
+    {
+      "value": "Vladivostok Standard Time",
+      "abbr": "VST",
+      "offset": 11,
+      "isdst": false,
+      "text": "(UTC+11:00) Vladivostok",
+      "utc": [
+        "Asia/Sakhalin",
+        "Asia/Ust-Nera",
+        "Asia/Vladivostok"
+      ]
+    },
+    {
+      "value": "New Zealand Standard Time",
+      "abbr": "NZST",
+      "offset": 12,
+      "isdst": false,
+      "text": "(UTC+12:00) Auckland, Wellington",
+      "utc": [
+        "Antarctica/McMurdo",
+        "Pacific/Auckland"
+      ]
+    },
+    {
+      "value": "UTC+12",
+      "abbr": "U",
+      "offset": 12,
+      "isdst": false,
+      "text": "(UTC+12:00) Coordinated Universal Time+12",
+      "utc": [
+        "Etc/GMT-12",
+        "Pacific/Funafuti",
+        "Pacific/Kwajalein",
+        "Pacific/Majuro",
+        "Pacific/Nauru",
+        "Pacific/Tarawa",
+        "Pacific/Wake",
+        "Pacific/Wallis"
+      ]
+    },
+    {
+      "value": "Fiji Standard Time",
+      "abbr": "FST",
+      "offset": 12,
+      "isdst": false,
+      "text": "(UTC+12:00) Fiji",
+      "utc": [
+        "Pacific/Fiji"
+      ]
+    },
+    {
+      "value": "Magadan Standard Time",
+      "abbr": "MST",
+      "offset": 12,
+      "isdst": false,
+      "text": "(UTC+12:00) Magadan",
+      "utc": [
+        "Asia/Anadyr",
+        "Asia/Kamchatka",
+        "Asia/Magadan",
+        "Asia/Srednekolymsk"
+      ]
+    },
+    {
+      "value": "Kamchatka Standard Time",
+      "abbr": "KDT",
+      "offset": 13,
+      "isdst": true,
+      "text": "(UTC+12:00) Petropavlovsk-Kamchatsky - Old",
+      "utc": [
+        "Asia/Kamchatka"
+      ]
+    },
+    {
+      "value": "Tonga Standard Time",
+      "abbr": "TST",
+      "offset": 13,
+      "isdst": false,
+      "text": "(UTC+13:00) Nuku'alofa",
+      "utc": [
+        "Etc/GMT-13",
+        "Pacific/Enderbury",
+        "Pacific/Fakaofo",
+        "Pacific/Tongatapu"
+      ]
+    },
+    {
+      "value": "Samoa Standard Time",
+      "abbr": "SST",
+      "offset": 13,
+      "isdst": false,
+      "text": "(UTC+13:00) Samoa",
+      "utc": [
+        "Pacific/Apia"
+      ]
     }
   ]
 }

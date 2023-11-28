@@ -7,7 +7,7 @@ const months: string[] = [
   'July', 'August', 'September', 'October', 'November', 'December'
 ];
 
-function HomeTodos({searchValue, filterValues, tags, todos, refreshTodos, handleTodoInEdit}: HomeTodoProps) {  
+function HomeTodos({searchValue, filterValues, tags, todos, refreshTodos, handleTodoInEdit, timezone}: HomeTodoProps) {  
 // Update color of the task based on it's type (note, to do, to do list)
   const updateTaskColor = (todo: boolean, subtasksLength: number) => {
     if (todo === true && subtasksLength > 0) {
@@ -34,7 +34,7 @@ function HomeTodos({searchValue, filterValues, tags, todos, refreshTodos, handle
 
   // Get string time from unix
   const getTime = (unix: number): string => {
-    const dateTime = new Date(unix);
+    const dateTime = new Date(unix + timezone);
 
     const date = dateTime.getDate() + ' ' + months[dateTime.getMonth()] 
     + ' ' + dateTime.getFullYear();

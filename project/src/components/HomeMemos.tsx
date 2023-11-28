@@ -19,8 +19,6 @@ function HomeMemos(props: HomeMemoProps) {
     }
   }; 
 
-  const timezone = 0;
-
   // Check if search matches with content
   const checkSearchValue = (m: Memo) => {
     if (m !== undefined && m.content.toLowerCase().includes(props.searchValue.toLowerCase())) {
@@ -40,7 +38,7 @@ function HomeMemos(props: HomeMemoProps) {
   
   // Get string time from unix
   const getTime = (unix: number): string => {
-    const dateTime = new Date(unix + timezone);
+    const dateTime = new Date(unix + props.timezone);
 
     const date = dateTime.getDate() + ' ' + months[dateTime.getMonth()] 
     + ' ' + dateTime.getFullYear();

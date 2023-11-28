@@ -2,7 +2,7 @@ import todoService from '../services/todoService';
 import { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
-function EditTodo({ isOpen, handleTodoInEdit, todoInEdit, refreshTodos, tags }: EditTodoProps) {
+function EditTodo({ isOpen, handleTodoInEdit, todoInEdit, refreshTodos, tags, timezone }: EditTodoProps) {
   const [content, setContent] = useState<string>(todoInEdit?.content || '');
 
   const [doneBy, setDoneBy] = useState<number>(todoInEdit?.doneBy || Date.now());
@@ -54,9 +54,9 @@ function EditTodo({ isOpen, handleTodoInEdit, todoInEdit, refreshTodos, tags }: 
     const updatedTodo = { 
       id: todoInEdit.id,
       userId: todoInEdit.userId,
-      createdAt: todoInEdit.createdAt,
-      editedAt: Date.now(),
-      doneBy: doneBy,
+      createdAt: todoInEdit.createdAt - timezone,
+      editedAt: new Date().getTime() - timezone,
+      doneBy: doneBy - timezone,
       content: content,
       subtasks: subtasks,
       repeatInterval: todoInEdit.repeatInterval,

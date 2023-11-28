@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import memoService from '../services/memoService';
 
-function AddNewMemo({isOpen, handlePopUp, tags, refreshMemos}: AddNewMemoProps) {  
+function AddNewMemo({isOpen, handlePopUp, tags, refreshMemos, timezone}: AddNewMemoProps) {  
   const [title, setTitle] = useState<string>('');
   const [content, setContent] = useState<string>('');
   
@@ -44,8 +44,8 @@ function AddNewMemo({isOpen, handlePopUp, tags, refreshMemos}: AddNewMemoProps) 
       userId: '1',
       title: title,
       content: content,
-      createdAt: Date.now(),
-      editedAt: Date.now(),
+      createdAt: new Date().getTime() - timezone,
+      editedAt: new Date().getTime() - timezone,
       tag: activeTag
     };
 

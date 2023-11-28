@@ -74,14 +74,16 @@ interface AddNewTodoProps {
   isOpen: boolean,
   tags: Filter[],
   handlePopUp: () => void,
-  refreshTodos: () => void
+  refreshTodos: () => void,
+  timezone: number
 }
 
 interface AddNewMemoProps {
   tags: Filter[],
   isOpen: boolean,
   handlePopUp: () => void,
-  refreshMemos: () => void
+  refreshMemos: () => void,
+  timezone: number
 }
 
 interface HomeTaskGroupProps {
@@ -106,6 +108,7 @@ interface HomeMemoProps {
   handlePopUp: () => void,
   refreshMemos: () => void,
   handleMemoInEdit: (string) => void,
+  timezone: number
 }
 
 interface HomeTodoProps {
@@ -115,7 +118,8 @@ interface HomeTodoProps {
   filterValues: string[],
   refreshTodos: () => void,
   isOpen: boolean,
-  handleTodoInEdit: (string) => void
+  handleTodoInEdit: (string) => void,
+  timezone: number
 }
 
 interface EditMemoProps {
@@ -123,7 +127,8 @@ interface EditMemoProps {
   isOpen: boolean
   handleMemoInEdit: (Memo) => void,
   refreshMemos: () => void,
-  tags: Filter[]
+  tags: Filter[],
+  timezone: number
 }
 
 interface EditTodoProps {
@@ -131,19 +136,23 @@ interface EditTodoProps {
   handleTodoInEdit: (Todo) => void,
   todoInEdit: Todo,
   refreshTodos: () => void,
-  tags: Filter[]
+  tags: Filter[],
+  timezone: number
 }
 
 interface HeaderProps {
   handleTodoDisplay: () => void,
   handleMemoDisplay: () => void,
-  handleLogin: () => void
+  handleLogin: () => void,
+  handleSettingsPopUp: () => void,
 }
 
 interface User {
   id: string,
   email: string,
-  password: string
+  password: string,
+  timezone: number,
+  createdAt: number
 }
 
 interface LoginProps {
@@ -152,4 +161,16 @@ interface LoginProps {
 
 interface HomeProps {
   handleLogin: () => void
+}
+
+interface SettingsProps {
+  isOpen: boolean,
+  handleSettingsPopUp: () => void,
+  timezone: number
+}
+
+interface Timezone {
+  id: string,
+  offset: string,
+  text: string
 }

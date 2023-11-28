@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import tagService from '../services/tagService';
 import memoService from '../services/memoService';
 import todoService from '../services/todoService';
+import userService from '../services/userService';
 
 import Header from './Header.tsx';
 
@@ -15,10 +16,12 @@ import EditMemo from './EditMemo.tsx';
 import EditTodo from './EditTodo.tsx';
 import AddNewTodo from './AddNewTodo.tsx';
 import AddNewMemo from './AddNewMemo.tsx';
+import Settings from './Settings.tsx';
 
 function Home({handleLogin}: HomeProps) {
   const [isTodoOpen, setIsTodoOpen] = useState<boolean>(false);
   const [isMemoOpen, setIsMemoOpen] = useState<boolean>(false);
+  const [isSettingsOpen, setIsSettingsOpen] = useState<boolean>(false);
   
   const [isMemoEditOpen, setIsMemoEditOpen] = useState<boolean>(false);
   const [isTodoEditOpen, setIsTodoEditOpen] = useState<boolean>(false);
@@ -29,6 +32,8 @@ function Home({handleLogin}: HomeProps) {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [memos, setMemos] = useState<Memo[]>([]);
   const [tags, setTags] = useState<Filter[]>([]);
+
+  const [timezone, setTimezone] = useState<number>(0);
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [showTodo, setShowTodo] = useState<boolean>(true);
@@ -110,6 +115,11 @@ function Home({handleLogin}: HomeProps) {
         await tagService.getAll().then((tagResponse) => {
           setTags(tagResponse.data);
         }
+        );        
+        
+        await userService.get('/1').then((response) => {
+          setTimezone(response.data.timezone);
+        }
         );
       } catch (error) {
         console.error('Error fetching data', error);
@@ -128,7 +138,7 @@ function Home({handleLogin}: HomeProps) {
         setTodos(sortedTodos);
       }
       );
-    }catch (error) {
+    } catch (error) {
       console.error('Error fetching data', error);
     }
   };
@@ -154,6 +164,11 @@ function Home({handleLogin}: HomeProps) {
   const handleMemoPopUp = () => {
     setIsMemoOpen(!isMemoOpen);
   };
+
+  const handleSettingsPopUp = () => {
+    setIsSettingsOpen(!isSettingsOpen);
+  };
+
 
   const handleMemoInEdit = (memo: Memo) => {
     if (memo !== undefined) {
@@ -198,14 +213,18 @@ function Home({handleLogin}: HomeProps) {
   return (
     <>
       <EditTodo isOpen={isTodoEditOpen} handleTodoInEdit={handleTodoInEdit} todoInEdit={todoInEdit} 
-        refreshTodos={refreshTodos} tags={tags}/>
+        refreshTodos={refreshTodos} tags={tags} timezone={timezone}/>
       <EditMemo isOpen={isMemoEditOpen} handleMemoInEdit={handleMemoInEdit} memoInEdit={memoInEdit} 
-        refreshMemos={refreshMemos} tags={tags}/>
+        refreshMemos={refreshMemos} tags={tags} timezone={timezone}/>
+      <AddNewTodo isOpen={isTodoOpen} handlePopUp={handleTodoPopUp} tags={tags} refreshTodos={refreshTodos} 
+        timezone={timezone}/>
+      <AddNewMemo isOpen={isMemoOpen} handlePopUp={handleMemoPopUp} tags={tags} refreshMemos={refreshMemos} 
+        timezone={timezone}/>
 
-      <AddNewTodo isOpen={isTodoOpen} handlePopUp={handleTodoPopUp} tags={tags} refreshTodos={refreshTodos}/>
-      <AddNewMemo isOpen={isMemoOpen} handlePopUp={handleMemoPopUp} tags={tags} refreshMemos={refreshMemos}/>
+      <Settings isOpen={isSettingsOpen} handleSettingsPopUp={handleSettingsPopUp} timezone={timezone}/>
 
-      <Header handleTodoDisplay={handleTodoDisplay} handleMemoDisplay={handleMemoDisplay} handleLogin={handleLogin}/>
+      <Header handleTodoDisplay={handleTodoDisplay} handleMemoDisplay={handleMemoDisplay} handleLogin={handleLogin}
+        handleSettingsPopUp={handleSettingsPopUp}/>
       <div className="flex-container">
         <div className="homeMenu">
           <HomeMenu handleTodoPopup={handleTodoPopUp} handleSearch={handleSearchChange} 
@@ -215,13 +234,14 @@ function Home({handleLogin}: HomeProps) {
 
         <div className="homeTodos" style={todoDisplay}>
           <HomeTodos searchValue={searchValue} filterValues={filterSelected} tags={tags} 
-            todos={todos} refreshTodos={refreshTodos} isOpen={isTodoEditOpen} handleTodoInEdit={handleTodoInEdit}/>
+            todos={todos} refreshTodos={refreshTodos} isOpen={isTodoEditOpen} handleTodoInEdit={handleTodoInEdit}
+            timezone={timezone}/>
         </div>
 
         <div className="homeMemos" style={memoDisplay}>
           <HomeMemos handlePopUp={handleMemoPopUp} tags={tags} memos={memos}
             refreshMemos={refreshMemos} isOpen={isMemoEditOpen} handleMemoInEdit={handleMemoInEdit} 
-            searchValue={searchValue} filterValues={filterSelected} />
+            searchValue={searchValue} filterValues={filterSelected} timezone={timezone}/>
         </div>
       </div>
     </>

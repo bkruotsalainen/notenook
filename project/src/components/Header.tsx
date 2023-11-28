@@ -1,11 +1,14 @@
 import '../css/Header.css';
 
-function Header({handleTodoDisplay, handleMemoDisplay, handleLogin}: HeaderProps) {
+function Header({handleTodoDisplay, handleMemoDisplay, handleLogin, handleSettingsPopUp}: HeaderProps) {
 
   return (
-    <div className="header">
+    <div className="header">  
       <div className="right" onClick={() => handleLogin()}>
-          Logout
+        Logout
+      </div>    
+      <div className="right" onClick={() => handleSettingsPopUp()}>
+         Settings
       </div>      
       
       <div className="left">
