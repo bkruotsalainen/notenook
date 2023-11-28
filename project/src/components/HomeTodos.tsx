@@ -36,7 +36,7 @@ function HomeTodos({searchValue, filterValues, tags, todos, refreshTodos, handle
 
   // Get string time from unix
   const getTime = (unix: number): string => {
-    const dateTime = new Date(unix + timezone);
+    const dateTime = new Date(unix);
 
     const date = dateTime.getDate() + ' ' + months[dateTime.getMonth()] 
     + ' ' + dateTime.getFullYear();

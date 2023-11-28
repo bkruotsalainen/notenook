@@ -23,7 +23,6 @@
 
 .headerLinks {
   list-style-type: none;
-  display: none;
 }
 
 .headerLinks li {
@@ -42,12 +41,6 @@
 }
 
 /* Header - Scalability */
-@media screen and (max-width: 1550px) {
-  .headerLinks {
-    display: inline-block;
-  }
-}
-
 @media screen and (max-width: 850px) {  
   .header {
     height: 50px !important;

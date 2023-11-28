@@ -9,6 +9,7 @@ function Header({handleTodoDisplay, handleMemoDisplay}: HeaderProps) {
       </div>      
       
       <div className="left">
+        {window.innerWidth < 1200 &&
         <ul className="headerLinks">
           <li className="homeLink" onClick={() => handleTodoDisplay()}>
             To do
@@ -17,6 +18,7 @@ function Header({handleTodoDisplay, handleMemoDisplay}: HeaderProps) {
             Memos
           </li>
         </ul>
+        }
       </div>
     </div>
   );

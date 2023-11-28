@@ -3,16 +3,16 @@ import './css/App.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-import Header from './modules/Header.tsx';
+import Header from './components/Header.tsx';
 
-import HomeMenu from './modules/HomeMenu.tsx';
-import HomeMemos from './modules/HomeMemos.tsx';
-import HomeTodos from './modules/HomeTodos.tsx';
+import HomeMenu from './components/HomeMenu.tsx';
+import HomeMemos from './components/HomeMemos.tsx';
+import HomeTodos from './components/HomeTodos.tsx';
 
-import EditMemo from './modules/EditMemo.tsx';
-import EditTodo from './modules/EditTodo.tsx';
-import AddNewTodo from './modules/AddNewTodo.tsx';
-import AddNewMemo from './modules/AddNewMemo.tsx';
+import EditMemo from './components/EditMemo.tsx';
+import EditTodo from './components/EditTodo.tsx';
+import AddNewTodo from './components/AddNewTodo.tsx';
+import AddNewMemo from './components/AddNewMemo.tsx';
 
 function App() {
   const [isTodoOpen, setIsTodoOpen] = useState<boolean>(false);
