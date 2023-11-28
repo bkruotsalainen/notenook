@@ -4,8 +4,29 @@
       "id": "1",
       "email": "user@sahkoposti.fi",
       "password": "salasana123",
-      "createdAt": 1701187915723,
-      "timezone": 10800000
+      "createdAt": 1701195115723,
+      "timezone": 7200000
+    },
+    {
+      "id": "e58e4246-9853-407d-b4c4-ab29be9b7ebb",
+      "email": "testi@maili.fi",
+      "password": "sahkoposti.fi",
+      "createdAt": 1701174067287,
+      "timezone": -120
+    },
+    {
+      "id": "b3c9f74a-9131-4418-8595-be9a26bb2459",
+      "email": "123@sahkoposti.fi",
+      "password": "123",
+      "createdAt": 1701174240985,
+      "timezone": -120
+    },
+    {
+      "id": "9edf2df7-b5cc-4ffd-b489-311eb4295500",
+      "email": "kana@sahkoposti.fi",
+      "password": "kotkot",
+      "createdAt": 1701174361951,
+      "timezone": -120
     }
   ],
   "todos": [

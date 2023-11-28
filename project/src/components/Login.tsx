@@ -9,7 +9,8 @@ function Login({handleLogin}: LoginProps) {
   const [showPassword, setShowPassword] = useState<string>('password');
 
   const [alert, setAlert] = useState<string>('');
-
+  const [message, setMessage] = useState<string>('');
+ 
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
@@ -38,6 +39,7 @@ function Login({handleLogin}: LoginProps) {
           handleLogin();
         } else {
           setAlert('Wrong password or email!');
+          setMessage('');
         }
       });
     } catch (error) {
@@ -63,6 +65,7 @@ function Login({handleLogin}: LoginProps) {
         if (user.length === 0) {
           await userService.create(newUser);
           setAlert('');
+          setMessage('Registration was success! You can now log in. 👽');
           setEmail('');
           setPassword('');
           setLoginActive(true);
@@ -80,6 +83,9 @@ function Login({handleLogin}: LoginProps) {
     setLoginActive(!loginActive);
     setEmail('');
     setPassword('');
+    setAlert('');
+    setMessage('');
+    setShowPassword('password');
   };
 
   return (
@@ -89,6 +95,7 @@ function Login({handleLogin}: LoginProps) {
           <h1 style={{textAlign: 'center', marginBottom: '1em'}}>{loginActive ? 'Login' : 'Register'}</h1>
 
           {<p className="alertText">{alert}</p>}
+          {<p className="messageText">{message}</p>}
 
           <form onSubmit={(e) => (loginActive ? submitLogin(e) : submitRegister(e))}>
             <label>E-mail

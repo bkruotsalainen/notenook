@@ -17,6 +17,19 @@
   width: 39%;
 }
 
+/* Alert text */
+.alertText {
+  color: #F05365;
+  font-weight: 600;
+  text-align: center;
+}
+
+.messageText {
+  color: #169b24;
+  font-weight: 600;
+  text-align: center;
+}
+
 /* Home - To do tasks */
 ul {
   margin: 0;
