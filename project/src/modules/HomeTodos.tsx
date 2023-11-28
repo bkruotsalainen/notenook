@@ -94,7 +94,7 @@ function HomeTodos({searchValue, filterValues, tags, todos, refreshTodos, handle
 
   return (
     <div className="calendarBody">
-      <h1>Todos</h1>
+      <h1 style={{marginBottom: '0'}}>Todos</h1>
       {todos.map((td: Todo) => 
         checkSearchValue(td) && checkFilter(td) && (
           <Todo

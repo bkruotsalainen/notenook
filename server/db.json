@@ -1,11 +1,11 @@
 {
   "users": [
     {
-      "id": "d71792fb-8db6-4634-88d9-ae264bc7ec47",
-      "username": "admin",
-      "password": "admininVarmaSalasana",
-      "createdAt": 1701092721331,
-      "timezone": -120
+      "id": "1",
+      "createdAt": "2011-01-01 00:00:00",
+      "username": "exampleUser",
+      "password": "examplePassword",
+      "timezone": 2
     }
   ],
   "todos": [
@@ -41,7 +41,7 @@
       "id": "31d657d2-91df-4634-bdc0-697e37c0364a",
       "userId": "1",
       "createdAt": 1700809793229,
-      "editedAt": 1701092149550,
+      "editedAt": 1700855781228,
       "doneBy": 1700809769683,
       "content": "Have a movie marathon!",
       "subtasks": [
@@ -85,7 +85,7 @@
       "id": "db773395-b8dc-426b-b5c5-9002fae47a45",
       "userId": "1",
       "createdAt": 1700812596913,
-      "editedAt": 1701092142014,
+      "editedAt": 1700855784442,
       "doneBy": 1700222400000,
       "content": "Remember to buy",
       "subtasks": [

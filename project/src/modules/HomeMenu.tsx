@@ -18,7 +18,7 @@ function HomeMenu(props: HomeMenuProps) {
           <button className="addNewButton" onClick={() => props.handleMemoPopup()}>Add memo</button>
         }
 
-        <h3 className="hideMobile" style={{marginBottom: '0'}}>Filter</h3>
+        <h3 className="hideMobile">Filter</h3>
         {props.tags.map(f => {return <FilterButton key={f.id} id={f.id}
           filterIcon={f.icon} handleFilters={props.handleFilters}/>;})}
       </div>
