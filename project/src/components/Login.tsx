@@ -26,14 +26,17 @@ function Login() {
 
     try {
       const response = await axios.get('http://localhost:3000/users/');
-      if (response.data.password === (password)) {
+      const user = response.data.filter((u: User) => u.email === username);
+      console.log(user);
+
+      if (user[0].password === (password)) {
         setUsername('');
         setPassword('');
 
         console.log(response.status);
+        console.log('Login!');
       } else {
         console.log('Wrong password or username!');
-        console.error(401);
       }
     } catch (error) {
       console.error(error);
@@ -52,13 +55,26 @@ function Login() {
     };
 
     try {
-      const response = await axios.post('http://localhost:3000/users', newUser);
-      console.log(response);
-      setUsername('');
-      setPassword('');
+      const response = await axios.get('http://localhost:3000/users/');
+      const user = response.data.filter((u: User) => u.email === username);
+
+      if (user.length === 0) {
+        await axios.post('http://localhost:3000/users', newUser);
+        setUsername('');
+        setPassword('');
+      } else {
+        console.log('User with this email already exists!');
+      }
+
     } catch (error) {
       console.error(error);
     }
+  };
+
+  const handleLoginActive = () => {
+    setLoginActive(!loginActive);
+    setUsername('');
+    setPassword('');
   };
 
   return (
@@ -68,8 +84,8 @@ function Login() {
           <h1 style={{textAlign: 'center', marginBottom: '1em'}}>{loginActive ? 'Login' : 'Register'}</h1>
 
           <form onSubmit={(e) => (loginActive ? submitLogin(e) : submitRegister(e))}>
-            <label>Username
-              <input type='text' className="loginInput" value={username}
+            <label>E-mail
+              <input type='email' className="loginInput" value={username}
                 onChange={(e) => setUsername(e.target.value)}/>
             </label>
 
@@ -105,10 +121,13 @@ function Login() {
             : 'Already have an account? '
           }
           
-          { (loginActive) 
-            ? <a onClick={() => setLoginActive(false)}>Create one!</a>
-            : <a onClick={() => setLoginActive(true)}>Login!</a>
-          }
+          <a onClick={() => handleLoginActive()}>
+            { (loginActive) 
+              ? 'Create one!'
+              : 'Login!'
+            }
+          </a>
+
           <div style={{marginBottom: '2em'}} />
 
         </div>

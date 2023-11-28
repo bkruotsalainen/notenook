@@ -1,7 +1,9 @@
 import '../css/Home.css';
 
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import tagService from '../services/tagService';
+import memoService from '../services/memoService';
+import todoService from '../services/todoService';
 
 import Header from './Header.tsx';
 
@@ -91,19 +93,24 @@ function Home() {
   useEffect (() => {
     const fetchData = async () => {
       try {
-        const todoResponse = await axios.get('http://localhost:3000/todos/');
-        const memoResponse = await axios.get('http://localhost:3000/memos/');
-        const tagResponse = await axios.get('http://localhost:3000/tags/');
+        await todoService.getAll().then((todoResponse) => {
+          const sortedTodos = todoResponse.data.sort((a: Todo, b: Todo) => 
+            a.doneBy < b.doneBy ? 1 : -1);
+          setTodos(sortedTodos);
+        }
+        );
+        
+        await memoService.getAll().then((memoResponse) => {
+          const sortedMemos = memoResponse.data.sort((a: Memo, b: Memo) => 
+            a.createdAt < b.createdAt ? 1 : -1);
+          setMemos(sortedMemos);
+        }
+        );
 
-        const sortedTodos = todoResponse.data.sort((a: Todo, b: Todo) => 
-          a.doneBy < b.doneBy ? 1 : -1);
-
-        const sortedMemos = memoResponse.data.sort((a: Todo, b: Todo) => 
-          a.createdAt < b.createdAt ? 1 : -1);
-
-        setTodos(sortedTodos);
-        setMemos(sortedMemos);
-        setTags(tagResponse.data);
+        await tagService.getAll().then((tagResponse) => {
+          setTags(tagResponse.data);
+        }
+        );
       } catch (error) {
         console.error('Error fetching data', error);
       }
@@ -115,26 +122,26 @@ function Home() {
 
   const refreshTodos = async () => {
     try {
-      const todoResponse = await axios.get('http://localhost:3000/todos/');
-
-      const sortedTodos = todoResponse.data.sort((a: Todo, b: Todo) => 
-        a.doneBy < b.doneBy ? 1 : -1);
-
-      setTodos(sortedTodos);
-    } catch (error) {
+      await todoService.getAll().then((todoResponse) => {
+        const sortedTodos = todoResponse.data.sort((a: Todo, b: Todo) => 
+          a.doneBy < b.doneBy ? 1 : -1);
+        setTodos(sortedTodos);
+      }
+      );
+    }catch (error) {
       console.error('Error fetching data', error);
     }
   };
 
   const refreshMemos = async () => {
     try {
-      const memoResponse = await axios.get('http://localhost:3000/memos/');
-
-      const sortedMemos = memoResponse.data.sort((a: Memo, b: Memo) => 
-        a.createdAt < b.createdAt ? 1 : -1);
-
-      setMemos(sortedMemos);
-    } catch (error) {
+      await memoService.getAll().then((memoResponse) => {
+        const sortedMemos = memoResponse.data.sort((a: Memo, b: Memo) => 
+          a.createdAt < b.createdAt ? 1 : -1);
+        setMemos(sortedMemos);
+      }
+      );
+    }catch (error) {
       console.error('Error fetching data', error);
     }
   };

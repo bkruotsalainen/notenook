@@ -138,3 +138,9 @@ interface HeaderProps {
   handleTodoDisplay: () => void,
   handleMemoDisplay: () => void
 }
+
+interface User {
+  id: string,
+  email: string,
+  password: string
+}

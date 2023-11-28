@@ -1,6 +1,6 @@
-import axios from 'axios';
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import memoService from '../services/memoService';
 
 function AddNewMemo({isOpen, handlePopUp, tags, refreshMemos}: AddNewMemoProps) {  
   const [title, setTitle] = useState<string>('');
@@ -39,9 +39,9 @@ function AddNewMemo({isOpen, handlePopUp, tags, refreshMemos}: AddNewMemoProps) 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault(); 
     
-    const newMemo = {
+    const newMemo: Memo = {
       id: uuidv4(),
-      userid: '1',
+      userId: '1',
       title: title,
       content: content,
       createdAt: Date.now(),
@@ -50,11 +50,13 @@ function AddNewMemo({isOpen, handlePopUp, tags, refreshMemos}: AddNewMemoProps) 
     };
 
     try {
-      const response = await axios.post('http://localhost:3000/memos', newMemo);
-      console.log('Memo created:', response.data);
-      emptyFields();
-      closePopup();
-      refreshMemos();
+      await memoService.create(newMemo).then((response) => {
+        console.log('Memo created:', response.data);
+        emptyFields();
+        closePopup();
+        refreshMemos();
+      }
+      );
     } catch (error) {
       console.error('Error creating memo:', error);
     }

@@ -1,10 +1,9 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
+import todoService from '../services/todoService';
 
 function Todo({td, updateTaskColor, getIcon, getTime, deleteToDo, handleTodoInEdit, refreshTodos}: TodoProps) { 
   const [isTaskDone, setIsTaskDone] = useState<boolean>(false); 
   const [subtaskStates, setSubtaskStates] = useState<boolean[]>(td.subtasks.map(() => false));
-
 
   useEffect(() => {
     setIsTaskDone(td.done);
@@ -14,9 +13,9 @@ function Todo({td, updateTaskColor, getIcon, getTime, deleteToDo, handleTodoInEd
   const saveUpdatedTodo = async () => {
     const updatedTodo = { ...td, done: !td.done };
     try {
-      const response = await axios.put(`http://localhost:3000/todos/${updatedTodo.id}`, updatedTodo);
-      console.log('Todo updated:', response.data);
-      refreshTodos();
+      await todoService.update(td.id, updatedTodo).then(() => {
+        refreshTodos();
+      });
     } catch (error) {
       console.error('Error updating todo:', error);
     }
@@ -31,9 +30,9 @@ function Todo({td, updateTaskColor, getIcon, getTime, deleteToDo, handleTodoInEd
     };
 
     try {
-      const response = await axios.put(`http://localhost:3000/todos/${updatedTodo.id}`, updatedTodo);
-      console.log('Subtask updated:', response.data);
-      refreshTodos();
+      await todoService.update(td.id, updatedTodo).then(() => {
+        refreshTodos();
+      });
     } catch (error) {
       console.error('Error updating todo:', error);
     }

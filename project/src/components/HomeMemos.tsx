@@ -1,4 +1,4 @@
-import axios from 'axios';
+import memoService from '../services/memoService';
 import Memo from './Memo';
 
 const months: string[] = [
@@ -9,8 +9,11 @@ const months: string[] = [
 function HomeMemos(props: HomeMemoProps) {
   const deleteMemo = async (id: string) => {
     try {
-      await axios.delete(`http://localhost:3000/memos/${id}`);
-      props.refreshMemos();
+      await memoService.remove(id)
+        .then(() => {
+          props.refreshMemos();
+        }
+        );
     } catch (error) {
       console.error('Error fetching data', error);
     }

@@ -1,4 +1,4 @@
-import axios from 'axios';
+import todoService from '../services/todoService';
 import { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -12,9 +12,7 @@ function EditTodo({ isOpen, handleTodoInEdit, todoInEdit, refreshTodos, tags }: 
 
   const [subtasks, setSubtasks] = useState<Subtask[]>(todoInEdit?.subtasks || []);
   
-  const [activeTag, setActiveTag] = useState<string>(todoInEdit?.tag || '1');    
-  
-  const timezone = 7200000;
+  const [activeTag, setActiveTag] = useState<string>(todoInEdit?.tag || '1');
 
   useEffect(() => {
     if (todoInEdit === undefined) return;
@@ -69,7 +67,7 @@ function EditTodo({ isOpen, handleTodoInEdit, todoInEdit, refreshTodos, tags }: 
     };
 
     try {
-      const response = await axios.put(`http://localhost:3000/todos/${updatedTodo.id}`, updatedTodo);
+      const response = await todoService.update(updatedTodo.id, updatedTodo);
       console.log('Todo updated:', response.data);
       closePopup();
       refreshTodos();
@@ -172,7 +170,7 @@ function EditTodo({ isOpen, handleTodoInEdit, todoInEdit, refreshTodos, tags }: 
                 <input
                   type="datetime-local"
                   className="addNewInput fullWidth" 
-                  onChange={(e) => setDoneBy(Date.parse(e.target.value)-timezone)}
+                  onChange={(e) => setDoneBy(Date.parse(e.target.value))}
                 />
               </label>
 

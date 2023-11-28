@@ -1,5 +1,5 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
+import memoService from '../services/memoService';
 
 function EditMemo({ memoInEdit, isOpen, handleMemoInEdit, refreshMemos, tags }: EditMemoProps) {
   const [title, setTitle] = useState<string>(memoInEdit === undefined ? 'Test title' : memoInEdit.title);
@@ -41,7 +41,7 @@ function EditMemo({ memoInEdit, isOpen, handleMemoInEdit, refreshMemos, tags }: 
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const updatedMemo = {
+    const updatedMemo: Memo = {
       id: memoInEdit.id,
       userId: memoInEdit.userId,
       title: title,
@@ -52,10 +52,12 @@ function EditMemo({ memoInEdit, isOpen, handleMemoInEdit, refreshMemos, tags }: 
     };
 
     try {
-      const response = await axios.put(`http://localhost:3000/memos/${updatedMemo.id}`, updatedMemo);
-      console.log('Memo updated:', response.data);
-      closePopup();
-      refreshMemos();
+      await memoService.update(updatedMemo.id, updatedMemo).then((response) => {
+        console.log('Memo updated:', response.data);
+        closePopup();
+        refreshMemos();
+      }
+      );
     } catch (error) {
       console.error('Error updating memo:', error);
     }

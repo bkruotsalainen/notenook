@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import '../css/AddNew.css';
-import axios from 'axios';
+import todoService from '../services/todoService';
 
 function AddNewTodo({isOpen, handlePopUp, tags, refreshTodos}: AddNewTodoProps) {  
   const [todo, setTodo] = useState<boolean>(false);
@@ -102,10 +102,10 @@ function AddNewTodo({isOpen, handlePopUp, tags, refreshTodos}: AddNewTodoProps) 
   };
 
   // Repeat interval handler
-  const handleRepeatIntervalChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const selectedValue = e.target.value;
-    setTodoData({...todoData, repeatInterval: selectedValue });
-  };
+  // const handleRepeatIntervalChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  //   const selectedValue = e.target.value;
+  //   setTodoData({...todoData, repeatInterval: selectedValue });
+  // };
 
   // Submit form
   const handleSubmit = async (e: React.FormEvent) => {
@@ -127,7 +127,7 @@ function AddNewTodo({isOpen, handlePopUp, tags, refreshTodos}: AddNewTodoProps) 
     };
 
     try {
-      const response = await axios.post('http://localhost:3000/todos', newTodo);
+      const response = await todoService.create(newTodo);
       console.log('Todo created:', response.data);
       emptyForm();
 
@@ -247,7 +247,7 @@ function AddNewTodo({isOpen, handlePopUp, tags, refreshTodos}: AddNewTodoProps) 
 
           <div className="marginTop" />
 
-          {/* To do repeatInterval */}
+          {/* To do repeatInterval 
           <label>
             Repeat this...
             <select className="addNewInput fullWidth" 
@@ -260,6 +260,7 @@ function AddNewTodo({isOpen, handlePopUp, tags, refreshTodos}: AddNewTodoProps) 
               <option value="yearly">Yearly</option>
             </select>
           </label>
+          */}
           <br/>
 
           <button type="submit" 

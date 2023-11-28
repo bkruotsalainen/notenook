@@ -1,5 +1,5 @@
 import '../css/Home.css';
-import axios from 'axios';
+import todoService from '../services/todoService';
 import Todo from './Todo';
 
 const months: string[] = [
@@ -83,7 +83,7 @@ function HomeTodos({searchValue, filterValues, tags, todos, refreshTodos, handle
   // Delete to do
   const deleteTodo = async (id: string) => {
     try {
-      await axios.delete(`http://localhost:3000/todos/${id}`);
+      await todoService.remove(id);
       refreshTodos();
     } catch (error) {
       console.error('Error fetching data', error);
