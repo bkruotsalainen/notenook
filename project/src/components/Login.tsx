@@ -30,7 +30,7 @@ function Login({handleLogin}: LoginProps) {
   
     try {
       const response = await userService.getAll();
-      const user = response.data.find((u: User) => u.email === email);
+      const user = response.find((u: User) => u.email === email);
   
       if (user) {
         const result = await compare(password, user.password);
@@ -46,7 +46,7 @@ function Login({handleLogin}: LoginProps) {
         }
       } else {
         if (email === '' || password === '') {
-          setAlert('No empty fields!');
+          setAlert('Do not forget your email or password!');
           setMessage('');     
         } else {
           setAlert('User with this e-mail was not found!');
