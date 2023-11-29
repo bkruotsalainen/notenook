@@ -1,5 +1,5 @@
 .loginImg {
-  width: 55vw;
+  width: 50vw;
   height: 100vh;
   /* background-color: #235f4d; */
   background-image: url('../assets/organizer-791939_1920.jpg');
@@ -18,7 +18,7 @@
 }
 
 .loginView {
-  width: 45vw;
+  width: 50vw;
   height: 85vh;
   float: left;
   padding: 15vh 0 0 0;
@@ -66,7 +66,7 @@
 .loginTitle {
   margin: 0;
   text-align: center;
-  font-size: 3em;
+  font-size: 4em;
   font-weight: 600;
   margin-bottom: 1em;
 }
@@ -127,6 +127,14 @@ a:active {
   color: #235f4d;
 }
 
+.showMobile {
+  display: none;
+  margin: 0;
+}
+
+.hideMobile {
+  display: inherit;
+}
 
 @media screen and (max-width: 1000px) {
   .loginImg {
@@ -135,5 +143,16 @@ a:active {
 
   .loginView {
     width: 100vw;
+    background-image: url('../assets/organizer-791939_1920.jpg');
+    background-position: center;
+    background-size: cover;
+  }
+
+  .showMobile {
+    display: inherit;
+  }
+
+  .hideMobile {
+    display: none;
   }
 }

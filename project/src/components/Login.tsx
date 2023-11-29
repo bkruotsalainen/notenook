@@ -111,13 +111,20 @@ function Login({handleLogin}: LoginProps) {
 
       <div className="loginView">
         
-        <p className="loginTitleSmall">Welcome to</p>
-        <p className="loginTitle">NoteNook!</p>
-
+        <div className="hideMobile">
+          <p className="loginTitleSmall">Welcome to</p>
+          <p className="loginTitle">NoteNook!</p>
+        </div>
+        
         <div className="loginDiv">
 
 
           <div className="loginFormWrapper">
+        
+            <div className="showMobile">
+              <p className="loginTitleSmall">Welcome to</p>
+              <p className="loginTitle">NoteNook!</p>
+            </div>
 
             {<p className="alertText">{alert}</p>}
             {<p className="messageText">{message}</p>}
