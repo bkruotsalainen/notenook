@@ -150,7 +150,7 @@ interface HeaderProps {
 interface User {
   id: string,
   email: string,
-  password: string,
+  password: argon2id,
   timezone: number,
   createdAt: number
 }

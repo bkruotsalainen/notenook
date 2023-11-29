@@ -32,9 +32,9 @@ function Settings({isOpen, handleSettingsPopUp, timezone, refreshMemos, refreshT
 
     // Default user, this should save only the timezone and nothing else
     const updatedUser: User = {
-      id: '1',
+      id: 'ca6391e1-7079-416a-bc6f-a9d71e4a50e7',
       email: 'kana@posti.fi',
-      password: 'kotkot123',
+      password: '$2a$10$QCc0KogiNs.GZdEQyNUV3.m.a3Sv3YDNSkyGOahsXNharfwMo6sde',
       createdAt: 1701166315723,
       timezone: userTimezone * 3600000
     };

@@ -117,7 +117,7 @@ function Home({handleLogin}: HomeProps) {
         }
         );        
         
-        await userService.get('/1').then((response) => {
+        await userService.get('ca6391e1-7079-416a-bc6f-a9d71e4a50e7').then((response) => {
           setTimezone(response.data.timezone);
         }
         );

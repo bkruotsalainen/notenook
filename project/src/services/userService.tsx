@@ -1,5 +1,5 @@
 import axios from 'axios';
-const URL = 'http://localhost:3000/users';
+const URL = 'http://localhost:3000/users/';
 
 const getAll = () => {
   const request = axios.get(URL);
@@ -12,7 +12,7 @@ const get = (id: string) => {
 };
 
 const update = (id: string, newObject: User) => {
-  const request = axios.put(`${URL}/${id}`, newObject);
+  const request = axios.put((URL + id), newObject);
   return request;
 };
 

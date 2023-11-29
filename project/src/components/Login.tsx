@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { compare, genSalt, hash } from 'bcrypt-ts';
 
 import '../css/Login.css';
 import userService from '../services/userService';
@@ -26,57 +27,62 @@ function Login({handleLogin}: LoginProps) {
 
   const submitLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     try {
       await userService.getAll().then((response) => {
         const user = response.data.filter((u: User) => u.email === email);
   
-        if (user.length > 0 && user[0].password === (password)) {
-          setAlert('');
-          setEmail('');
-          setPassword('');
+        compare(password, user[0].password).then((result) => {
+          if (result) {
+            setAlert('');
+            setEmail('');
+            setPassword('');
   
-          handleLogin();
-        } else {
-          setAlert('Wrong password or email!');
-          setMessage('');
-        }
+            handleLogin();
+          } else {
+            setAlert('Wrong password or email!');
+            setMessage('');
+          }
+        });
       });
-    } catch (error) {
-      console.error(error);
-    }
+    } catch(error) {
+      console.log(error);
+    } 
   };
 
   const submitRegister = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    const newUser = {
-      id: uuidv4(),
-      email: email,
-      password: password,
-      createdAt: Date.now(),
-      timezone: new Date().getTimezoneOffset()
-    };
-
-    try {
-      await userService.getAll().then(async (response) => {
-        const user = response.data.filter((u: User) => u.email === email);
-
-        if (user.length === 0) {
-          await userService.create(newUser);
-          setAlert('');
-          setMessage('Registration was success! You can now log in. 👽');
-          setEmail('');
-          setPassword('');
-          setLoginActive(true);
-        } else {
-          setAlert('User with this email already exists!');
+    
+    genSalt(10)
+      .then((salt) => hash(password, salt))
+      .then(async (hash) => {
+        const newUser = {
+          id: uuidv4(),
+          email: email,
+          password: hash,
+          createdAt: Date.now(),
+          timezone: new Date().getTimezoneOffset()
+        };
+    
+        try {
+          await userService.getAll().then(async (response) => {
+            const user = response.data.filter((u: User) => u.email === email);
+    
+            if (user.length === 0) {
+              await userService.create(newUser);
+              setAlert('');
+              setMessage('Registration was success! You can now log in. 👽');
+              setEmail('');
+              setPassword('');
+              setLoginActive(true);
+            } else {
+              setAlert('User with this email already exists!');
+            }
+          }
+          );
+        } catch (error) {
+          console.error(error);
         }
-      }
-      );
-    } catch (error) {
-      console.error(error);
-    }
+      });
   };
 
   const handleLoginActive = () => {
