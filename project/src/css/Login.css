@@ -1,13 +1,32 @@
+.loginImg {
+  width: 55vw;
+  height: 100vh;
+  /* background-color: #235f4d; */
+  background-image: url('../assets/organizer-791939_1920.jpg');
+  background-position: center;
+  text-align: center;
+  color: white;
+  float: left;
+}
+
+.loginImg p {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+}
+
 .loginView {
-  width: 100%;
-  height: 100%;
-  padding-top: 5em;
+  width: 45vw;
+  height: 85vh;
+  float: left;
+  padding: 15vh 0 0 0;
 }
 
 .loginDiv {
-  padding: 2em 4em;
   margin: auto;
-  width: 400px;
+  width: 450px;
   border-radius: 25px;
   background-color: white;
   border: 1px solid rgb(166, 166, 166);
@@ -19,16 +38,48 @@
   width: 96%;
   height: 40px;
   margin: 1em 0;
-  border-radius: 0.4em;
+  border-radius: 10px;
   padding: 0 0.5em;
 }
 
+.loginFormWrapper {
+  padding: 2em;
+}
+
+.loginAppTitle {
+  text-align: center;
+  font-size: 1.5em;
+  padding: 1em 1em;
+  border-radius: 0.6em 0.6em 0 0;
+  border: 1px solid rgb(166, 166, 166);
+  background-color: #235f4d;
+  color: white;
+}
+
+.loginTitleSmall {
+  margin: 0;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: 600;
+}
+
+.loginTitle {
+  margin: 0;
+  text-align: center;
+  font-size: 3em;
+  font-weight: 600;
+  margin-bottom: 1em;
+}
+
 .loginButton {
+  border: 0;
   width: 100%;
   height: 40px;
-  border: 0;
   background-color: #fabb29;
-  border-radius: 0.4em;
+  border-radius: 2em;
+  font-weight: bold;
+  font-size: 1.1em;
+  color: #235f4d;
 }
 
 .loginButton:hover {
@@ -74,4 +125,15 @@ a:hover {
 
 a:active {
   color: #235f4d;
+}
+
+
+@media screen and (max-width: 1000px) {
+  .loginImg {
+    display: none;
+  }
+
+  .loginView {
+    width: 100vw;
+  }
 }

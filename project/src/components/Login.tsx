@@ -45,8 +45,13 @@ function Login({handleLogin}: LoginProps) {
           setMessage('');
         }
       } else {
-        setAlert('User with this e-mail was not found!');
-        setMessage('');
+        if (email === '' || password === '') {
+          setAlert('No empty fields!');
+          setMessage('');     
+        } else {
+          setAlert('User with this e-mail was not found!');
+          setMessage('');
+        }
       }
     } catch (error) {
       console.error('Error during login:', error);
@@ -71,15 +76,19 @@ function Login({handleLogin}: LoginProps) {
       const response = await userService.getAll();
       const existingUser = response.data.find((u: User) => u.email === email);
  
-      if (!existingUser) {
+      if (!existingUser && email !== '' && password !== '') {
         await userService.create(newUser);
         setAlert('');
-        setMessage('Registration was successful! You can now log in. 👽');
+        setMessage('Success! You can now log in. 👽');
         setEmail('');
         setPassword('');
         setLoginActive(true);
       } else {
-        setAlert('User with this email already exists!');
+        if (email === '' || password === '') {
+          setAlert('No empty fields!');
+        } else {
+          setAlert('User with this email already exists!');
+        }
       }
     } catch (error) {
       console.error('Error during registration:', error);
@@ -96,26 +105,35 @@ function Login({handleLogin}: LoginProps) {
   };
 
   return (
-    <>
+    <div style={{width: '100vw'}}>
+      <div className="loginImg">
+      </div>
+
       <div className="loginView">
+        
+        <p className="loginTitleSmall">Welcome to</p>
+        <p className="loginTitle">NoteNook!</p>
+
         <div className="loginDiv">
-          <h1 style={{textAlign: 'center', marginBottom: '1em'}}>{loginActive ? 'Login' : 'Register'}</h1>
 
-          {<p className="alertText">{alert}</p>}
-          {<p className="messageText">{message}</p>}
 
-          <form onSubmit={(e) => (loginActive ? submitLogin(e) : submitRegister(e))}>
-            <label>E-mail
-              <input type='email' className="loginInput" value={email}
-                onChange={(e) => setEmail(e.target.value)} autoComplete="username"/>
-            </label>
+          <div className="loginFormWrapper">
 
-            <label>Password
-              <input type={showPassword} className="loginInput" value={password}
-                onChange={(e) => setPassword(e.target.value)} autoComplete="current-password"/>
-            </label>
+            {<p className="alertText">{alert}</p>}
+            {<p className="messageText">{message}</p>}
 
-            {(password !== '') &&
+            <form onSubmit={(e) => (loginActive ? submitLogin(e) : submitRegister(e))}>
+              <label>E-mail
+                <input type='email' className="loginInput" value={email}
+                  onChange={(e) => setEmail(e.target.value)} autoComplete="username"/>
+              </label>
+
+              <label>Password
+                <input type={showPassword} className="loginInput" value={password}
+                  onChange={(e) => setPassword(e.target.value)} autoComplete="current-password"/>
+              </label>
+
+              {(password !== '') &&
             <div className="showPasswordDiv">
               <span onClick={(e) => handlePasswordShown(e)}
                 className="loginPasswordButton">
@@ -126,34 +144,38 @@ function Login({handleLogin}: LoginProps) {
                 }
               </span>
             </div>
-            }
+              }
 
-            <div style={{marginBottom: '3em'}} />
+              <div style={{marginBottom: '3em'}} />
 
-            <button className="loginButton" type="submit">
-              {loginActive ? 'Login' : 'Register'}
-            </button>
-          </form>
+              <button className="loginButton" type="submit">
+                {loginActive ? 'LOGIN' : 'REGISTER'}
+              </button>
+            </form>
           
-          <div style={{marginBottom: '2em'}} />
+            <div style={{marginBottom: '2em'}} />
 
-          { (loginActive) 
-            ? 'No account? '
-            : 'Already have an account? '
-          }
+            <center>
+              { (loginActive) 
+                ? 'No account? '
+                : 'Already have an account? '
+              }
           
-          <a onClick={() => handleLoginActive()}>
-            { (loginActive) 
-              ? 'Create one!'
-              : 'Login!'
-            }
-          </a>
+              <a onClick={() => handleLoginActive()}>
+                { (loginActive) 
+                  ? 'Create one!'
+                  : 'Login!'
+                }
+              </a>
+            </center>
 
-          <div style={{marginBottom: '2em'}} />
+            <div style={{marginBottom: '2em'}} />
 
+          </div>
         </div>
+
       </div>
-    </>
+    </div>
   );
 }
 
