@@ -47,6 +47,10 @@ function Todo({td, updateTaskColor, getIcon, getTime, deleteToDo, handleTodoInEd
     }
 
     return false;
+  };  
+  
+  const handleDeleteClick = () => {
+    deleteToDo(td.id);
   };
 
   return (
@@ -95,7 +99,7 @@ function Todo({td, updateTaskColor, getIcon, getTime, deleteToDo, handleTodoInEd
 
         <div className="iconWrapper">
           <div className="icon" onClick={() => handleTodoInEdit(td)}>✏️</div>
-          <div className="icon" onClick={() => deleteToDo(td.id)}>🗑️</div>
+          <div className="icon" onClick={handleDeleteClick}>🗑️</div>
         </div> 
 
         <br />

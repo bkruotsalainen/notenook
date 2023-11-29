@@ -37,7 +37,7 @@ interface TodoProps {
   refreshTodos: () => void,
   getIcon: (string) => string,
   getTime: (number) => string,
-  deleteToDo: (string) => void,
+  deleteToDo: (id: string) => void,
   handleTodoInEdit: (string) => void,
   updateTaskColor: (boolean, number) => string,
 }

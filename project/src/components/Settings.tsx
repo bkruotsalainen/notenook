@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import userService from '../services/userService';
-import axios from 'axios';
+import timezoneService from '../services/timezoneService';
 
 function Settings({user, isOpen, handleSettingsPopUp, timezone, refreshMemos, refreshTodos}: SettingsProps) {
   const [userTimezone, setUserTimezone] = useState<number>(timezone);
@@ -8,16 +8,9 @@ function Settings({user, isOpen, handleSettingsPopUp, timezone, refreshMemos, re
 
   useEffect( () => {
     const fetchData = async () => {
-      await axios.get('http://localhost:3000/timezones').then((result) => {
-        const timezoneArray: Timezone[]  = [];
-
-        result.data.map((tz: Timezone) => {
-          timezoneArray.push({id: tz.id, offset: tz.offset, text: tz.text});
-        });
-
-        setTimezones(timezoneArray);
-      });
-    };
+      const response = await timezoneService.getAll();
+      setTimezones(response);
+      }
 
     fetchData();
   }, 

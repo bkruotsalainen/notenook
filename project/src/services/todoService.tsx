@@ -1,24 +1,39 @@
 import axios from 'axios';
 const URL = 'http://localhost:3000/todos';
 
-const getAll = () => {
-  const request = axios.get(URL);
-  return request;
+const getAll = async () => {
+  try {
+    const response = await axios.get(URL);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
 };
 
-const create = (newObject: Todo) => {
-  const request = axios.post(URL, newObject);
-  return request;
+const create = async (newObject: Todo) => {
+  try {
+    const response = await axios.post(URL, newObject);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
 };
 
-const update = (id: string, newObject: Todo) => {
-  const request = axios.put((URL + '/' + id), newObject);
-  return request;
+const update = async (id: string, newObject: Todo) => {
+  try {
+    const response = await axios.put(`${URL}/${id}`, newObject);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
 };
 
-const remove = (id: string) => {
-  const request = axios.delete((URL + '/' + id));
-  return request;
+const remove = async (id: string) => {
+  try {
+    await axios.delete(`${URL}/${id}`);
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 export default { getAll, create, update, remove };

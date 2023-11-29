@@ -1,25 +1,40 @@
 import axios from 'axios';
 const URL = 'http://localhost:3000/users';
 
-const getAll = () => {
-  const request = axios.get(URL);
-  return request;
+const getAll = async () => {
+  try {
+    const response = await axios.get(URL);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
 };
 
-const get = (id: string) => {
-  const request = axios.get(URL + '/' + id);
-  return request;
+const get = async (id: string) => {
+  try {
+    const response = await axios.get(`${URL}/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+const create = async (newObject: User) => {
+  try {
+    const response = await axios.post(URL, newObject);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
 };
 
-const update = (id: string, newObject: User) => {
-  const request = axios.put((URL + '/' + id), newObject);
-  return request;
+const update = async (id: string, newObject: User) => {
+  try {
+    const response = await axios.put(`${URL}/${id}`, newObject);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
 };
-
-const create = (newObject: User) => {
-  const request = axios.post(URL, newObject);
-  return request;
-};
-
 
 export default { getAll, get, update, create }; 

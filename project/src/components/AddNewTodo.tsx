@@ -127,7 +127,7 @@ function AddNewTodo({isOpen, handlePopUp, tags, refreshTodos, timezone}: AddNewT
 
     try {
       const response = await todoService.create(newTodo);
-      console.log('Todo created:', response.data);
+      console.log('Todo created:', response.id);
       emptyForm();
 
       closePopup();

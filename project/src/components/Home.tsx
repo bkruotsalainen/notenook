@@ -103,27 +103,26 @@ function Home({handleLogin}: HomeProps) {
     const fetchData = async () => {
       try {
         await todoService.getAll().then((todoResponse) => {
-          const sortedTodos = todoResponse.data.sort((a: Todo, b: Todo) => 
+          const sortedTodos = todoResponse.sort((a: Todo, b: Todo) => 
             a.doneBy < b.doneBy ? 1 : -1);
           setTodos(sortedTodos);
-        }
-        );
-        
+        });
+
         await memoService.getAll().then((memoResponse) => {
-          const sortedMemos = memoResponse.data.sort((a: Memo, b: Memo) => 
+          const sortedMemos = memoResponse.sort((a: Memo, b: Memo) => 
             a.createdAt < b.createdAt ? 1 : -1);
           setMemos(sortedMemos);
         }
         );
 
         await tagService.getAll().then((tagResponse) => {
-          setTags(tagResponse.data);
+          setTags(tagResponse);
         }
         );        
         
         await userService.get('ca6391e1-7079-416a-bc6f-a9d71e4a50e7').then((response) => {
-          setTimezone(response.data.timezone);
-          setUser(response.data);
+          setTimezone(response.timezone);
+          setUser(response);
         }
         );
       } catch (error) {
@@ -138,7 +137,7 @@ function Home({handleLogin}: HomeProps) {
   const refreshTodos = async () => {
     try {
       await todoService.getAll().then((todoResponse) => {
-        const sortedTodos = todoResponse.data.sort((a: Todo, b: Todo) => 
+        const sortedTodos = todoResponse.sort((a: Todo, b: Todo) => 
           a.doneBy < b.doneBy ? 1 : -1);
         setTodos(sortedTodos);
       }
@@ -151,7 +150,7 @@ function Home({handleLogin}: HomeProps) {
   const refreshMemos = async () => {
     try {
       await memoService.getAll().then((memoResponse) => {
-        const sortedMemos = memoResponse.data.sort((a: Memo, b: Memo) => 
+        const sortedMemos = memoResponse.sort((a: Memo, b: Memo) => 
           a.createdAt < b.createdAt ? 1 : -1);
         setMemos(sortedMemos);
       }
