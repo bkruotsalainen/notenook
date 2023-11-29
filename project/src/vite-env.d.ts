@@ -144,7 +144,8 @@ interface HeaderProps {
   handleTodoDisplay: () => void,
   handleMemoDisplay: () => void,
   handleLogin: () => void,
-  handleSettingsPopUp: () => void
+  handleSettingsPopUp: () => void,
+  collapseWidth: number
 }
 
 interface User {

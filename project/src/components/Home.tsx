@@ -40,11 +40,13 @@ function Home({handleLogin}: HomeProps) {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [showTodo, setShowTodo] = useState<boolean>(true);
 
+  const collapseWidth = 1400;
+
   const handleResize = () => {
     const newWidth = window.innerWidth;
     setWindowWidth(newWidth);
 
-    setShowTodo(newWidth > 1200);
+    setShowTodo(newWidth > collapseWidth);
   };
 
   useEffect(() => {
@@ -86,7 +88,7 @@ function Home({handleLogin}: HomeProps) {
   };
 
   const memoDisplay = {
-    display: !showTodo || (showTodo && windowWidth > 1200) ? 'inline-block' : 'none'
+    display: !showTodo || (showTodo && windowWidth > collapseWidth) ? 'inline-block' : 'none'
   };
 
   const handleTodoDisplay = () => {
@@ -228,7 +230,7 @@ function Home({handleLogin}: HomeProps) {
         refreshTodos={refreshTodos} refreshMemos={refreshMemos} user={user!}/>
 
       <Header handleTodoDisplay={handleTodoDisplay} handleMemoDisplay={handleMemoDisplay} handleLogin={handleLogin}
-        handleSettingsPopUp={handleSettingsPopUp}/>
+        handleSettingsPopUp={handleSettingsPopUp} collapseWidth={collapseWidth} />
       <div className="flex-container">
         <div className="homeMenu">
           <HomeMenu handleTodoPopup={handleTodoPopUp} handleSearch={handleSearchChange} 

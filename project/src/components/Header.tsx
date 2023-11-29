@@ -1,15 +1,17 @@
 import '../css/Header.css';
 import Clock from './Clock';
 
-function Header({handleTodoDisplay, handleMemoDisplay, handleLogin, handleSettingsPopUp}: HeaderProps) {
+function Header({collapseWidth, handleTodoDisplay, handleMemoDisplay, handleLogin, handleSettingsPopUp}: HeaderProps) {
 
   return (
     <div className="header"> 
       <div className="right">
         <ul className="headerLinks"> 
+          {window.innerWidth > 1200 &&
           <li className="homeLink">
             <Clock />
           </li>
+          }
           <li className="right" onClick={() => handleSettingsPopUp()}>
             🕗 Settings
           </li>
@@ -20,16 +22,22 @@ function Header({handleTodoDisplay, handleMemoDisplay, handleLogin, handleSettin
       </div>  
       
       <div className="left">
-        {window.innerWidth < 1200 &&
         <ul className="headerLinks">
+          {window.innerWidth > collapseWidth &&
+          <li className="headerTitle">
+            NoteNook
+          </li>
+          }
+          {window.innerWidth < collapseWidth &&
+        <>
           <li className="homeLink" onClick={() => handleTodoDisplay()}>
             📅 To do
           </li>
           <li className="homeLink" onClick={() => handleMemoDisplay()}>
             📝 Memos
           </li>
+        </>}
         </ul>
-        }
       </div>
     </div>
   );

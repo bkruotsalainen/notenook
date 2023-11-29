@@ -29,11 +29,17 @@
   float: left;
   color: #fff;
   vertical-align: top;
-  padding: 1em;
+  padding: 0.85em 0.5em;
 }
 
-.headerLinks li:hover {
+.homeLink:hover {
   color: #89c0af;
+}
+
+.headerTitle {
+  font-weight: 600;
+  font-size: 1.2em;
+  margin-top: -0.25em;
 }
 
 .homeLink {
@@ -41,7 +47,7 @@
 }
 
 /* Header - Scalability */
-@media screen and (max-width: 850px) {  
+@media screen and (max-width: 1200px) {  
   .header {
     height: 50px !important;
   }
@@ -60,5 +66,4 @@
     height: auto;
     padding: 1em 0em;
   }
-  
 }
