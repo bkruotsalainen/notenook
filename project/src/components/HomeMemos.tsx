@@ -11,6 +11,7 @@ function HomeMemos(props: HomeMemoProps) {
     try {
       await memoService.remove(id)
         .then(() => {
+          console.log('Memo deleted: ', id);
           props.refreshMemos();
         }
         );

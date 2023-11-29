@@ -83,9 +83,12 @@ function HomeTodos({searchValue, filterValues, tags, todos, refreshTodos, handle
   // Delete to do
   const deleteTodo = async (id: string) => {
     try {
-      await todoService.remove(id);
-      console.log('Todo deleted: ', id);
-      refreshTodos();
+      await todoService.remove(id)
+        .then(() => {
+          console.log('Todo deleted: ', id);
+          refreshTodos();
+        }
+        );
     } catch (error) {
       console.error('Error fetching data', error);
     }
