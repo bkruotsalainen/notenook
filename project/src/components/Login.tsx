@@ -27,64 +27,65 @@ function Login({handleLogin}: LoginProps) {
 
   const submitLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+  
     try {
-      await userService.getAll().then((response) => {
-        const user = response.data.filter((u: User) => u.email === email);
+      const response = await userService.getAll();
+      const user = response.data.find((u: User) => u.email === email);
   
-        compare(password, user[0].password).then((result) => {
-          if (result) {
-            setAlert('');
-            setEmail('');
-            setPassword('');
+      if (user) {
+        const result = await compare(password, user.password);
   
-            handleLogin();
-          } else {
-            setAlert('Wrong password or email!');
-            setMessage('');
-          }
-        });
-      });
-    } catch(error) {
-      console.log(error);
-    } 
-  };
+        if (result) {
+          setAlert('');
+          setEmail('');
+          setPassword('');
+          handleLogin();
+        } else {
+          setAlert('Wrong password!');
+          setMessage('');
+        }
+      } else {
+        setAlert('User with this e-mail was not found!');
+        setMessage('');
+      }
+    } catch (error) {
+      console.error('Error during login:', error);
+    }
+  };  
 
   const submitRegister = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
-    genSalt(10)
-      .then((salt) => hash(password, salt))
-      .then(async (hash) => {
-        const newUser = {
-          id: uuidv4(),
-          email: email,
-          password: hash,
-          createdAt: Date.now(),
-          timezone: new Date().getTimezoneOffset()
-        };
-    
-        try {
-          await userService.getAll().then(async (response) => {
-            const user = response.data.filter((u: User) => u.email === email);
-    
-            if (user.length === 0) {
-              await userService.create(newUser);
-              setAlert('');
-              setMessage('Registration was success! You can now log in. 👽');
-              setEmail('');
-              setPassword('');
-              setLoginActive(true);
-            } else {
-              setAlert('User with this email already exists!');
-            }
-          }
-          );
-        } catch (error) {
-          console.error(error);
-        }
-      });
-  };
+  
+    try {
+      const salt = await genSalt(10);
+      const hashedPassword = await hash(password, salt);
+  
+      const newUser = {
+        id: uuidv4(),
+        email: email,
+        password: hashedPassword,
+        createdAt: Date.now(),
+        timezone: new Date().getTimezoneOffset(),
+      };
 
+      const response = await userService.getAll();
+      const existingUser = response.data.find((u: User) => u.email === email);
+ 
+      if (!existingUser) {
+        await userService.create(newUser);
+        setAlert('');
+        setMessage('Registration was successful! You can now log in. 👽');
+        setEmail('');
+        setPassword('');
+        setLoginActive(true);
+      } else {
+        setAlert('User with this email already exists!');
+      }
+    } catch (error) {
+      console.error('Error during registration:', error);
+    }
+  };
+  
   const handleLoginActive = () => {
     setLoginActive(!loginActive);
     setEmail('');
@@ -106,12 +107,12 @@ function Login({handleLogin}: LoginProps) {
           <form onSubmit={(e) => (loginActive ? submitLogin(e) : submitRegister(e))}>
             <label>E-mail
               <input type='email' className="loginInput" value={email}
-                onChange={(e) => setEmail(e.target.value)}/>
+                onChange={(e) => setEmail(e.target.value)} autoComplete="username"/>
             </label>
 
             <label>Password
               <input type={showPassword} className="loginInput" value={password}
-                onChange={(e) => setPassword(e.target.value)}/>
+                onChange={(e) => setPassword(e.target.value)} autoComplete="current-password"/>
             </label>
 
             {(password !== '') &&

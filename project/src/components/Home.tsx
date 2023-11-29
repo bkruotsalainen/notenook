@@ -22,6 +22,8 @@ function Home({handleLogin}: HomeProps) {
   const [isTodoOpen, setIsTodoOpen] = useState<boolean>(false);
   const [isMemoOpen, setIsMemoOpen] = useState<boolean>(false);
   const [isSettingsOpen, setIsSettingsOpen] = useState<boolean>(false);
+
+  const [user, setUser] = useState<User>();
   
   const [isMemoEditOpen, setIsMemoEditOpen] = useState<boolean>(false);
   const [isTodoEditOpen, setIsTodoEditOpen] = useState<boolean>(false);
@@ -119,6 +121,7 @@ function Home({handleLogin}: HomeProps) {
         
         await userService.get('ca6391e1-7079-416a-bc6f-a9d71e4a50e7').then((response) => {
           setTimezone(response.data.timezone);
+          setUser(response.data);
         }
         );
       } catch (error) {
@@ -222,7 +225,7 @@ function Home({handleLogin}: HomeProps) {
         timezone={timezone}/>
 
       <Settings isOpen={isSettingsOpen} handleSettingsPopUp={handleSettingsPopUp} timezone={timezone}
-        refreshTodos={refreshTodos} refreshMemos={refreshMemos}/>
+        refreshTodos={refreshTodos} refreshMemos={refreshMemos} user={user}/>
 
       <Header handleTodoDisplay={handleTodoDisplay} handleMemoDisplay={handleMemoDisplay} handleLogin={handleLogin}
         handleSettingsPopUp={handleSettingsPopUp}/>

@@ -144,7 +144,7 @@ interface HeaderProps {
   handleTodoDisplay: () => void,
   handleMemoDisplay: () => void,
   handleLogin: () => void,
-  handleSettingsPopUp: () => void,
+  handleSettingsPopUp: () => void
 }
 
 interface User {
@@ -168,7 +168,8 @@ interface SettingsProps {
   handleSettingsPopUp: () => void,
   timezone: number,
   refreshTodos: () => void,
-  refreshMemos: () => void
+  refreshMemos: () => void,
+  user: User
 }
 
 interface Timezone {

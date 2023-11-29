@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import userService from '../services/userService';
 import axios from 'axios';
 
-function Settings({isOpen, handleSettingsPopUp, timezone, refreshMemos, refreshTodos}: SettingsProps) {
+function Settings({user, isOpen, handleSettingsPopUp, timezone, refreshMemos, refreshTodos}: SettingsProps) {
   const [userTimezone, setUserTimezone] = useState<number>(timezone);
   const [timezones, setTimezones] = useState<Timezone[]>([]);
 
@@ -31,16 +31,12 @@ function Settings({isOpen, handleSettingsPopUp, timezone, refreshMemos, refreshT
     e.preventDefault();
 
     // Default user, this should save only the timezone and nothing else
-    const updatedUser: User = {
-      id: 'ca6391e1-7079-416a-bc6f-a9d71e4a50e7',
-      email: 'kana@posti.fi',
-      password: '$2a$10$QCc0KogiNs.GZdEQyNUV3.m.a3Sv3YDNSkyGOahsXNharfwMo6sde',
-      createdAt: 1701166315723,
+    const updatedUser: User = { ...user,
       timezone: userTimezone * 3600000
     };
 
     try {
-      await userService.update('1', updatedUser).then(() => {
+      await userService.update('ca6391e1-7079-416a-bc6f-a9d71e4a50e7', updatedUser).then(() => {
         setUserTimezone(userTimezone);
         closePopup();
         refreshMemos();
