@@ -10,11 +10,7 @@ function Clock() {
   }, []);
  
   return (
-    <span>{time.toLocaleString('en-GB', {
-      dateStyle: 'medium',
-      timeStyle: 'medium',
-      hour12: false,
-    })} 
+    <span>{time.toLocaleTimeString('en-GB')} 
     </span>
   );
 }

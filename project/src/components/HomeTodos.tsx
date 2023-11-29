@@ -83,16 +83,20 @@ function HomeTodos({searchValue, filterValues, tags, todos, refreshTodos, handle
   // Delete to do
   const deleteTodo = async (id: string) => {
     try {
-      await todoService.remove(id);
-      refreshTodos();
+      const result = await todoService.remove(id);
+      console.log(result.data.content);
     } catch (error) {
       console.error('Error fetching data', error);
     }
+    
+    refreshTodos();
   };
 
   return (
     <div className="calendarBody">
+      {window.innerWidth > 1400 &&
       <h1 style={{marginBottom: '0'}}>Todos</h1>
+      }
       {todos.map((td: Todo) => 
         checkSearchValue(td) && checkFilter(td) && (
           <Todo

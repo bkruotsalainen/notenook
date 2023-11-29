@@ -14,7 +14,8 @@ function AddNewTodo({isOpen, handlePopUp, tags, refreshTodos, timezone}: AddNewT
     margin: '0.2em',
     padding: '0.2em',
     display: 'inline',
-    backgroundColor: '#F5F1EB'
+    backgroundColor: 'transparent',
+    lineHeight: '50px'
   };
 
   const activeFilterStyle = {
@@ -23,7 +24,8 @@ function AddNewTodo({isOpen, handlePopUp, tags, refreshTodos, timezone}: AddNewT
     padding: '0.2em',
     display: 'inline',
     backgroundColor: '#FABC2A',
-    borderRadius: '25px'
+    borderRadius: '25px',
+    lineHeight: '50px'
   };
 
   const [todoData, setTodoData] = useState<Todo>({

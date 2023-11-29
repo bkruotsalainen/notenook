@@ -74,7 +74,9 @@ function HomeMemos(props: HomeMemoProps) {
       </button>
       }
       
+      {window.innerWidth > 1400 &&
       <h1>Memos</h1>
+      }
       {props.memos.map(m => 
         checkSearchValue(m) && checkFilter(m) && (
           <Memo key={m.id} memo={m} delete={deleteMemo} tags={props.tags} 

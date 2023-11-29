@@ -7,7 +7,7 @@ function Header({collapseWidth, handleTodoDisplay, handleMemoDisplay, handleLogi
     <div className="header"> 
       <div className="right">
         <ul className="headerLinks"> 
-          {window.innerWidth > 1200 &&
+          {window.innerWidth > 800 &&
           <li className="homeLink">
             <Clock />
           </li>
@@ -23,7 +23,7 @@ function Header({collapseWidth, handleTodoDisplay, handleMemoDisplay, handleLogi
       
       <div className="left">
         <ul className="headerLinks">
-          {window.innerWidth > collapseWidth &&
+          {window.innerWidth > 800 &&
           <li className="headerTitle">
             NoteNook
           </li>

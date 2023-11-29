@@ -12,12 +12,12 @@ const create = (newObject: Todo) => {
 };
 
 const update = (id: string, newObject: Todo) => {
-  const request = axios.put(`${URL}/${id}`, newObject);
+  const request = axios.put((URL + '/' + id), newObject);
   return request;
 };
 
 const remove = (id: string) => {
-  const request = axios.delete(`${URL}/${id}`);
+  const request = axios.delete((URL + '/' + id));
   return request;
 };
 
