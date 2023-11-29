@@ -17,7 +17,7 @@ const get = async (id: string) => {
   } catch (error) {
     console.error(error);
   }
-}
+};
 
 const create = async (newObject: User) => {
   try {

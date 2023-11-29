@@ -1,8 +1,8 @@
 {
   "users": [
     {
-      "id": "ca6391e1-7079-416a-bc6f-a9d71e4a50e7",
-      "email": "kana@posti.fi",
+      "id": "1",
+      "email": "katariina@sahkoposti.fi",
       "password": "$2a$10$QCc0KogiNs.GZdEQyNUV3.m.a3Sv3YDNSkyGOahsXNharfwMo6sde",
       "createdAt": 1701245600229,
       "timezone": 7200000
