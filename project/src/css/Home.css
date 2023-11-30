@@ -132,16 +132,16 @@ ul {
 
 .dayDiv {
   width: 42px;
-  padding: 0.65em 0;
+  padding: 0.60em 0;
   text-align: center;
   display: inline-block;
   border-radius: 25px;
 }
 
 .currentDate {
-  box-sizing: border-box; 
-  border: 3px solid #FABC2A;
-  font-weight: 600;
+  box-sizing: border-box !important; 
+  border: 3px solid #FABC2A !important;
+  font-weight: 600 !important;
 }
 
 .searchInput {

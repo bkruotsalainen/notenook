@@ -5,7 +5,7 @@ function HomeMenu(props: HomeMenuProps) {
   return (
     <>
       <div className="homeMenuWrapper">
-        <CalendarObject />
+        <CalendarObject todos={props.todos}/>
         <input placeholder="🔍 Search" className="searchInput" 
           onChange={(e) => props.handleSearch(e)}>
         </input>

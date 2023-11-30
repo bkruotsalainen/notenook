@@ -6,60 +6,9 @@
       "password": "$2a$10$QCc0KogiNs.GZdEQyNUV3.m.a3Sv3YDNSkyGOahsXNharfwMo6sde",
       "createdAt": 1701245600229,
       "timezone": 7200000
-    },
-    {
-      "id": "8ed5da73-32ec-41e2-9d48-a1530080e9ab",
-      "email": "testi@sahkoposti.fi",
-      "password": "$2a$10$pd.3eMs6z2t7N7TP4fFdF.yjk7hSMJwyro2mRdD7wZ1RAYakq3U3a",
-      "createdAt": 1701332098455,
-      "timezone": -120
     }
   ],
   "todos": [
-    {
-      "id": "b07b192d-4d6a-4173-8401-99b83a16598c",
-      "userId": "1",
-      "createdAt": 1701171952976,
-      "editedAt": 1701171987158,
-      "doneBy": 1704052740000,
-      "content": "Movies to watch before end of the year",
-      "subtasks": [
-        {
-          "id": "10a72bc5-ca4a-4c7f-806e-ca5eb33c7885",
-          "content": "Ringu",
-          "done": true
-        },
-        {
-          "id": "c9980710-3514-4ad3-a5e5-f0d519060380",
-          "content": "The Land Before Time",
-          "done": false
-        },
-        {
-          "id": "17aed5af-fe91-401c-a33d-93be7232d0b7",
-          "content": "Die Hard 3",
-          "done": false
-        }
-      ],
-      "repeatInterval": "never",
-      "todo": true,
-      "deadline": true,
-      "done": false,
-      "tag": "12"
-    },
-    {
-      "id": "9fc7c8c3-5092-4f10-a415-54f8a33478c6",
-      "userId": "1",
-      "createdAt": 1701172329146,
-      "editedAt": 1701172334996,
-      "doneBy": 1701176400000,
-      "content": "Wash dishes",
-      "subtasks": [],
-      "repeatInterval": "never",
-      "todo": true,
-      "deadline": true,
-      "done": true,
-      "tag": "2"
-    },
     {
       "id": "9adcdb47-afb4-4948-935c-e4b1ecd11c04",
       "userId": "1",
@@ -122,7 +71,7 @@
       "id": "5086ab11-53e6-4038-aded-b7d98afef6fc",
       "userId": "1",
       "createdAt": 1701172428138,
-      "editedAt": 1701172428138,
+      "editedAt": 1701341651170,
       "doneBy": 1701253800000,
       "content": "Buy groceries",
       "subtasks": [
@@ -163,18 +112,18 @@
       "tag": "7"
     },
     {
-      "id": "a442800b-dbec-46db-9538-18eafa9072ba",
-      "userId": "8ed5da73-32ec-41e2-9d48-a1530080e9ab",
-      "createdAt": 1701332125933,
-      "editedAt": 1701332125933,
-      "doneBy": 1701332106329,
-      "content": "Testi",
+      "id": "25a08a13-96a1-4ca1-9184-d47caf6fdfc9",
+      "userId": "1",
+      "createdAt": 1701338995644,
+      "editedAt": 1701341567195,
+      "doneBy": 1699613520000,
+      "content": "Water plants",
       "subtasks": [],
       "repeatInterval": "never",
-      "todo": false,
-      "deadline": false,
-      "done": false,
-      "tag": "2"
+      "todo": true,
+      "deadline": true,
+      "done": true,
+      "tag": "6"
     }
   ],
   "memos": [
@@ -188,15 +137,6 @@
       "tag": "12"
     },
     {
-      "id": "4f6f9c93-b087-4e0a-9274-44bff9682353",
-      "userId": "1",
-      "title": "Postcard idea",
-      "content": "To mum:\nVestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; In congue sapien quis accumsan lacinia. In hac habitasse platea dictumst. \n\nTo sister:\nClass aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed vestibulum ex ut nisl interdum iaculis eu id dolor. Integer luctus tempus elit ac laoreet. Interdum et malesuada fames ac ante ipsum primis in faucibus.\n\nTo cousin:\nMaecenas convallis tempus condimentum. Suspendisse tempus rhoncus elit ut pretium. Donec id aliquam lacus. Nam aliquam, elit sed ullamcorper suscipit, diam ex volutpat nulla, ac tempus mauris lacus eu augue. Duis tincidunt ut nunc id laoreet. Donec libero risus, sodales vel dictum a, consequat vitae sapien. Pellentesque blandit quis diam sed tincidunt. Sed ut ultricies metus, fermentum dictum augue.",
-      "createdAt": 1701134002891,
-      "editedAt": 1701336566474,
-      "tag": "10"
-    },
-    {
       "id": "dd4a4f99-c993-448a-add3-aa47e72c4a95",
       "userId": "1",
       "title": "How to take care of ZZ Plant",
@@ -204,6 +144,15 @@
       "createdAt": 1701336840515,
       "editedAt": 1701336840515,
       "tag": "6"
+    },
+    {
+      "id": "9430826a-506a-41e8-bc5c-3cd85dad45c6",
+      "userId": "1",
+      "title": "Addresses",
+      "content": "MUM:\nExample Road 10\n00000 Example\n\nSISTER:\nExample Road 10\n00000 Example\n\nPEN PAL:\nExample Road 10\n00000 Example",
+      "createdAt": 1701338972388,
+      "editedAt": 1701338972388,
+      "tag": "10"
     }
   ],
   "tags": [

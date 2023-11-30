@@ -98,7 +98,8 @@ interface HomeMenuProps {
   handleSearch: (e) => void,
   handleTodoPopup: () => void,
   handleMemoPopup: () => void,
-  handleFilters: (string) => void
+  handleFilters: (string) => void,
+  todos: Todo[]
 }
 
 interface HomeMemoProps {
@@ -187,4 +188,8 @@ interface NoteSettingsProps {
   handleNoteInEdit: (note: Todo | Memo) => void,
   handleDeleteClick: (string) => void,
   note: Todo | Memo
+}
+
+interface CalendarObjectProps {
+  todos: Todo[]
 }

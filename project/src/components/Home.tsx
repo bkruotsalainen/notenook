@@ -226,7 +226,7 @@ function Home({handleLogin, id}: HomeProps) {
         <div className="homeMenu">
           <HomeMenu handleTodoPopup={handleTodoPopUp} handleSearch={handleSearchChange} 
             handleFilters={handleFilterSelected} tags={tags} showTodo={showTodo}
-            handleMemoPopup={handleMemoPopUp} />
+            handleMemoPopup={handleMemoPopUp} todos={todos}/>
         </div>
 
         <div className="homeTodos" style={todoDisplay}>
