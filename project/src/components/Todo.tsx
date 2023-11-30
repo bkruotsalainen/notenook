@@ -98,7 +98,7 @@ function Todo({td, updateTaskColor, getIcon, getTime, deleteToDo, handleTodoInEd
           </ul>
         </div>
 
-        { hover &&
+        { (hover || window.innerWidth < 1000) &&
         <NoteSettings handleNoteInEdit={handleTodoInEdit} 
           handleDeleteClick={handleDeleteClick} note={td} />
         }

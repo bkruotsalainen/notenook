@@ -49,18 +49,23 @@ ul {
   margin-bottom: 1em;
   width: 100%;
   min-width: 500px;
+  min-height: 60px;
+  position: relative;
 } 
 
 .taskBody {
-  padding: 0.75em;
   width: 100%;
+  padding: 0.75em;
 }
 
 .iconWrapper {
-  float: right;
+  box-sizing: border-box;
+  right: 0;
+  top: 0;
   text-align: right;
   min-width: 100px;
-  margin-right: 1em;
+  position: absolute;
+  padding-right: 1em;
 }
 
 .icon {
@@ -68,6 +73,7 @@ ul {
   padding: 0.5em;
   margin: 0.5em 0 0.5em 0;
   display: inline-block;
+  cursor: pointer;
 }
 
 .subtask {
@@ -169,11 +175,12 @@ ul {
 .filterToggleButton {
   background-color: #F5F1EB;
   text-align: center;
-  font-size: 1.8em;
+  font-size: 2em;
   height: 50px;
   width: 50px;
   border-radius: 2em;
   border: 0;
+  cursor: pointer;
 }
 
 .toggleButton:active {
@@ -196,12 +203,14 @@ Input[type="checkbox"] {
 
 /* Home - Memos */
 .memoWrapper {
+  box-sizing: border-box;
   background-color: #fff;
   box-shadow: 1px 1px #D4D4D4;
   border: 1px solid rgb(222, 222, 222);
-  max-width: 800px;
+  max-width: 100% - 2em;
+  margin-bottom: 1em;
   padding: 1em;
-  margin: 0 1em 1em 0em;
+  position: relative;
 }
 
 .homeMemoWrapper {
@@ -211,6 +220,7 @@ Input[type="checkbox"] {
 /* Home - Scalability */
 @media screen and (max-width: 1000px) {
   .homeMemoWrapper, .memoWrapper, .homeMemos, .homeTodos {
+    box-sizing: border-box;
     width: 100%;
     max-width: 100%;
   }
@@ -220,26 +230,22 @@ Input[type="checkbox"] {
   }
 
   .homeMenu {
-    width: 96%;
-  }
-
-  .homeMemos {
-    width: 91%;
-    margin-left: 1.5em;
-  }
-
-  .homeTodos {
-    width: 91%;
-    margin-left: 2.5em;
+    width: 100%;
+    margin: auto;
   }
 
   .icon {
-    font-size: 1.2em;
+    font-size: 1.3em;
   }
 
-  .homeMenuWrapper, .addNewButton {
-    width: 100%;
-    text-align: center;
+  .homeMenuWrapper {
+    width: 99%;
+    margin: 0;
+  }
+  
+  .addNewButton {
+    width: 98%;
+    margin-bottom: 1em;
   }
 
   .homeTodos {
@@ -249,10 +255,12 @@ Input[type="checkbox"] {
   .flex-container {
     flex-flow: none !important;
     display: inline;
+    margin: 0;
+    padding: 0;
   }
 
   .searchInput {
-    width: 98%;
+    width: 96%;
     margin-bottom: 1em; 
   }
 
@@ -262,8 +270,9 @@ Input[type="checkbox"] {
   }
 
   .filterToggleButton {
-    width: 50px;
-    height: 50px;
+    font-size: 2.5em;
+    width: 65px;
+    height: 65px;
     margin: 0.2em 0;
   }
 }

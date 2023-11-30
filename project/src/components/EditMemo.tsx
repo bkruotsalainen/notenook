@@ -8,23 +8,13 @@ function EditMemo({ memoInEdit, isOpen, handleMemoInEdit, refreshMemos, tags, ti
   const [activeTag, setActiveTag] = useState<string>(memoInEdit === undefined ? '1' : memoInEdit.tag);  
 
   const filterStyle = {
-    fontSize: '1.8em',
-    margin: '0.2em',
-    padding: '0.2em',
-    display: 'inline',
     backgroundColor: 'transparent',
-    lineHeight: '50px'
   };
 
   const activeFilterStyle = {
-    fontSize: '1.8em',
-    margin: '0.2em',
-    padding: '0.2em',
-    display: 'inline',
-    backgroundColor: '#FABC2A',
-    borderRadius: '25px',
-    lineHeight: '50px'
+    backgroundColor: '#FABC2A'
   };
+  
 
   useEffect(() => {
     setTitle(memoInEdit.title);
@@ -75,7 +65,7 @@ function EditMemo({ memoInEdit, isOpen, handleMemoInEdit, refreshMemos, tags, ti
             {tags.map((f: Filter) => 
             {
               return <div key={f.id} style={f.id !== activeTag ? filterStyle : activeFilterStyle}
-                onClick={() => handleTagSelection(f.id)}>{f.icon}</div>;
+                onClick={() => handleTagSelection(f.id)} className="addNewIcons">{f.icon}</div>;
             }
             )}
           </center>
@@ -89,7 +79,7 @@ function EditMemo({ memoInEdit, isOpen, handleMemoInEdit, refreshMemos, tags, ti
                 <input className="addNewInput fullWidth" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} />
               </label>
               <label>Content
-                <textarea className="addNewInput fullWidth" style={{ height: '300px' }} placeholder="Write whatever you want!" value={content} onChange={(e) => setContent(e.target.value)} />
+                <textarea className="addNewInput fullWidth" placeholder="Write whatever you want!" value={content} onChange={(e) => setContent(e.target.value)} />
               </label>
               <button type="submit" className="submitNew floatRight">Save</button>
             </form>

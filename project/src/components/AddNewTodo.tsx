@@ -10,22 +10,11 @@ function AddNewTodo({userId, isOpen, handlePopUp, tags, refreshTodos, timezone}:
   const [activeTag, setActiveTag] = useState<string>('1');
 
   const filterStyle = {
-    fontSize: '1.8em',
-    margin: '0.2em',
-    padding: '0.2em',
-    display: 'inline',
     backgroundColor: 'transparent',
-    lineHeight: '50px'
   };
 
   const activeFilterStyle = {
-    fontSize: '1.8em',
-    margin: '0.2em',
-    padding: '0.2em',
-    display: 'inline',
-    backgroundColor: '#FABC2A',
-    borderRadius: '25px',
-    lineHeight: '50px'
+    backgroundColor: '#FABC2A'
   };
 
   const [todoData, setTodoData] = useState<Todo>({
@@ -174,7 +163,9 @@ function AddNewTodo({userId, isOpen, handlePopUp, tags, refreshTodos, timezone}:
           {tags.map((f: Filter) => 
           {
             return <div key={f.id} style={f.id !== activeTag ? filterStyle : activeFilterStyle}
-              onClick={() => handleTagSelection(f.id)}>{f.icon}</div>;
+              onClick={() => handleTagSelection(f.id)} className="addNewIcons">
+              {f.icon}
+            </div>;
           }
           )}
         </center>

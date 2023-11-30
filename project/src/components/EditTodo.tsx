@@ -24,24 +24,15 @@ function EditTodo({ isOpen, handleTodoInEdit, todoInEdit, refreshTodos, tags, ti
     setDoneBy(todoInEdit.doneBy);
   }, [todoInEdit]);
 
+
   const filterStyle = {
-    fontSize: '1.8em',
-    margin: '0.2em',
-    padding: '0.2em',
-    display: 'inline',
     backgroundColor: 'transparent',
-    lineHeight: '50px'
   };
 
   const activeFilterStyle = {
-    fontSize: '1.8em',
-    margin: '0.2em',
-    padding: '0.2em',
-    display: 'inline',
-    backgroundColor: '#FABC2A',
-    borderRadius: '25px',
-    lineHeight: '50px'
+    backgroundColor: '#FABC2A'
   };
+
   const closePopup = () => {
     handleTodoInEdit(todoInEdit);
     setDoneBy(0);
@@ -111,7 +102,9 @@ function EditTodo({ isOpen, handleTodoInEdit, todoInEdit, refreshTodos, tags, ti
             {tags.map((f: Filter) => 
             {
               return <div key={f.id} style={f.id !== activeTag ? filterStyle : activeFilterStyle}
-                onClick={() => handleTagSelection(f.id)}>{f.icon}</div>;
+                onClick={() => handleTagSelection(f.id)} className="addNewIcons">
+                {f.icon}
+              </div>;
             }
             )}
           </center>

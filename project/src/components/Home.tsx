@@ -118,7 +118,7 @@ function Home({handleLogin, id}: HomeProps) {
 
     fetchData();
   },
-  []);
+  [isSettingsOpen]);
 
   const refreshTodos = async () => {
     try {
@@ -159,6 +159,10 @@ function Home({handleLogin, id}: HomeProps) {
 
   const handleSettingsPopUp = () => {
     setIsSettingsOpen(!isSettingsOpen);
+    if (isSettingsOpen === false) {
+      refreshMemos();
+      refreshTodos();
+    }
   };
 
 

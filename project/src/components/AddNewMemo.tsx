@@ -9,22 +9,11 @@ function AddNewMemo({userId, isOpen, handlePopUp, tags, refreshMemos, timezone}:
   const [activeTag, setActiveTag] = useState<string>('1');  
 
   const filterStyle = {
-    fontSize: '1.8em',
-    margin: '0.2em',
-    padding: '0.2em',
-    display: 'inline',
     backgroundColor: 'transparent',
-    lineHeight: '50px'
   };
 
   const activeFilterStyle = {
-    fontSize: '1.8em',
-    margin: '0.2em',
-    padding: '0.2em',
-    display: 'inline',
-    backgroundColor: '#FABC2A',
-    borderRadius: '25px',
-    lineHeight: '50px'
+    backgroundColor: '#FABC2A'
   };
   
   // Close popup
@@ -92,7 +81,9 @@ function AddNewMemo({userId, isOpen, handlePopUp, tags, refreshMemos, timezone}:
             {tags.map((f: Filter) => 
             {
               return <div key={f.id} style={f.id !== activeTag ? filterStyle : activeFilterStyle}
-                onClick={() => handleTagSelection(f.id)}>{f.icon}</div>;
+                onClick={() => handleTagSelection(f.id)} className="addNewIcons">
+                {f.icon}
+              </div>;
             }
             )}
           </center>
@@ -106,7 +97,7 @@ function AddNewMemo({userId, isOpen, handlePopUp, tags, refreshMemos, timezone}:
               onChange={(e) => handleTitleChange(e)}/>
 
             <textarea className="addNewInput fullWidth" 
-              style={{height: '300px'}} placeholder="Write whatever you want!" 
+              placeholder="Write whatever you want!" 
               value={content} onChange={(e) => handleContentChange(e)}/>
             
             <div className="marginTop" />
