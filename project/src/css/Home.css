@@ -275,4 +275,15 @@ Input[type="checkbox"] {
     height: 65px;
     margin: 0.2em 0;
   }
+  
+  .iconWrapper {
+    float: right;
+    position: relative;
+    width: 100px;
+    padding: 0;
+  }
+
+  .icon {
+    padding: 0 0.5em 0 0;
+  }
 }
