@@ -84,6 +84,10 @@ function HomeMemos(props: HomeMemoProps) {
             handleMemoInEdit={props.handleMemoInEdit} refreshMemos={props.refreshMemos}
             getTime={getTime}/>
         ))}
+        
+      {props.memos.length === 0 &&
+        'All empty! Time to make a new memo.'
+      }
     </div>
   );
 }

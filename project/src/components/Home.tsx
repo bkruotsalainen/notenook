@@ -18,7 +18,7 @@ import AddNewTodo from './AddNewTodo.tsx';
 import AddNewMemo from './AddNewMemo.tsx';
 import Settings from './Settings.tsx';
 
-function Home({handleLogin}: HomeProps) {
+function Home({handleLogin, id}: HomeProps) {
   const [isTodoOpen, setIsTodoOpen] = useState<boolean>(false);
   const [isMemoOpen, setIsMemoOpen] = useState<boolean>(false);
   const [isSettingsOpen, setIsSettingsOpen] = useState<boolean>(false);
@@ -102,20 +102,13 @@ function Home({handleLogin}: HomeProps) {
   useEffect (() => {
     const fetchData = async () => {
       try {
-        const todoResponse = await todoService.getAll();
-        const sortedTodos = todoResponse.sort((a: Todo, b: Todo) => 
-          a.doneBy < b.doneBy ? 1 : -1);
-        setTodos(sortedTodos);
-
-        const memoResponse = await memoService.getAll();
-        const sortedMemos = memoResponse.sort((a: Memo, b: Memo) => 
-          a.createdAt < b.createdAt ? 1 : -1);
-        setMemos(sortedMemos);
-
+        refreshTodos();
+        refreshMemos();
+        
         const tagResponse= await tagService.getAll();
         setTags(tagResponse);
 
-        const response = await userService.get('1');
+        const response = await userService.get(id);
         setTimezone(response.timezone);
         setUser(response);
       } catch (error) {
@@ -130,7 +123,8 @@ function Home({handleLogin}: HomeProps) {
   const refreshTodos = async () => {
     try {
       await todoService.getAll().then((todoResponse) => {
-        const sortedTodos = todoResponse.sort((a: Todo, b: Todo) => 
+        const userTodos = todoResponse.filter((td: Todo) => td.userId === id);
+        const sortedTodos = userTodos.sort((a: Todo, b: Todo) => 
           a.doneBy < b.doneBy ? 1 : -1);
         setTodos(sortedTodos);
       }
@@ -143,7 +137,8 @@ function Home({handleLogin}: HomeProps) {
   const refreshMemos = async () => {
     try {
       await memoService.getAll().then((memoResponse) => {
-        const sortedMemos = memoResponse.sort((a: Memo, b: Memo) => 
+        const userMemos = memoResponse.filter((m: Memo) => m.userId === id);
+        const sortedMemos = userMemos.sort((a: Memo, b: Memo) => 
           a.createdAt < b.createdAt ? 1 : -1);
         setMemos(sortedMemos);
       }
@@ -214,9 +209,9 @@ function Home({handleLogin}: HomeProps) {
       <EditMemo isOpen={isMemoEditOpen} handleMemoInEdit={handleMemoInEdit} memoInEdit={memoInEdit} 
         refreshMemos={refreshMemos} tags={tags} timezone={timezone}/>
       <AddNewTodo isOpen={isTodoOpen} handlePopUp={handleTodoPopUp} tags={tags} refreshTodos={refreshTodos} 
-        timezone={timezone}/>
+        timezone={timezone} userId={id}/>
       <AddNewMemo isOpen={isMemoOpen} handlePopUp={handleMemoPopUp} tags={tags} refreshMemos={refreshMemos} 
-        timezone={timezone}/>
+        timezone={timezone} userId={id}/>
 
       <Settings isOpen={isSettingsOpen} handleSettingsPopUp={handleSettingsPopUp} timezone={timezone}
         refreshTodos={refreshTodos} refreshMemos={refreshMemos} user={user!}/>

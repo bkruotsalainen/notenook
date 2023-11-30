@@ -114,6 +114,12 @@ function HomeTodos({searchValue, filterValues, tags, todos, refreshTodos, handle
             refreshTodos={refreshTodos}/>
         )
       )}
+
+      {todos.length === 0 &&
+        <div style={{marginTop: '1.5em'}}>
+        Nothing to see here, try making a new to do!
+        </div>
+      }
     </div>
   );
 }

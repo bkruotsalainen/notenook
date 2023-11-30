@@ -75,7 +75,8 @@ interface AddNewTodoProps {
   tags: Filter[],
   handlePopUp: () => void,
   refreshTodos: () => void,
-  timezone: number
+  timezone: number,
+  userId: string
 }
 
 interface AddNewMemoProps {
@@ -83,7 +84,8 @@ interface AddNewMemoProps {
   isOpen: boolean,
   handlePopUp: () => void,
   refreshMemos: () => void,
-  timezone: number
+  timezone: number,
+  userId: string
 }
 
 interface HomeTaskGroupProps {
@@ -157,11 +159,13 @@ interface User {
 }
 
 interface LoginProps {
-  handleLogin: () => void
+  handleLogin: () => void,
+  handleId: (id: string) => void
 }
 
 interface HomeProps {
-  handleLogin: () => void
+  handleLogin: () => void,
+  id: string
 }
 
 interface SettingsProps {

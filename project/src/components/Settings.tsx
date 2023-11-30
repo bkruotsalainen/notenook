@@ -10,7 +10,7 @@ function Settings({user, isOpen, handleSettingsPopUp, timezone, refreshMemos, re
     const fetchData = async () => {
       const response = await timezoneService.getAll();
       setTimezones(response);
-      }
+    };
 
     fetchData();
   }, 
@@ -23,13 +23,13 @@ function Settings({user, isOpen, handleSettingsPopUp, timezone, refreshMemos, re
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // Default user, this should save only the timezone and nothing else
+    // Find way to do this without having to pass whole user from Home?
     const updatedUser: User = { ...user,
       timezone: userTimezone * 3600000
     };
 
     try {
-      await userService.update('ca6391e1-7079-416a-bc6f-a9d71e4a50e7', updatedUser).then(() => {
+      await userService.update(user.id, updatedUser).then(() => {
         setUserTimezone(userTimezone);
         closePopup();
         refreshMemos();

@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 import '../css/AddNew.css';
 import todoService from '../services/todoService';
 
-function AddNewTodo({isOpen, handlePopUp, tags, refreshTodos, timezone}: AddNewTodoProps) {  
+function AddNewTodo({userId, isOpen, handlePopUp, tags, refreshTodos, timezone}: AddNewTodoProps) {  
   const [todo, setTodo] = useState<boolean>(false);
   const [deadline, setDeadline] = useState<boolean>(false);
 
@@ -112,7 +112,7 @@ function AddNewTodo({isOpen, handlePopUp, tags, refreshTodos, timezone}: AddNewT
 
     const newTodo = {
       id: uuidv4(),
-      userId: '1',
+      userId: userId,
       createdAt: new Date().getTime()- timezone,
       editedAt: new Date().getTime() - timezone,
       doneBy: todoData.doneBy,

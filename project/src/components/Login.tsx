@@ -4,8 +4,9 @@ import { compare, genSalt, hash } from 'bcrypt-ts';
 
 import '../css/Login.css';
 import userService from '../services/userService';
+import axios from 'axios';
 
-function Login({handleLogin}: LoginProps) {
+function Login({handleLogin, handleId}: LoginProps) {
   const [loginActive, setLoginActive] = useState<boolean>(true);
   const [showPassword, setShowPassword] = useState<string>('password');
 
@@ -39,6 +40,7 @@ function Login({handleLogin}: LoginProps) {
           setAlert('');
           setEmail('');
           setPassword('');
+          handleId(user.id);
           handleLogin();
         } else {
           setAlert('Wrong password!');
@@ -73,7 +75,7 @@ function Login({handleLogin}: LoginProps) {
         timezone: new Date().getTimezoneOffset(),
       };
 
-      const response = await userService.getAll();
+      const response = await axios.get('http://localhost:3000/users');
       const existingUser = response.data.find((u: User) => u.email === email);
  
       if (!existingUser && email !== '' && password !== '') {
