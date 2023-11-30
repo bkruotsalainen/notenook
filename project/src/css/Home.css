@@ -136,12 +136,14 @@ ul {
   text-align: center;
   display: inline-block;
   border-radius: 25px;
+  color: #7f989b;
 }
 
 .currentDate {
   box-sizing: border-box !important; 
   border: 3px solid #FABC2A !important;
   font-weight: 600 !important;
+  color: #265e4b;
 }
 
 .searchInput {

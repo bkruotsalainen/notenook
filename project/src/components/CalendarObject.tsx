@@ -84,7 +84,8 @@ function CalendarObject({todos}: CalendarObjectProps) {
 
         {daysInThisMonth.map((d) => (
           <div
-            key={d} style={checkNotes(d) === true ? {boxSizing: 'border-box', border: '3px solid #86DEDE'} : {}}
+            key={d} style={checkNotes(d) === true ? {boxSizing: 'border-box', border: '3px solid #86DEDE', 
+              color: '#265e4b'} : {}}
             className={(currentDate.getDate() === d) ? 'dayDiv currentDate' : 'dayDiv'}
           >
             {d}
