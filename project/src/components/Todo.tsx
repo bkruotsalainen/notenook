@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import todoService from '../services/todoService';
+import NoteSettings from './NoteSettings';
 
 function Todo({td, updateTaskColor, getIcon, getTime, deleteToDo, handleTodoInEdit, refreshTodos}: TodoProps) { 
   const [isTaskDone, setIsTaskDone] = useState<boolean>(false); 
   const [subtaskStates, setSubtaskStates] = useState<boolean[]>(td.subtasks.map(() => false));
+  const [hover, setHover] = useState<boolean>(false);
 
   useEffect(() => {
     setIsTaskDone(td.done);
@@ -48,8 +50,8 @@ function Todo({td, updateTaskColor, getIcon, getTime, deleteToDo, handleTodoInEd
     return false;
   };  
   
-  const handleDeleteClick = () => {
-    deleteToDo(td.id);
+  const handleDeleteClick = (id: string) => {
+    deleteToDo(id);
   };
 
   return (
@@ -62,7 +64,7 @@ function Todo({td, updateTaskColor, getIcon, getTime, deleteToDo, handleTodoInEd
         }
       </i>
 
-      <div key={td.id} className="task">
+      <div key={td.id} className="task" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}> 
         <div className="taskColor" style={{backgroundColor: 
         updateTaskColor(td.todo, td.subtasks.length)}}>
         </div>
@@ -96,11 +98,10 @@ function Todo({td, updateTaskColor, getIcon, getTime, deleteToDo, handleTodoInEd
           </ul>
         </div>
 
-        <div className="iconWrapper">
-          <div className="icon" onClick={() => handleTodoInEdit(td)}>✏️</div>
-          <div className="icon" onClick={handleDeleteClick}>🗑️</div>
-        </div> 
-
+        { hover &&
+        <NoteSettings handleNoteInEdit={handleTodoInEdit} 
+          handleDeleteClick={handleDeleteClick} note={td} />
+        }
         <br />
       </div>
     </>

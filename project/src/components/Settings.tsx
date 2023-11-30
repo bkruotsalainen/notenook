@@ -18,6 +18,8 @@ function Settings({user, isOpen, handleSettingsPopUp, timezone, refreshMemos, re
 
   const closePopup = () => {
     handleSettingsPopUp();
+    refreshMemos();
+    refreshTodos();
   };
 
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -32,8 +34,6 @@ function Settings({user, isOpen, handleSettingsPopUp, timezone, refreshMemos, re
       await userService.update(user.id, updatedUser).then(() => {
         setUserTimezone(userTimezone);
         closePopup();
-        refreshMemos();
-        refreshTodos();
       });
     } catch (error) {
       console.log(error);

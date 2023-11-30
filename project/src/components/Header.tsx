@@ -1,5 +1,5 @@
 import '../css/Header.css';
-import Clock from './Clock';
+// import Clock from './Clock';
 
 function Header({collapseWidth, handleTodoDisplay, handleMemoDisplay, handleLogin, handleSettingsPopUp}: HeaderProps) {
 
@@ -7,11 +7,11 @@ function Header({collapseWidth, handleTodoDisplay, handleMemoDisplay, handleLogi
     <div className="header"> 
       <div className="right">
         <ul className="headerLinks"> 
-          {window.innerWidth > 800 &&
+          {/* window.innerWidth > 800 &&
           <li className="homeLink">
             <Clock />
           </li>
-          }
+          */ }
           <li className="right" onClick={() => handleSettingsPopUp()}>
             🕗 Settings
           </li>

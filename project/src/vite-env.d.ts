@@ -182,3 +182,9 @@ interface Timezone {
   offset: string,
   text: string
 }
+
+interface NoteSettingsProps {
+  handleNoteInEdit: (note: Todo | Memo) => void,
+  handleDeleteClick: (string) => void,
+  note: Todo | Memo
+}
