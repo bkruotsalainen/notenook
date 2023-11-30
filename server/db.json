@@ -78,13 +78,13 @@
       "id": "0585981f-6d38-416a-9183-b849b045ea37",
       "userId": "1",
       "createdAt": 1701172370788,
-      "editedAt": 1701172370788,
+      "editedAt": 1701333296855,
       "doneBy": 1701792000000,
       "content": "Find fossils from the backyard",
       "subtasks": [],
       "repeatInterval": "never",
       "todo": false,
-      "deadline": false,
+      "deadline": true,
       "done": false,
       "tag": "8"
     },
@@ -92,10 +92,26 @@
       "id": "4b2c2556-5022-4402-9673-8f226e5b8f9d",
       "userId": "1",
       "createdAt": 1701172392449,
-      "editedAt": 1701172392449,
+      "editedAt": 1701333287166,
       "doneBy": 1702224000000,
       "content": "Send postcards!",
-      "subtasks": [],
+      "subtasks": [
+        {
+          "id": "76efea83-ded5-4389-9394-3f74dfb48ee2",
+          "content": "Mum",
+          "done": false
+        },
+        {
+          "id": "fec04b02-c378-48cb-a7a2-bf9ac54d769a",
+          "content": "Sister",
+          "done": true
+        },
+        {
+          "id": "27bbb678-6a8d-4508-ab46-cd916979524e",
+          "content": "Pen pal",
+          "done": false
+        }
+      ],
       "repeatInterval": "never",
       "todo": true,
       "deadline": false,
@@ -159,20 +175,6 @@
       "deadline": false,
       "done": false,
       "tag": "2"
-    },
-    {
-      "id": "9dc40859-3802-492d-b883-4edcf6800345",
-      "userId": "1",
-      "createdAt": 1701331084731,
-      "editedAt": 1701331084731,
-      "doneBy": 1701684000000,
-      "content": "Here is a todo with a bit longet text, so I can see what happens if it goes to multiple rows!",
-      "subtasks": [],
-      "repeatInterval": "never",
-      "todo": false,
-      "deadline": true,
-      "done": false,
-      "tag": "6"
     }
   ],
   "memos": [

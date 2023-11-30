@@ -66,36 +66,42 @@ function Todo({td, updateTaskColor, getIcon, getTime, deleteToDo, handleTodoInEd
 
       <div key={td.id} className="task" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}> 
         <div className="taskColor" style={{backgroundColor: 
-        updateTaskColor(td.todo, td.subtasks.length)}}>
+          updateTaskColor(td.todo, td.subtasks.length)}}>
         </div>
 
         <div className="taskBody">
-          <ul>
-            <li style={{marginBottom: '0.1em'}}>
+          <div className="taskContent">
+            <div className="taskIcon">
               {td.todo === true && td.subtasks.length === 0 
                 ? <input type="checkbox" checked={isTaskDone} onChange={() => saveUpdatedTodo()} /> 
                 :  getIcon(td.tag)} 
-              <span style={{fontWeight: '500'}}> {td.content}</span>
-            </li>
+            </div>
+            <span style={{color: '#3F665A', fontWeight: '600'}}> {td.content}</span>
+          </div>
+              
 
-            {td.subtasks.length > 0
-              ? td.subtasks.map((subt: Subtask, index: number) => (
-                <li key={subt.id} className="subtask">
+          {td.subtasks.length > 0
+            ? td.subtasks.map((subt: Subtask, index: number) => (
+              
+              <div key={subt.id} className="taskContent">
+                <div className="taskIcon"> 
                   <input
                     type="checkbox"
                     checked={subtaskStates[index]}
                     onChange={() => saveUpdatedSubtask(subt.id)}
                   />
-                  {subt.content}
-                </li>
-              ))
-              : ''}
+                </div>
+                {subt.content}
+              </div>
+            ))
+            : ''}
 
-            {td.deadline === true
-              ? ((td.done || checkIfSubtasksDone()) ? <li>😊 {getTime(td.doneBy)}</li> : <li>⏰ {getTime(td.doneBy)}</li>)
-              : ''}
+          {td.deadline === true
+            ? ((td.done || checkIfSubtasksDone()) 
+              ? <div className="taskContent"><div className="taskIcon">😊</div> {getTime(td.doneBy)}</div>
+              : <div className="taskContent"><div className="taskIcon">⏰</div> {getTime(td.doneBy)}</div>)
+            : ''}
 
-          </ul>
         </div>
 
         { (hover || window.innerWidth < 1000) &&

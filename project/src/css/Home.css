@@ -45,26 +45,40 @@ ul {
   background-color: white;
   border: 1px solid rgb(222, 222, 222);
   box-shadow: 1px 1px #D4D4D4;
-  display: flex;
   margin-bottom: 1em;
   width: 100%;
   min-width: 500px;
-  min-height: 60px;
+  display: flex;
   position: relative;
 } 
 
 .taskBody {
-  width: 100%;
   padding: 0.75em;
+  width: 100%;
+  min-height: 100%;
+  position: relative;
+  margin-left: 20px;
 }
+
+.taskIcon {
+  margin-right: 0.4em;
+  position: absolute;
+  left: -30px;
+}
+
+.taskContent {
+  position: relative;
+  margin-left: 32px;
+  max-width: 100%;
+  margin-bottom: 0.3em;
+ }
 
 .iconWrapper {
   box-sizing: border-box;
-  right: 0;
-  top: 0;
   text-align: right;
   min-width: 100px;
-  position: absolute;
+  height: 100%;
+  float: right;
   padding-right: 1em;
 }
 
@@ -81,34 +95,23 @@ ul {
 }
 
 .taskColor {
-  width: 20px;
+  width: 25px;
   min-height: 100%;
   float: left;
   align-items: stretch;
+  position: absolute;
 }
 
 .taskColor-yellow {
   background-color: #FABC2A;
-  width: 20px;
-  min-height: 100%;
-  float: left;
-  align-items: stretch;
 }
 
 .taskColor-green {
   background-color: #86DEDE;
-  width: 20px;
-  min-height: 100%;
-  float: left;
-  align-items: stretch;
 }
 
 .taskColor-red {
   background-color: #F05365;
-  width: 20px;
-  min-height: 100%;
-  float: left;
-  align-items: stretch;
 }
 
 /* Home - Left menu */
