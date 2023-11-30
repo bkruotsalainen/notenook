@@ -15,7 +15,7 @@ function HomeTodos({searchValue, filterValues, tags, todos, refreshTodos, handle
     } else if (todo === false) {
       return '#FABC2A';
     } else if (todo === true && subtasksLength === 0) {
-      return '#F05365';
+      return '#FF7F53';
     }
 
     return '#86DEDE';

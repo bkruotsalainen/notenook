@@ -9,6 +9,7 @@ function Memo(props: MemoProps) {
     setOpenMemo(openMemo => !openMemo);
     console.log(props.memo);
   };
+  
 
   const findTag = (id: string) => {
     const tag = props.tags.filter(t => t.id === id);
@@ -30,7 +31,7 @@ function Memo(props: MemoProps) {
         }
 
         <h3>{findTag(props.memo.tag)} {props.memo.title}</h3>
-        <p>
+        <p className="memoContent">
           {openMemo || props.memo.content.length < 250 ? props.memo.content : props.memo.content.slice(0, 250) + '...'}
         </p>
 

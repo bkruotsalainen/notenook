@@ -68,9 +68,8 @@ ul {
 
 .taskContent {
   position: relative;
-  margin-left: 32px;
+  margin: 0.5em 0 0.5em 32px;
   max-width: 100%;
-  margin-bottom: 0.3em;
  }
 
 .iconWrapper {
@@ -100,18 +99,6 @@ ul {
   float: left;
   align-items: stretch;
   position: absolute;
-}
-
-.taskColor-yellow {
-  background-color: #FABC2A;
-}
-
-.taskColor-green {
-  background-color: #86DEDE;
-}
-
-.taskColor-red {
-  background-color: #F05365;
 }
 
 /* Home - Left menu */
@@ -212,12 +199,18 @@ Input[type="checkbox"] {
   border: 1px solid rgb(222, 222, 222);
   max-width: 100% - 2em;
   margin-bottom: 1em;
-  padding: 1em;
+  padding: 1em 0 1.5em 1.5em;
   position: relative;
 }
 
 .homeMemoWrapper {
   width: 100%;
+}
+
+.memoContent {
+  line-height: 1.4em;
+  padding-right: 1.5em;
+  white-space: pre-line;
 }
 
 /* Home - Scalability */

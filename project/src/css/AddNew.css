@@ -51,6 +51,7 @@
 
 textarea {
   height: 300px;
+  white-space: pre-line;
   font-family: "Open sans";
 }
 
