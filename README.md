@@ -1,5 +1,6 @@
 # 🌷 NoteNook
-NoteNook is a planner where you can organize your notes, to dos and memos all in one spot. You can search or filter your tasks with fun icons and see all current months deadlines from a calendar.
+NoteNook is a planner where you can organize your notes, to dos and memos all in one spot. 
+You can search or filter your tasks with fun icons and see all current months deadlines in a calendar.
 
 
 ## 🎉 Try it out!
@@ -16,7 +17,7 @@ You can log in with a test user, that already has notes and to dos:
 
 
 ## 👽 To do
-- [ ] Category notes by deadline/date
+- [ ] Categorize notes by deadline/date
 - [ ] Highlight expired notes
 - [ ] Repeatable notes
 - [ ] Color themes in settings
