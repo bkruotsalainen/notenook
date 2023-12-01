@@ -61,9 +61,9 @@ function Home({handleLogin, id}: HomeProps) {
   const [todoInEdit, setTodoInEdit] = useState<Todo>(    {
     'id': '29f5b13d-9eaa-4599-8a15-1d83c4e0deea',
     'userId': '1',
-    'createdAt': 1700813408344,
-    'editedAt': 1700813408344,
-    'doneBy': 1702454400000,
+    'createdAt': 0,
+    'editedAt': 0,
+    'doneBy': 0,
     'content': 'If you see this, something went wrong :(',
     'subtasks': [],
     'repeatInterval': 'never',
@@ -78,8 +78,8 @@ function Home({handleLogin, id}: HomeProps) {
     userId: '1',
     title: 'This is a test!',
     content: 'If you see this, something went wrong :(',
-    createdAt: 1700837066500,
-    editedAt: 1700837066500,
+    createdAt: 0,
+    editedAt: 0,
     tag: '1'
   });
 

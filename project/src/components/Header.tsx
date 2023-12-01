@@ -8,12 +8,12 @@ function Header({collapseWidth, handleTodoDisplay, handleMemoDisplay, handleLogi
       <div className="right">
         <ul className="headerLinks"> 
           {window.innerWidth > 800 &&
-          <li className="homeLink">
-            <Clock />
+          <li>
+            🕗 <Clock />
           </li>
           }
           <li className="right" onClick={() => handleSettingsPopUp()}>
-            🕗 Settings
+            ⚙️ Settings
           </li>
           <li className="right" onClick={() => handleLogin()}>
             🚪Logout

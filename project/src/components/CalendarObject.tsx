@@ -46,10 +46,12 @@ function CalendarObject({todos}: CalendarObjectProps) {
   // Check if day match with to do date
   const checkNotes = (dayNumber: number) => {
     let datesMatch = false;
-    const todoDates = todos!.map(td => {return new Date(td.doneBy);});
+
+    const filterTodos = todos.filter(td => td.deadline);
+    const todoDates = filterTodos.map(td => {return new Date(td.doneBy);});
 
     const thisMonthDates = todoDates.map(td => {
-      if (td.getMonth() === currentMonth) {
+      if (td.getMonth() === currentMonth && td.getFullYear() === currentYear) {
         {return td.getDate();}
       }
     }
