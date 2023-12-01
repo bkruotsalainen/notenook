@@ -13,7 +13,7 @@
       "id": "b07b192d-4d6a-4173-8401-99b83a16598c",
       "userId": "1",
       "createdAt": 1701171952976,
-      "editedAt": 1701171987158,
+      "editedAt": 1701417545305,
       "doneBy": 1704052740000,
       "content": "Movies to watch before end of the year",
       "subtasks": [
@@ -71,7 +71,7 @@
       "id": "4b2c2556-5022-4402-9673-8f226e5b8f9d",
       "userId": "1",
       "createdAt": 1701172392449,
-      "editedAt": 1701333287166,
+      "editedAt": 1701417713074,
       "doneBy": 1702224000000,
       "content": "Send postcards!",
       "subtasks": [
@@ -94,7 +94,7 @@
       "repeatInterval": "never",
       "todo": true,
       "deadline": false,
-      "done": true,
+      "done": false,
       "tag": "10"
     },
     {
