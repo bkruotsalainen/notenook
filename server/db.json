@@ -2,8 +2,8 @@
   "users": [
     {
       "id": "1",
-      "email": "katariina@sahkoposti.fi",
-      "password": "$2a$10$QCc0KogiNs.GZdEQyNUV3.m.a3Sv3YDNSkyGOahsXNharfwMo6sde",
+      "email": "user@example.com",
+      "password": "$2a$10$D4ti6rQKFw8m5.UnL/vZVucJz.NN7K.Yv1tOCVnFJ76ajjhOpG8Vu",
       "createdAt": 1701245600229,
       "timezone": 7200000
     }
