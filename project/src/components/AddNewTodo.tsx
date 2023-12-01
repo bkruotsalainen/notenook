@@ -66,7 +66,6 @@ function AddNewTodo({userId, isOpen, handlePopUp, tags, refreshTodos, timezone}:
   const addSubtask = (e: React.MouseEvent<HTMLButtonElement>) => {
     const newSubtask = { id: uuidv4(), content: (e.target as HTMLTextAreaElement).value, done: false};
     setTodoData({ ...todoData, subtasks: [...todoData.subtasks, newSubtask] });
-    console.log(todoData);
   };
 
   // Empty all subtasks

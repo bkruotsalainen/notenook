@@ -63,8 +63,7 @@ function EditTodo({ isOpen, handleTodoInEdit, todoInEdit, refreshTodos, tags, ti
     };
 
     try {
-      const response = await todoService.update(updatedTodo.id, updatedTodo);
-      console.log('Todo updated:', response.data);
+      await todoService.update(updatedTodo.id, updatedTodo);
       closePopup();
       refreshTodos();
     } catch (error) {
