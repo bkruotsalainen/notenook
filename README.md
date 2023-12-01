@@ -13,7 +13,7 @@ Run **project** with *npm run dev*.
 You can log in with a test user, that already has notes and to dos:
 
 **Username**: user@example.com<br>
-**Password**: testpassword
+**Password**: examplepassword
 
 
 ## 👽 To do
