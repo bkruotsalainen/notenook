@@ -1,3 +1,5 @@
+![notenook_screenshot](https://github.com/bkruotsalainen/notenook/assets/64400810/4a5471d2-d4d8-441a-b22b-a644ce18e747)
+
 # 🌷 NoteNook
 NoteNook is a planner where you can organize your notes, to dos and memos all in one spot. <br>
 You can search or filter your tasks with fun icons and see all current months deadlines in calendar.
