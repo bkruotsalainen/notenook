@@ -4,12 +4,13 @@
 NoteNook is a planner where you can organize your notes, to dos and memos all in one spot. <br>
 You can search or filter your tasks with fun icons and see all current months deadlines in calendar.
 
+## 🎥 Demo video
+[![Watch demo video](https://img.youtube.com/vi/ZY_IfTqD0QA/maxresdefault.jpg)](https://www.youtube.com/watch?v=ZY_IfTqD0QA)
 
 ## 🎉 Try it out!
 #### Run the project
 Run **server** with *npm run server*.<br>
 Run **project** with *npm run dev*.
-
 
 #### Test user
 You can log in with a test user, that already has notes and to dos:
